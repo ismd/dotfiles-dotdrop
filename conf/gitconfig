@@ -1,10 +1,10 @@
 [user]
     name = Vladimir Kosteley
-    email = github@cqz.me
+    email = github@ismd.dev
 
 [github]
     user = ismd
-    email = github@cqz.me
+    email = github@ismd.dev
 
 [core]
     pager = delta
