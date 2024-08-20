@@ -95,7 +95,7 @@
 - [[#transparency][TRANSPARENCY]]
 - [[#tree-sitter][TREE SITTER]]
   - [[#treesit-auto][Treesit Auto]]
-  - [[#ts-fold][Ts Fold]]
+  - [[#treesit-fold][Treesit Fold]]
 - [[#treemacs][TREEMACS]]
 - [[#trimming-whitespace][TRIMMING WHITESPACE]]
 - [[#vertico][VERTICO]]
@@ -837,12 +837,11 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "w w" '(:ignore t :wk "Tabspaces")
     "w w C" '(tabspaces-clear-buffers :wk "Tabspaces clear buffers"))
 
-  ;; (cz/leader-keys
-  ;;   "C-f" '(:ignore t :wk "Fold")
-  ;;   "C-f C-f" '(vimish-fold :wk "Fold")
-  ;;   "C-f C-u" '(vimish-fold-delete :wk "Unfold all")
-  ;;   "C-f C-a C-f" '(vimish-fold-refold :wk "Fold all")
-  ;;   "C-f C-a C-u" '(vimish-fold-unfold-all :wk "Unfold all"))
+  (cz/leader-keys
+    "C-f" '(:ignore t :wk "Fold")
+    "C-f C-f" '(treesit-fold-toggle :wk "Fold")
+    "C-f C-a C-f" '(treesit-fold-close-all :wk "Fold all")
+    "C-f C-a C-u" '(treesit-fold-open-all :wk "Unfold all"))
 
   ;;
   ;; M-g
@@ -1795,16 +1794,15 @@ Before Emacs 29, tree-sitter was a [[https://emacs-tree-sitter.github.io/][packa
   (global-treesit-auto-mode))
 #+end_src
 
-** Ts Fold
-The package =ts-fold= currently doesn't work with =treesit.el=.
-https://github.com/emacs-tree-sitter/ts-fold/issues/48
+** Treesit Fold
+https://github.com/emacs-tree-sitter/treesit-fold
 
 #+begin_src emacs-lisp
-;; (use-package ts-fold
-;;   :ensure (:host github :repo "emacs-tree-sitter/ts-fold")
-;;   :config
-;;   (global-ts-fold-mode 1)
-;;   (global-ts-fold-indicators-mode 1))
+(use-package treesit-fold
+  :ensure (:host github :repo "emacs-tree-sitter/treesit-fold")
+  :config
+  (global-treesit-fold-mode)
+  (global-treesit-fold-indicators-mode))
 #+end_src
 
 * TREEMACS

@@ -66,6 +66,7 @@ x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
 x-scheme-handler/lens=OpenLens.desktop;
 x-scheme-handler/yandexmusic=yandex-music.desktop;YandexMusic.desktop;
 image/jpeg=org.kde.gwenview.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 
 [Default Applications]
 application/json=ec.desktop;
@@ -151,3 +152,4 @@ x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 x-scheme-handler/lens=OpenLens.desktop
 x-scheme-handler/yandexmusic=yandex-music.desktop
 inode/directory=org.kde.dolphin.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop

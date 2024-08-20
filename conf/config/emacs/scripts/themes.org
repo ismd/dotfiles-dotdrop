@@ -84,20 +84,12 @@ https://github.com/fniessen/emacs-leuven-theme
 ** Mindre Theme
 https://github.com/erikbackman/mindre-theme
 
-Copied package to =scripts= because of the issue https://github.com/erikbackman/mindre-theme/issues/16
-
 #+begin_src emacs-lisp
-;; (use-package mindre-theme
-;;   :custom
-;;   (mindre-use-more-bold nil)
-;;   (mindre-use-more-fading nil)
-;;   (mindre-use-faded-lisp-parens t))
-
-(require 'mindre-theme)
-(custom-set-variables
- '(mindre-use-more-bold nil)
- '(mindre-use-more-fading nil)
- '(mindre-use-faded-lisp-parens t))
+(use-package mindre-theme
+  :custom
+  (mindre-use-more-bold nil)
+  (mindre-use-more-fading nil)
+  (mindre-use-faded-lisp-parens t))
 #+end_src
 
 ** Modus Themes
@@ -127,8 +119,8 @@ https://github.com/protesilaos/modus-themes
 ;; Light themes
 ;; (load-theme 'doom-earl-grey t)
 ;; (load-theme 'doom-nord-light t)
-(load-theme 'ef-light t)
-;; (load-theme 'mindre t)
+;; (load-theme 'ef-light t)
+(load-theme 'mindre t)
 
 ;; Dark themes
 ;; (load-theme 'doom-dracula t)

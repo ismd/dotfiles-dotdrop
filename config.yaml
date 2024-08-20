@@ -34,6 +34,7 @@ dotfiles:
   f_mimeapps.list:
     src: config/mimeapps.list
     dst: ~/.config/mimeapps.list
+    chmod: '600'
   f_user-dirs.dirs:
     src: config/user-dirs.dirs
     dst: ~/.config/user-dirs.dirs
@@ -120,9 +121,6 @@ dotfiles:
   f_elpaca-setup.el:
     src: config/emacs/scripts/elpaca-setup.el
     dst: ~/.config/emacs/scripts/elpaca-setup.el
-  f_mindre-theme.el:
-    src: config/emacs/scripts/mindre-theme.el
-    dst: ~/.config/emacs/scripts/mindre-theme.el
   f_themes.org:
     src: config/emacs/scripts/themes.org
     dst: ~/.config/emacs/scripts/themes.org
@@ -189,7 +187,6 @@ profiles:
     - f_unclutter.sh
     - f_buffer-move.el
     - f_elpaca-setup.el
-    - f_mindre-theme.el
     - f_themes.org
     - f_lock-screen.sh
     - f_profile
@@ -234,7 +231,6 @@ profiles:
     - f_unclutter.sh
     - f_buffer-move.el
     - f_elpaca-setup.el
-    - f_mindre-theme.el
     - f_themes.org
     - f_lock-screen.sh
     - f_profile
@@ -279,7 +275,6 @@ profiles:
     - f_unclutter.sh
     - f_buffer-move.el
     - f_elpaca-setup.el
-    - f_mindre-theme.el
     - f_themes.org
     - f_lock-screen.sh
     - f_profile
