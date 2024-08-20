@@ -154,6 +154,15 @@ dotfiles:
   f_hyprland.conf:
     src: config/hypr/hyprland.conf
     dst: ~/.config/hypr/hyprland.conf
+  f_hyprlock.conf:
+    src: config/hypr/hyprlock.conf
+    dst: ~/.config/hypr/hyprlock.conf
+  f_hyprpaper.conf:
+    src: config/hypr/hyprpaper.conf
+    dst: ~/.config/hypr/hyprpaper.conf
+  f_config:
+    src: config/mako/config
+    dst: ~/.config/mako/config
 profiles:
   hyper-city:
     dotfiles:
@@ -188,6 +197,10 @@ profiles:
     - f_ec-visual
     - f_alacritty.toml
     - f_default.kdl
+    - f_hyprland.conf
+    - f_hyprlock.conf
+    - f_hyprpaper.conf
+    - f_config
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -230,3 +243,51 @@ profiles:
     - f_alacritty.toml
     - f_default.kdl
     - f_hyprland.conf
+    - f_hyprlock.conf
+    - f_hyprpaper.conf
+    - f_config
+  ismd-black:
+    dotfiles:
+    - f_editorconfig
+    - f_fdignore
+    - f_rgignore
+    - f_ripgreprc
+    - d_gammastep
+    - f_ini
+    - d_doom
+    - f_mimeapps.list
+    - f_user-dirs.dirs
+    - f_user-dirs.locale
+    - f_ec.desktop
+    - f_vconsole.conf
+    - f_xprofile
+    - f_tmux.conf
+    - f_config.kdl
+    - f_config.sh
+    - d_config.d
+    - f_modules.ini
+    - f_gitconfig
+    - f_config.org
+    - f_early-init.el
+    - f_init.el
+    - f_config.fish
+    - f_fish_plugins
+    - f_ec
+    - f_gammastep.sh
+    - f_keyboard.sh
+    - f_thinkpad-leds.sh
+    - f_unclutter.sh
+    - f_buffer-move.el
+    - f_elpaca-setup.el
+    - f_mindre-theme.el
+    - f_themes.org
+    - f_lock-screen.sh
+    - f_profile
+    - f_ec-editor
+    - f_ec-visual
+    - f_alacritty.toml
+    - f_default.kdl
+    - f_hyprland.conf
+    - f_hyprlock.conf
+    - f_hyprpaper.conf
+    - f_config
