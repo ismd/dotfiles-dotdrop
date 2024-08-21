@@ -15,6 +15,7 @@
   - [[#ellama][Ellama]]
   - [[#gptel][GPTEL]]
 - [[#all-the-icons][ALL THE ICONS]]
+- [[#atomic-chrome][ATOMIC CHROME]]
 - [[#backup][BACKUP]]
 - [[#company][COMPANY]]
 - [[#consult][CONSULT]]
@@ -200,6 +201,15 @@ This is an icon set that can be used with dashboard, dired, ibuffer and other Em
 ;; (use-package all-the-icons-dired
 ;;   :ensure t
 ;;   :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+#+end_src
+
+* ATOMIC CHROME
+https://github.com/KarimAziev/atomic-chrome
+
+#+begin_src emacs-lisp
+(use-package atomic-chrome
+  :ensure (:host github :repo "KarimAziev/atomic-chrome")
+  :init (atomic-chrome-start-server))
 #+end_src
 
 * BACKUP 
