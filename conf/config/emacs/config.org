@@ -55,6 +55,10 @@
   - [[#terraform][Terraform]]
   - [[#yaml][YAML]]
 - [[#lsp][LSP]]
+  - [[#lsp-ui][LSP UI]]
+  - [[#lsp-treemacs][LSP Treemacs]]
+  - [[#lsp-dap-mode][LSP Dap Mode]]
+  - [[#lsp-eslint][LSP Eslint]]
 - [[#marginalia][MARGINALIA]]
 - [[#minibuffer-escape][MINIBUFFER ESCAPE]]
 - [[#modeline][MODELINE]]
@@ -1230,8 +1234,11 @@ https://emacs-lsp.github.io/lsp-mode/
    (make-lsp-client :new-connection (lsp-stdio-connection '("helm_ls" "serve"))
                     :activation-fn (lsp-activate-on "helm")
                     :server-id 'helm-ls)))
+#+end_src
 
-;; optionally
+** LSP UI
+
+#+begin_src emacs-lisp
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui-mode)
@@ -1239,13 +1246,28 @@ https://emacs-lsp.github.io/lsp-mode/
 ;; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 ;; if you are ivy user
 ;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+#+end_src
+
+** LSP Treemacs
+#+begin_src emacs-lisp
 (use-package lsp-treemacs
   :ensure t
   :commands lsp-treemacs-errors-list)
+#+end_src
 
+** LSP Dap Mode
+#+begin_src emacs-lisp
 (use-package dap-mode
   :ensure t)
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+#+end_src
+
+** LSP Eslint
+#+begin_src emacs-lisp
+(use-package lsp-eslint
+  :ensure t
+  :demand t
+  :after lsp-mode)
 #+end_src
 
 * MARGINALIA
