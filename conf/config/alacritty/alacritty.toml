@@ -1,5 +1,9 @@
 [font]
 size = 15.0
+normal = { family = "CaskaydiaCove Nerd Font Mono", style = "Regular" }
 
 [window]
-opacity = 0.95
+opacity = 0.9
+padding = { x = 25, y = 25 }
+dynamic_padding = true
+blur = true
