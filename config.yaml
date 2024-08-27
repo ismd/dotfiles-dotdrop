@@ -160,6 +160,18 @@ dotfiles:
   f_config:
     src: config/mako/config
     dst: ~/.config/mako/config
+  f_brave-flags.conf:
+    src: config/brave-flags.conf
+    dst: ~/.config/brave-flags.conf
+  f_chrome-flags.conf:
+    src: config/chrome-flags.conf
+    dst: ~/.config/chrome-flags.conf
+  f_chromium-flags.conf:
+    src: config/chromium-flags.conf
+    dst: ~/.config/chromium-flags.conf
+  f_electron-flags.conf:
+    src: config/electron-flags.conf
+    dst: ~/.config/electron-flags.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -197,6 +209,10 @@ profiles:
     - f_hyprlock.conf
     - f_hyprpaper.conf
     - f_config
+    - f_brave-flags.conf
+    - f_chrome-flags.conf
+    - f_chromium-flags.conf
+    - f_electron-flags.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -241,6 +257,10 @@ profiles:
     - f_hyprlock.conf
     - f_hyprpaper.conf
     - f_config
+    - f_brave-flags.conf
+    - f_chrome-flags.conf
+    - f_chromium-flags.conf
+    - f_electron-flags.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -285,3 +305,7 @@ profiles:
     - f_hyprlock.conf
     - f_hyprpaper.conf
     - f_config
+    - f_brave-flags.conf
+    - f_chrome-flags.conf
+    - f_chromium-flags.conf
+    - f_electron-flags.conf
