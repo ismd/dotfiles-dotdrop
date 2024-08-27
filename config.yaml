@@ -172,6 +172,9 @@ dotfiles:
   f_electron-flags.conf:
     src: config/electron-flags.conf
     dst: ~/.config/electron-flags.conf
+  f_tlp.conf:
+    src: etc/tlp.conf
+    dst: /etc/tlp.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -261,6 +264,7 @@ profiles:
     - f_chrome-flags.conf
     - f_chromium-flags.conf
     - f_electron-flags.conf
+    - f_tlp.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -309,3 +313,4 @@ profiles:
     - f_chrome-flags.conf
     - f_chromium-flags.conf
     - f_electron-flags.conf
+    - f_tlp.conf
