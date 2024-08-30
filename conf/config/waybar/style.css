@@ -1,0 +1,31 @@
+* {
+    font-size: 16px;
+    font-family: "JetBrainsMono Nerd Font";
+    border-radius: 10px;
+}
+
+window#waybar {
+    opacity: .9;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+label.module {
+    padding: 0 8px;
+}
+
+#workspaces {
+    padding: 4px;
+}
+
+#workspaces button.active {
+    background: rgba(192, 192, 192, 0.5);
+}
+
+#workspaces button.urgent {
+    background: rgba(255, 0, 0, 0.2);
+}
+
+#battery {
+    padding-left: 16px;
+}

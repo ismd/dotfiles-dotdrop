@@ -175,6 +175,9 @@ dotfiles:
   f_tlp.conf:
     src: etc/tlp.conf
     dst: /etc/tlp.conf
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
 profiles:
   hyper-city:
     dotfiles:
@@ -216,6 +219,7 @@ profiles:
     - f_chrome-flags.conf
     - f_chromium-flags.conf
     - f_electron-flags.conf
+    - d_waybar
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -265,6 +269,7 @@ profiles:
     - f_chromium-flags.conf
     - f_electron-flags.conf
     - f_tlp.conf
+    - d_waybar
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -314,3 +319,4 @@ profiles:
     - f_chromium-flags.conf
     - f_electron-flags.conf
     - f_tlp.conf
+    - d_waybar
