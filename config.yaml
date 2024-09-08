@@ -178,6 +178,14 @@ dotfiles:
   d_waybar:
     src: config/waybar
     dst: ~/.config/waybar
+  f_settings.ini:
+    src: config/gtk-4.0/settings.ini
+    dst: ~/.config/gtk-4.0/settings.ini
+    chmod: '600'
+  f_gtk-3.0_settings.ini:
+    src: config/gtk-3.0/settings.ini
+    dst: ~/.config/gtk-3.0/settings.ini
+    chmod: '600'
 profiles:
   hyper-city:
     dotfiles:
@@ -220,6 +228,8 @@ profiles:
     - f_chromium-flags.conf
     - f_electron-flags.conf
     - d_waybar
+    - f_settings.ini
+    - f_gtk-3.0_settings.ini
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -270,6 +280,8 @@ profiles:
     - f_electron-flags.conf
     - f_tlp.conf
     - d_waybar
+    - f_settings.ini
+    - f_gtk-3.0_settings.ini
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -320,3 +332,5 @@ profiles:
     - f_electron-flags.conf
     - f_tlp.conf
     - d_waybar
+    - f_settings.ini
+    - f_gtk-3.0_settings.ini
