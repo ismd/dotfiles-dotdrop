@@ -32,7 +32,7 @@
         }
     },
     "wireplumber": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "",
         "max-volume": 150,
         "format-icons": ["", "", ""]
