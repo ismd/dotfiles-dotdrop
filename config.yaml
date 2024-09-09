@@ -186,6 +186,15 @@ dotfiles:
     src: config/gtk-3.0/settings.ini
     dst: ~/.config/gtk-3.0/settings.ini
     chmod: '600'
+  f_gtkrc-2.0:
+    src: config/gtkrc-2.0
+    dst: ~/.config/gtkrc-2.0
+  f_xresources:
+    src: Xresources
+    dst: ~/.Xresources
+  f_index.theme:
+    src: local/share/icons/default/index.theme
+    dst: ~/.local/share/icons/default/index.theme
 profiles:
   hyper-city:
     dotfiles:
@@ -230,6 +239,9 @@ profiles:
     - d_waybar
     - f_settings.ini
     - f_gtk-3.0_settings.ini
+    - f_gtkrc-2.0
+    - f_xresources
+    - f_index.theme
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -282,6 +294,9 @@ profiles:
     - d_waybar
     - f_settings.ini
     - f_gtk-3.0_settings.ini
+    - f_gtkrc-2.0
+    - f_xresources
+    - f_index.theme
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -334,3 +349,6 @@ profiles:
     - d_waybar
     - f_settings.ini
     - f_gtk-3.0_settings.ini
+    - f_gtkrc-2.0
+    - f_xresources
+    - f_index.theme

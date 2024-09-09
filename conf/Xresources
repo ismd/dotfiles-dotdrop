@@ -1,0 +1,10 @@
+Xcursor.size: 32
+Xcursor.theme: Vimix-white-cursors
+
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
