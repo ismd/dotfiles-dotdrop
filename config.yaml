@@ -181,11 +181,9 @@ dotfiles:
   f_settings.ini:
     src: config/gtk-4.0/settings.ini
     dst: ~/.config/gtk-4.0/settings.ini
-    chmod: '600'
   f_gtk-3.0_settings.ini:
     src: config/gtk-3.0/settings.ini
     dst: ~/.config/gtk-3.0/settings.ini
-    chmod: '600'
   f_gtkrc-2.0:
     src: config/gtkrc-2.0
     dst: ~/.config/gtkrc-2.0
