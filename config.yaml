@@ -200,6 +200,7 @@ profiles:
     - f_fdignore
     - f_rgignore
     - f_ripgreprc
+    - d_gammastep
     - f_ini
     - f_mimeapps.list
     - f_user-dirs.dirs
