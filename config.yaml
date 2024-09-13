@@ -193,6 +193,9 @@ dotfiles:
   f_index.theme:
     src: local/share/icons/default/index.theme
     dst: ~/.local/share/icons/default/index.theme
+  f_hyprland-portals.conf:
+    src: config/xdg-desktop-portal/hyprland-portals.conf
+    dst: ~/.config/xdg-desktop-portal/hyprland-portals.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -241,6 +244,7 @@ profiles:
     - f_gtkrc-2.0
     - f_xresources
     - f_index.theme
+    - f_hyprland-portals.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -296,6 +300,7 @@ profiles:
     - f_gtkrc-2.0
     - f_xresources
     - f_index.theme
+    - f_hyprland-portals.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -351,3 +356,4 @@ profiles:
     - f_gtkrc-2.0
     - f_xresources
     - f_index.theme
+    - f_hyprland-portals.conf
