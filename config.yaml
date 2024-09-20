@@ -196,6 +196,9 @@ dotfiles:
   f_hyprland-portals.conf:
     src: config/xdg-desktop-portal/hyprland-portals.conf
     dst: ~/.config/xdg-desktop-portal/hyprland-portals.conf
+  f_70-backlight.rules:
+    src: etc/udev/rules.d/70-backlight.rules
+    dst: /etc/udev/rules.d/70-backlight.rules
 profiles:
   hyper-city:
     dotfiles:
@@ -301,6 +304,7 @@ profiles:
     - f_xresources
     - f_index.theme
     - f_hyprland-portals.conf
+    - f_70-backlight.rules
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -357,3 +361,4 @@ profiles:
     - f_xresources
     - f_index.theme
     - f_hyprland-portals.conf
+    - f_70-backlight.rules
