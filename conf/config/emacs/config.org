@@ -1808,7 +1808,7 @@ https://github.com/mclear-tools/tabspaces
 With Emacs version 29, true transparency has been added.  
 
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(alpha-background . 92)) ; For all new frames henceforth
+(add-to-list 'default-frame-alist '(alpha-background . 88)) ; For all new frames henceforth
 #+end_src
 
 * TREE SITTER
