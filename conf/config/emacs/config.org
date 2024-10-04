@@ -566,13 +566,13 @@ Defining the various fonts that Emacs will use.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
                     :font "JetBrainsMono Nerd Font"
-                    :height 120)
+                    :height 190)
 (set-face-attribute 'variable-pitch nil
                    :font "Hurmit Nerd Font"
-                   :height 130)
+                   :height 210)
 (set-face-attribute 'fixed-pitch nil
                     :font "JetBrainsMono Nerd Font"
-                    :height 120)
+                    :height 190)
 
 (set-face-attribute 'font-lock-comment-face nil
                     :slant 'italic)
@@ -582,7 +582,7 @@ Defining the various fonts that Emacs will use.
 ;; This sets the default font on all graphical frames created after restarting Emacs.
 ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
 ;; are not right unless I also add this method of setting the default font.
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-19"))
 
 ;; tab-bar
 (set-face-attribute 'tab-bar-tab nil
@@ -1013,8 +1013,8 @@ https://github.com/dgutov/diff-hl
 (use-package magit
   :ensure t
   :custom
-  (transient-display-buffer-action '(display-buffer-below-selected))
-  (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+  (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+  (transient-display-buffer-action '(display-buffer-below-selected)))
 #+end_src
 
 * HIGHLIGHT INDENT GUIDES
@@ -1203,7 +1203,7 @@ https://emacs-lsp.github.io/lsp-mode/
         lsp-headerline-breadcrumb-enable t
         lsp-headerline-breadcrumb-segments '(symbols)
         lsp-keymap-prefix "C-c l"
-        lsp-modeline-code-actions-enable nil
+        lsp-modeline-code-actions-enable t
         lsp-modeline-diagnostics-enable t
         lsp-response-timeout 60
         lsp-signature-auto-activate t
@@ -1211,8 +1211,8 @@ https://emacs-lsp.github.io/lsp-mode/
         lsp-ui-doc-enable t
         lsp-ui-doc-show-with-cursor nil
         lsp-ui-doc-show-with-mouse t
-        lsp-ui-sideline-enable t
-        lsp-ui-sideline-show-code-actions t
+        lsp-ui-sideline-enable nil
+        lsp-ui-sideline-show-code-actions nil
         lsp-ui-sideline-show-diagnostics t
         lsp-ui-sideline-show-hover nil)
   :hook ((bash-ls-mode . lsp-deferred)
@@ -1808,7 +1808,11 @@ https://github.com/mclear-tools/tabspaces
 With Emacs version 29, true transparency has been added.  
 
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(alpha-background . 88)) ; For all new frames henceforth
+{%@@ if profile == "hyper-city" @@%}
+(add-to-list 'default-frame-alist '(alpha-background . 90))
+{%@@ else @@%}
+(add-to-list 'default-frame-alist '(alpha-background . 88))
+{%@@ endif @@%}
 #+end_src
 
 * TREE SITTER
