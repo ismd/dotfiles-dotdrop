@@ -564,6 +564,7 @@ Defining the various fonts that Emacs will use.
 
 ** Setting the Font Face
 #+begin_src emacs-lisp
+{%@@ if profile == "hyper-city" @@%}
 (set-face-attribute 'default nil
                     :font "JetBrainsMono Nerd Font"
                     :height 190)
@@ -573,6 +574,17 @@ Defining the various fonts that Emacs will use.
 (set-face-attribute 'fixed-pitch nil
                     :font "JetBrainsMono Nerd Font"
                     :height 190)
+{%@@ else @@%}
+(set-face-attribute 'default nil
+                    :font "JetBrainsMono Nerd Font"
+                    :height 130)
+(set-face-attribute 'variable-pitch nil
+                   :font "Hurmit Nerd Font"
+                   :height 150)
+(set-face-attribute 'fixed-pitch nil
+                    :font "JetBrainsMono Nerd Font"
+                    :height 130)
+{%@@ endif @@%}
 
 (set-face-attribute 'font-lock-comment-face nil
                     :slant 'italic)
@@ -582,7 +594,11 @@ Defining the various fonts that Emacs will use.
 ;; This sets the default font on all graphical frames created after restarting Emacs.
 ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
 ;; are not right unless I also add this method of setting the default font.
+{%@@ if profile == "hyper-city" @@%}
 (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-19"))
+{%@@ else @@%}
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-13"))
+{%@@ endif @@%}
 
 ;; tab-bar
 (set-face-attribute 'tab-bar-tab nil
