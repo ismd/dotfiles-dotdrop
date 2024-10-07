@@ -40,3 +40,6 @@
     br = branch
     ci = commit
     st = status
+
+[init]
+	defaultBranch = main
