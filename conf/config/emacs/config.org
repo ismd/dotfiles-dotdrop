@@ -11,6 +11,7 @@
   - [[#transient][Transient]]
   - [[#custom-file][Custom File]]
   - [[#themes][Themes]]
+  - [[#lsp-keymap-init][LSP Keymap Init]]
 - [[#ai][AI]]
   - [[#ellama][Ellama]]
   - [[#gptel][GPTEL]]
@@ -153,6 +154,12 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
     user-emacs-directory))
 #+end_src
 
+** LSP Keymap Init
+This variable must be set before the =lsp= package is loaded.
+
+#+begin_src emacs-lisp
+(setq lsp-keymap-prefix "C-c l")
+#+end_src
 * AI
 
 ** Ellama
