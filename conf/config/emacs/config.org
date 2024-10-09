@@ -674,7 +674,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     :keymaps 'override)
 
   (cz/leader-keys-C-x
-    "b" '(switch-to-buffer :wk "Switch buffer")
+    "b" '(consult-project-buffer :wk "Switch buffer")
     "B" '(consult-buffer-other-window :wk "Switch buffer other window")
     "k" '(kill-this-buffer :wk "Kill this buffer")
     "K" '(kill-buffer-and-window :wk "Kill buffer"))
@@ -703,7 +703,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (cz/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
-    "b b" '(consult-project-buffer :wk "Switch buffer")
+    "b b" '(switch-to-buffer :wk "Switch buffer")
     "b c" '(clone-indirect-buffer :wk "Create indirect buffer copy in a split")
     "b C" '(clone-indirect-buffer-other-window :wk "Clone indirect buffer in new window")
     "b d" '(bookmark-delete :wk "Delete bookmark")
