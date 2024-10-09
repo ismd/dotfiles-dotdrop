@@ -664,7 +664,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-7" '(winum-select-window-7 :wk "Select window 7")
    "M-8" '(winum-select-window-8 :wk "Select window 8")
    "M-9" '(winum-select-window-9 :wk "Select window 9")
-   "M-0" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs project"))
+   "M-0" '(treemacs-select-window :wk "Treemacs"))
 
   ;;
   ;; C-x
@@ -850,7 +850,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "t" '(:ignore t :wk "Toggle")
     "t f" '(flycheck-mode :wk "Toggle flycheck")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
-    "t t" '(treemacs :wk "Toggle treemacs")
+    "t t" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs project")
     "t v" '(vterm-toggle :wk "Toggle vterm")
     "t w" '(visual-line-mode :wk "Toggle word wrap"))
 
@@ -1876,6 +1876,8 @@ https://github.com/Alexander-Miller/treemacs
                      (visual-line-mode -1)))
   :config
   (progn
+    (setq treemacs-select-when-already-in-treemacs 'stay)
+
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
     ;;(treemacs-resize-icons 44)
