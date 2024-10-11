@@ -202,6 +202,9 @@ dotfiles:
   f_settings.json:
     src: config/discord/settings.json
     dst: ~/.config/discord/settings.json
+  f_yandex-music.conf:
+    src: config/yandex-music.conf
+    dst: ~/.config/yandex-music.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -252,6 +255,7 @@ profiles:
     - f_index.theme
     - f_hyprland-portals.conf
     - f_settings.json
+    - f_yandex-music.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -310,6 +314,7 @@ profiles:
     - f_hyprland-portals.conf
     - f_70-backlight.rules
     - f_settings.json
+    - f_yandex-music.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -368,3 +373,4 @@ profiles:
     - f_hyprland-portals.conf
     - f_70-backlight.rules
     - f_settings.json
+    - f_yandex-music.conf
