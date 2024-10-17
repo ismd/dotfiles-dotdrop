@@ -120,16 +120,13 @@ https://github.com/protesilaos/modus-themes
 ;; (load-theme 'doom-earl-grey t)
 ;; (load-theme 'doom-nord-light t)
 ;; (load-theme 'ef-light t)
-{%@@ if profile != "hyper-city" @@%}
-(load-theme 'mindre t)
-{%@@ endif @@%}
+;; (load-theme 'mindre t)
 
 ;; Dark themes
 ;; (load-theme 'doom-dracula t)
 ;; (load-theme 'doom-ephemeral t)
-{%@@ if profile == "hyper-city" @@%}
-(load-theme 'doom-nord t)
-{%@@ endif @@%}
+;; (load-theme 'doom-nord t)
+(load-theme 'doom-tokyo-night t)
 ;; (load-theme 'doom-zenburn t)
 ;; (load-theme 'modus-vivendi t)
 ;; (load-theme 'sanityinc-tomorrow-eighties t)
