@@ -75,6 +75,7 @@
   - [[#enabling-org-bullets][Enabling Org Bullets]]
   - [[#source-code-block-tag-expansion][Source Code Block Tag Expansion]]
   - [[#org-todo][Org TODO]]
+  - [[#org-appear][Org Appear]]
 - [[#persistent-scratch][PERSISTENT SCRATCH]]
 - [[#persp-mode][PERSP MODE]]
   - [[#persp-mode-projectile-bridge][Persp Mode Projectile Bridge]]
@@ -574,13 +575,13 @@ Defining the various fonts that Emacs will use.
 {%@@ if profile == "hyper-city" @@%}
 (set-face-attribute 'default nil
                     :font "JetBrainsMono Nerd Font"
-                    :height 190)
+                    :height 120)
 (set-face-attribute 'variable-pitch nil
                    :font "Hurmit Nerd Font"
-                   :height 210)
+                   :height 140)
 (set-face-attribute 'fixed-pitch nil
                     :font "JetBrainsMono Nerd Font"
-                    :height 190)
+                    :height 120)
 {%@@ else @@%}
 (set-face-attribute 'default nil
                     :font "JetBrainsMono Nerd Font"
@@ -602,7 +603,7 @@ Defining the various fonts that Emacs will use.
 ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
 ;; are not right unless I also add this method of setting the default font.
 {%@@ if profile == "hyper-city" @@%}
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-19"))
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
 {%@@ else @@%}
 (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-13"))
 {%@@ endif @@%}
@@ -815,6 +816,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "o a" '(org-agenda :wk "Org agenda")
     "o e" '(org-export-dispatch :wk "Org export dispatch")
     "o i" '(org-toggle-item :wk "Org toggle item")
+    "o o" '(org-emphasize :wk "Org emphasize")
     "o t" '(org-todo :wk "Org todo")
     "o B" '(org-babel-tangle :wk "Org babel tangle")
     "o T" '(org-todo-list :wk "Org todo list")
@@ -1480,6 +1482,24 @@ Org-tempo is not a separate package but a module within org that can be enabled.
 #+begin_src emacs-lisp
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "WAIT" "HOLD" "DONE")))
+#+end_src
+
+** Org Appear
+https://github.com/awth13/org-appear
+
+#+begin_src emacs-lisp
+(use-package org-appear
+  :ensure t
+  :hook (org-mode . org-appear-mode)
+  :config
+  (setq org-appear-autoemphasis t
+        org-appear-autoentities t
+        org-appear-autosubmarkers t
+        org-appear-autolinks t
+        org-appear-autokeywords t
+        org-hide-emphasis-markers t
+        org-link-descriptive t
+        org-pretty-entities t))
 #+end_src
 
 * PERSISTENT SCRATCH
