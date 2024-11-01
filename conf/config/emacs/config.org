@@ -1935,6 +1935,7 @@ https://github.com/Alexander-Miller/treemacs
   :config
   (progn
     (setq treemacs-select-when-already-in-treemacs 'stay)
+    (setq treemacs-width 32)
 
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
