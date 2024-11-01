@@ -1965,10 +1965,11 @@ https://github.com/Alexander-Miller/treemacs
   :ensure t
   :after (treemacs magit))
 
-(use-package treemacs-tab-bar
-  :ensure t
-  :after (treemacs)
-  :config (treemacs-set-scope-type 'Tabs))
+;; Treemacs stops selecting window after change file with this package enabled
+;; (use-package treemacs-tab-bar
+;;   :ensure t
+;;   :after (treemacs)
+;;   :config (treemacs-set-scope-type 'Tabs))
 #+end_src
 
 * TRIMMING WHITESPACE
