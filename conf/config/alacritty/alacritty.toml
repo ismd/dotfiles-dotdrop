@@ -1,6 +1,6 @@
 [font]
 size = 15.0
-normal = { family = "Hack Nerd Font", style = "Regular" }
+normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
 
 [window]
 opacity = 0.88
