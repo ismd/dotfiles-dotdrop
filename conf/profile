@@ -1,5 +1,5 @@
 export ALTERNATE_EDITOR=""
-export BROWSER=com.brave.Browser
+export BROWSER=brave
 export CHROME_EXECUTABLE=com.google.Chrome
 export EDITOR=ec-editor
 export GTK_USE_PORTAL=1
