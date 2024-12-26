@@ -67,6 +67,7 @@ x-scheme-handler/lens=OpenLens.desktop;
 x-scheme-handler/yandexmusic=yandex-music.desktop;YandexMusic.desktop;
 image/jpeg=org.kde.gwenview.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
+video/vnd.avi=vlc.desktop;
 
 [Default Applications]
 application/json=ec.desktop;
@@ -153,3 +154,4 @@ x-scheme-handler/lens=OpenLens.desktop
 x-scheme-handler/yandexmusic=yandex-music.desktop
 inode/directory=org.kde.dolphin.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+video/vnd.avi=vlc.desktop
