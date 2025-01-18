@@ -577,7 +577,7 @@ Defining the various fonts that Emacs will use.
                     :font "SauceCodePro Nerd Font"
                     :height 130)
 (set-face-attribute 'variable-pitch nil
-                   :font "Hurmit Nerd Font"
+                   :font "Hack Nerd Font"
                    :height 130)
 (set-face-attribute 'fixed-pitch nil
                     :font "SauceCodePro Nerd Font"
@@ -587,7 +587,7 @@ Defining the various fonts that Emacs will use.
                     :font "SauceCodePro Nerd Font"
                     :height 140)
 (set-face-attribute 'variable-pitch nil
-                   :font "Hurmit Nerd Font"
+                   :font "Hack Nerd Font"
                    :height 140)
 (set-face-attribute 'fixed-pitch nil
                     :font "SauceCodePro Nerd Font"
@@ -1277,6 +1277,7 @@ https://emacs-lsp.github.io/lsp-mode/
         lsp-ui-sideline-show-hover nil)
   (setq lsp-disabled-clients '(tfls))
   :hook ((bash-ls-mode . lsp-deferred)
+         (css-ts-mode . lsp-deferred)
          (dart-mode . lsp-deferred)
          (dockerfile-ts-mode . lsp-deferred)
          (js-ts-mode . lsp-deferred)
