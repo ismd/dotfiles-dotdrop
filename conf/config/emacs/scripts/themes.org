@@ -119,8 +119,8 @@ https://github.com/protesilaos/modus-themes
 ;; Light themes
 ;; (load-theme 'doom-earl-grey t)
 ;; (load-theme 'doom-nord-light t)
-;; (load-theme 'ef-light t)
-(load-theme 'mindre t)
+(load-theme 'ef-light t)
+;; (load-theme 'mindre t)
 
 ;; Dark themes
 ;; (load-theme 'doom-dracula t)
