@@ -572,17 +572,6 @@ Defining the various fonts that Emacs will use.
 
 ** Setting the Font Face
 #+begin_src emacs-lisp
-{%@@ if profile == "hyper-city" @@%}
-(set-face-attribute 'default nil
-                    :font "SauceCodePro Nerd Font"
-                    :height 130)
-(set-face-attribute 'variable-pitch nil
-                   :font "Hack Nerd Font"
-                   :height 130)
-(set-face-attribute 'fixed-pitch nil
-                    :font "SauceCodePro Nerd Font"
-                    :height 130)
-{%@@ else @@%}
 (set-face-attribute 'default nil
                     :font "SauceCodePro Nerd Font"
                     :height 140)
@@ -592,7 +581,6 @@ Defining the various fonts that Emacs will use.
 (set-face-attribute 'fixed-pitch nil
                     :font "SauceCodePro Nerd Font"
                     :height 140)
-{%@@ endif @@%}
 
 (set-face-attribute 'font-lock-comment-face nil
                     :slant 'italic)
