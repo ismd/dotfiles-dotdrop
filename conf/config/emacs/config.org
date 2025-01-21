@@ -38,6 +38,7 @@
   - [[#setting-the-font-face][Setting the Font Face]]
   - [[#zooming-inout][Zooming In/Out]]
 - [[#general-keybindings][GENERAL KEYBINDINGS]]
+  - [[#cyrillic-keybindings][Cyrillic Keybindings]]
 - [[#git-programs][GIT PROGRAMS]]
   - [[#diff-hl][Diff Hl]]
   - [[#git-time-machine][Git Time Machine]]
@@ -1004,6 +1005,23 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "p" '(compilation-previous-error :wk "Move to previous line with a match")
    "C-c n" '(rg-next-file :wk "Move to next file with a match")
    "C-c p" '(rg-prev-file :wk "Move to previous file with a match")))
+#+end_src
+
+** Cyrillic Keybindings
+
+#+begin_src emacs-lisp
+(define-key key-translation-map (kbd "C-а") (kbd "C-f"))
+(define-key key-translation-map (kbd "C-и") (kbd "C-b"))
+(define-key key-translation-map (kbd "C-т") (kbd "C-n"))
+(define-key key-translation-map (kbd "C-з") (kbd "C-p"))
+
+(define-key key-translation-map (kbd "M-а") (kbd "M-f"))
+(define-key key-translation-map (kbd "M-и") (kbd "M-b"))
+(define-key key-translation-map (kbd "M-т") (kbd "M-n"))
+(define-key key-translation-map (kbd "M-з") (kbd "M-p"))
+
+(define-key key-translation-map (kbd "C-ф") (kbd "C-a"))
+(define-key key-translation-map (kbd "C-у") (kbd "C-e"))
 #+end_src
 
 * GIT PROGRAMS
