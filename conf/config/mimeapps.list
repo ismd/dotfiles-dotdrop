@@ -71,6 +71,9 @@ x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 x-scheme-handler/yandexmusic=yandex-music.desktop;YandexMusic.desktop;
 application/zip=engrampa.desktop;
 text/x-python=ec.desktop;
+image/vnd.microsoft.icon=org.kde.gwenview.desktop;
+image/png=org.kde.gwenview.desktop;
+image/svg+xml=gimp.desktop;dev.zed.Zed.desktop;ec.desktop;org.kde.gwenview.desktop;
 
 [Default Applications]
 application/json=ec.desktop;
@@ -108,8 +111,8 @@ audio/x-vorbis=org.videolan.VLC.desktop;
 audio/x-vorbis+ogg=org.videolan.VLC.desktop;
 audio/x-wav=org.videolan.VLC.desktop;
 image/jpeg=org.kde.gwenview.desktop
-image/png=viewnior.desktop;gpicview.desktop;
-image/svg+xml=ec.desktop;
+image/png=org.kde.gwenview.desktop
+image/svg+xml=ec.desktop
 inode/directory=org.kde.dolphin.desktop
 text/html=brave-browser.desktop
 text/markdown=ec.desktop;
@@ -160,3 +163,4 @@ x-scheme-handler/lens=OpenLens.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 x-scheme-handler/yandexmusic=yandex-music.desktop
 application/zip=engrampa.desktop
+image/vnd.microsoft.icon=org.kde.gwenview.desktop
