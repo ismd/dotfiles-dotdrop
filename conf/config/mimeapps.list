@@ -70,6 +70,7 @@ x-scheme-handler/lens=OpenLens.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 x-scheme-handler/yandexmusic=yandex-music.desktop;YandexMusic.desktop;
 application/zip=engrampa.desktop;
+text/x-python=ec.desktop;
 
 [Default Applications]
 application/json=ec.desktop;
