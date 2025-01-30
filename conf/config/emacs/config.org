@@ -52,6 +52,7 @@
 - [[#kubernetes][KUBERNETES]]
 - [[#language-support][LANGUAGE SUPPORT]]
   - [[#dart][Dart]]
+  - [[#go][Go]]
   - [[#json][JSON]]
   - [[#markdown][Markdown]]
   - [[#terraform][Terraform]]
@@ -1159,6 +1160,14 @@ https://github.com/emacsorphanage/dart-mode
   :ensure t)
 #+end_src
 
+** Go
+https://github.com/dominikh/go-mode.el
+
+#+begin_src emacs-lisp
+(use-package go-mode
+  :ensure t)
+#+end_src
+
 ** JSON
 Using =json-ts-mode= instead of =json-mode=.
 
@@ -1287,6 +1296,7 @@ https://emacs-lsp.github.io/lsp-mode/
          (css-ts-mode . lsp-deferred)
          (dart-mode . lsp-deferred)
          (dockerfile-ts-mode . lsp-deferred)
+         (go-mode . lsp-deferred)
          (js-ts-mode . lsp-deferred)
          (json-ts-mode . lsp-deferred)
          (terraform-mode . lsp-deferred)
