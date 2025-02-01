@@ -191,11 +191,11 @@ https://github.com/karthink/gptel
 (use-package gptel
   :ensure t
   :config
-  (setq-default gptel-model 'mistral:latest
-                gptel-backend (gptel-make-ollama "Ollama"
-                                :host "localhost:11434"
+  (setq-default gptel-default-mode #'org-mode
+                gptel-model 'claude-3-5-sonnet-20240620
+                gptel-backend (gptel-make-anthropic "Claude"
                                 :stream t
-                                :models '(mistral:latest)))
+                                :key #'anthropic-api-key))
   (add-to-list 'gptel-directives '(message-commit . "I want you to act as a commit message generator. Generate a commit message for me using the diff which I provide. Generate only for lines which are added or removed. Sign '+' at the start of the line means that the line was added and '-' means that the line was removed. Do not write any explanations or other words, just reply with the commit message.")))
 #+end_src
 
@@ -666,8 +666,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "C-r" '(vertico-repeat :wk "Vertico repeat")
     "TAB" '(indent-rigidly :wk "Indent region")
     "M-x" '(consult-mode-command :wk "Consult command")
-    "RET" '(gptel-menu :wk "Send to GPTel")
-    "C-<return>" '(gptel-abort :wk "Abort GPTel"))
+    "RET" '(gptel-send :wk "Send to GPTel")
+    "M-RET" '(gptel-menu :wk "GPTel menu"))
 
   (cz/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
