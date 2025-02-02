@@ -110,24 +110,3 @@ https://github.com/protesilaos/modus-themes
 (use-package nord-theme
   :ensure t)
 #+end_src
-
-* Load Theme
-
-#+begin_src emacs-lisp
-(elpaca-wait)
-
-;; Light themes
-;; (load-theme 'doom-earl-grey t)
-;; (load-theme 'doom-nord-light t)
-(load-theme 'ef-light t)
-;; (load-theme 'mindre t)
-
-;; Dark themes
-;; (load-theme 'doom-dracula t)
-;; (load-theme 'doom-ephemeral t)
-;; (load-theme 'doom-nord t)
-;; (load-theme 'doom-tokyo-night t)
-;; (load-theme 'doom-zenburn t)
-;; (load-theme 'modus-vivendi t)
-;; (load-theme 'sanityinc-tomorrow-eighties t)
-#+end_src

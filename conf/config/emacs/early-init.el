@@ -1,9 +1,9 @@
-;;; early-init.el --- Emacs pre-initialisation config
-
-;;; Commentary:
-;;; Code:
+;; Emacs pre-initialisation config -*- lexical-binding: t; -*-
 
 (setq package-enable-at-startup nil)
 
-(provide 'early-init)
-;;; early-init.el ends here
+;; Local Variables:
+;; no-byte-compile: t
+;; no-native-compile: t
+;; no-update-autoloads: t
+;; End:

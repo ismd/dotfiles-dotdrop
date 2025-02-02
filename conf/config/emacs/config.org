@@ -31,7 +31,6 @@
 - [[#editorconfig][EDITORCONFIG]]
 - [[#embark][EMBARK]]
 - [[#expand-region][EXPAND REGION]]
-- [[#flutter][FLUTTER]]
 - [[#flycheck][FLYCHECK]]
 - [[#fonts][FONTS]]
   - [[#setting-the-font-face][Setting the Font Face]]
@@ -134,7 +133,8 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 ** Transient
 
 #+begin_src emacs-lisp
-(use-package transient :ensure t)
+(use-package transient
+  :ensure t)
 #+end_src
 
 ** Custom File
@@ -149,11 +149,34 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 
 ** Themes
 
+*** Init Themes
+
 #+begin_src emacs-lisp
 (org-babel-load-file
   (expand-file-name
     "scripts/themes.org"
     user-emacs-directory))
+#+end_src
+
+*** Load Theme
+
+#+begin_src emacs-lisp
+(add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-light t)))
+
+;; Light themes
+;; (load-theme 'doom-earl-grey t)
+;; (load-theme 'doom-nord-light t)
+;; (load-theme 'ef-light t)
+;; (load-theme 'mindre t)
+
+;; Dark themes
+;; (load-theme 'doom-dracula t)
+;; (load-theme 'doom-ephemeral t)
+;; (load-theme 'doom-nord t)
+;; (load-theme 'doom-tokyo-night t)
+;; (load-theme 'doom-zenburn t)
+;; (load-theme 'modus-vivendi t)
+;; (load-theme 'sanityinc-tomorrow-eighties t)
 #+end_src
 
 ** LSP Keymap Init
@@ -361,6 +384,7 @@ Emacs Dashboard is an extensible startup screen showing you recent files, bookma
 #+begin_src emacs-lisp
 (use-package dashboard
   :ensure t
+  :demand t
   :init
   (setq initial-buffer-choice 'dashboard-open)
   (setq dashboard-set-heading-icons t)
@@ -426,6 +450,7 @@ https://github.com/alexluigit/dirvish
 #+begin_src emacs-lisp
 (use-package dirvish
   :ensure t
+  :after nerd-icons
   :init
   (dirvish-override-dired-mode)
   :custom
@@ -526,19 +551,6 @@ https://github.com/magnars/expand-region.el
   :ensure t)
 #+end_src
 
-* FLUTTER
-https://github.com/amake/flutter.el
-
-#+begin_src emacs-lisp
-(use-package flutter
-  :ensure t
-  :after dart-mode
-  :bind (:map dart-mode-map
-              ("C-M-x" . #'flutter-run-or-hot-reload))
-  :custom
-  (flutter-sdk-path "~/src/flutter"))
-#+end_src
-
 * FLYCHECK
 Install =luacheck= from your Linux distro's repositories for flycheck to work correctly with lua files.  Install =python-pylint= for flycheck to work with python files.  Haskell works with flycheck as long as =haskell-ghc= or =haskell-stack-ghc= is installed.  For more information on language support for flycheck, [[https://www.flycheck.org/en/latest/languages.html][read this]].
 
@@ -592,7 +604,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
 #+begin_src emacs-lisp
 (use-package general
-  :ensure t
+  :ensure (:wait t)
+  :demand t
   :config
   (general-define-key
 
@@ -1155,6 +1168,19 @@ https://github.com/emacsorphanage/dart-mode
   :ensure t)
 (use-package lsp-dart
   :ensure t)
+#+end_src
+
+*** FLUTTER
+https://github.com/amake/flutter.el
+
+#+begin_src emacs-lisp
+(use-package flutter
+  :ensure t
+  :after dart-mode
+  :bind (:map dart-mode-map
+              ("C-M-x" . #'flutter-run-or-hot-reload))
+  :custom
+  (flutter-sdk-path "~/src/flutter"))
 #+end_src
 
 ** Go
