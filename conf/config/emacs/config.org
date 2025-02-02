@@ -37,7 +37,7 @@
   - [[#zooming-inout][Zooming In/Out]]
 - [[#general-keybindings][GENERAL KEYBINDINGS]]
   - [[#cyrillic-keybindings][Cyrillic Keybindings]]
-- [[#git-programs][GIT PROGRAMS]]
+- [[#git][GIT]]
   - [[#diff-hl][Diff Hl]]
   - [[#git-time-machine][Git Time Machine]]
   - [[#magit][Magit]]
@@ -678,9 +678,15 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "C--" '(er/contract-region :wk "Contract region")
     "C-r" '(vertico-repeat :wk "Vertico repeat")
     "TAB" '(indent-rigidly :wk "Indent region")
-    "M-x" '(consult-mode-command :wk "Consult command")
-    "RET" '(gptel-send :wk "Send to GPTel")
-    "M-RET" '(gptel-menu :wk "GPTel menu"))
+    "M-x" '(consult-mode-command :wk "Consult command"))
+
+  (cz/leader-keys
+    "a" '(:ignore t :wk "AI")
+    "a RET" '(gptel-send :wk "Send to GPTel")
+    "a M-RET" '(gptel-menu :wk "GPTel menu")
+    "a g" '(gptel :wk "GPTel")
+    "a a" '(gptel-add :wk "GPTel add")
+    "a f" '(gptel-add-file :wk "GPTel add file"))
 
   (cz/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
@@ -1024,7 +1030,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 (define-key key-translation-map (kbd "C-.") (kbd "C-/"))
 #+end_src
 
-* GIT PROGRAMS
+* GIT
 
 ** Diff Hl
 https://github.com/dgutov/diff-hl
@@ -1055,6 +1061,7 @@ https://github.com/dgutov/diff-hl
 #+begin_src emacs-lisp
 (use-package magit
   :ensure t
+  :demand t
   :custom
   (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
   (transient-display-buffer-action '(display-buffer-below-selected)))
@@ -2032,6 +2039,7 @@ vertico.el - VERTical Interactive COmpletion
 #+begin_src emacs-lisp
 (use-package vertico
   :ensure t
+  :demand t
   :init
   (vertico-mode)
 
