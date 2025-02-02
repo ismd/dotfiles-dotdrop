@@ -878,8 +878,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   ;;
   (general-define-key
    :keymaps 'corfu-map
-   "TAB" 'ignore
-   "<tab>" 'ignore)
+   "TAB" nil
+   "<tab>" nil)
 
   ;;
   ;; Git
@@ -970,7 +970,23 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "n" '(compilation-next-error :wk "Move to next line with a match")
    "p" '(compilation-previous-error :wk "Move to previous line with a match")
    "C-c n" '(rg-next-file :wk "Move to next file with a match")
-   "C-c p" '(rg-prev-file :wk "Move to previous file with a match")))
+   "C-c p" '(rg-prev-file :wk "Move to previous file with a match"))
+
+  ;;
+  ;; Vterm
+  ;;
+  (general-define-key
+   :keymaps 'vterm-mode-map
+   "M-1" nil
+   "M-2" nil
+   "M-3" nil
+   "M-4" nil
+   "M-5" nil
+   "M-6" nil
+   "M-7" nil
+   "M-8" nil
+   "M-9" nil
+   "M-0" nil))
 #+end_src
 
 ** Cyrillic Keybindings
@@ -1277,7 +1293,7 @@ https://emacs-lsp.github.io/lsp-mode/
          (css-ts-mode . lsp-deferred)
          (dart-mode . lsp-deferred)
          (dockerfile-ts-mode . lsp-deferred)
-         (go-mode . lsp-deferred)
+         (go-ts-mode . lsp-deferred)
          (js-ts-mode . lsp-deferred)
          (json-ts-mode . lsp-deferred)
          (terraform-mode . lsp-deferred)
