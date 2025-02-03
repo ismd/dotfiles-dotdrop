@@ -1371,14 +1371,6 @@ https://emacs-lsp.github.io/lsp-mode/
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 #+end_src
 
-** LSP Eslint
-#+begin_src emacs-lisp
-(use-package lsp-eslint
-  :ensure t
-  :demand t
-  :after lsp-mode)
-#+end_src
-
 * MARGINALIA
 marginalia.el - Marginalia in the minibuffer
 https://github.com/minad/marginalia
