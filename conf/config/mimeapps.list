@@ -72,12 +72,13 @@ x-scheme-handler/yandexmusic=yandex-music.desktop;YandexMusic.desktop;
 application/zip=engrampa.desktop;
 text/x-python=ec.desktop;
 image/vnd.microsoft.icon=org.kde.gwenview.desktop;
-image/png=viewnior.desktop;org.xfce.ristretto.desktop;org.kde.gwenview.desktop;
+image/png=gimp.desktop;viewnior.desktop;org.xfce.ristretto.desktop;org.kde.gwenview.desktop;
 image/svg+xml=org.xfce.ristretto.desktop;gimp.desktop;dev.zed.Zed.desktop;ec.desktop;org.kde.gwenview.desktop;
 application/x-zerosize=ec.desktop;
 application/pdf=org.gnome.Evince.desktop;org.pwmt.zathura-pdf-mupdf.desktop;okularApplication_pdf.desktop;
 image/vnd.djvu+multipage=org.gnome.Evince.desktop;
 application/epub+zip=okularApplication_epub.desktop;org.gnome.Evince.desktop;
+image/webp=gimp.desktop;
 
 [Default Applications]
 application/json=ec.desktop;
