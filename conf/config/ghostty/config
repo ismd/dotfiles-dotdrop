@@ -1,0 +1,13 @@
+font-family = CaskaydiaCove Nerd Font
+font-style = SemiLight
+font-size = 17
+theme = Night Owlish Light
+background-opacity = 0.88
+
+keybind = ctrl+x>2=new_split:down
+keybind = ctrl+x>3=new_split:right
+keybind = alt+s>e=write_scrollback_file:open
+keybind = alt+shift+f=goto_split:right
+keybind = alt+shift+b=goto_split:left
+keybind = alt+shift+p=goto_split:top
+keybind = alt+shift+n=goto_split:bottom

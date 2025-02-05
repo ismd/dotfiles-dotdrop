@@ -206,6 +206,9 @@ dotfiles:
   f_yandex-music.conf:
     src: config/yandex-music.conf
     dst: ~/.config/yandex-music.conf
+  f_ghostty_config:
+    src: config/ghostty/config
+    dst: ~/.config/ghostty/config
 profiles:
   hyper-city:
     dotfiles:
@@ -257,6 +260,7 @@ profiles:
     - f_hyprland-portals.conf
     - f_settings.json
     - f_yandex-music.conf
+    - f_ghostty_config
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -316,6 +320,7 @@ profiles:
     - f_70-backlight.rules
     - f_settings.json
     - f_yandex-music.conf
+    - f_ghostty_config
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -375,3 +380,4 @@ profiles:
     - f_70-backlight.rules
     - f_settings.json
     - f_yandex-music.conf
+    - f_ghostty_config
