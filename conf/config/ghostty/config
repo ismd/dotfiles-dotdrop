@@ -1,8 +1,10 @@
 font-family = CaskaydiaCove Nerd Font
 font-style = SemiLight
 font-size = 17
-theme = Night Owlish Light
+theme = BlulocoLight
 background-opacity = 0.88
+window-padding-x = 25
+window-padding-y = 25
 
 keybind = ctrl+x>2=new_split:down
 keybind = ctrl+x>3=new_split:right
