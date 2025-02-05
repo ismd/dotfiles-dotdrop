@@ -59,7 +59,6 @@
   - [[#lsp-ui][LSP UI]]
   - [[#lsp-treemacs][LSP Treemacs]]
   - [[#lsp-dap-mode][LSP Dap Mode]]
-  - [[#lsp-eslint][LSP Eslint]]
 - [[#marginalia][MARGINALIA]]
 - [[#minibuffer-escape][MINIBUFFER ESCAPE]]
 - [[#modeline][MODELINE]]
@@ -1928,11 +1927,7 @@ https://github.com/mclear-tools/tabspaces
 With Emacs version 29, true transparency has been added.  
 
 #+begin_src emacs-lisp
-{%@@ if profile == "hyper-city" @@%}
-(add-to-list 'default-frame-alist '(alpha-background . 90))
-{%@@ else @@%}
 (add-to-list 'default-frame-alist '(alpha-background . 88))
-{%@@ endif @@%}
 #+end_src
 
 * TREE SITTER
