@@ -561,25 +561,34 @@ Defining the various fonts that Emacs will use.
 
 ** Setting the Font Face
 #+begin_src emacs-lisp
-(set-face-attribute 'default nil
-                    :font "SauceCodePro Nerd Font"
-                    :height 140)
-(set-face-attribute 'variable-pitch nil
-                   :font "RobotoMono Nerd Font"
-                   :height 140)
-(set-face-attribute 'fixed-pitch nil
-                    :font "SauceCodePro Nerd Font"
-                    :height 140)
+(defun cz/set-fonts ()
+  "Set the fonts for Emacs."
+  (set-face-attribute 'default nil
+                      :font "SauceCodePro Nerd Font"
+                      :height 140
+                      :weight 'regular)
+  (set-face-attribute 'variable-pitch nil
+                      :font "RobotoMono Nerd Font"
+                      :height 140
+                      :weight 'regular)
+  (set-face-attribute 'fixed-pitch nil
+                      :font "SauceCodePro Nerd Font"
+                      :height 140
+                      :weight 'regular)
 
-(set-face-attribute 'font-lock-comment-face nil
-                    :slant 'italic)
-(set-face-attribute 'font-lock-keyword-face nil
-                    :slant 'italic)
+  (set-face-attribute 'font-lock-comment-face nil
+                      :slant 'italic)
+  (set-face-attribute 'font-lock-keyword-face nil
+                      :slant 'italic))
+
+(cz/set-fonts)
 
 ;; This sets the default font on all graphical frames created after restarting Emacs.
 ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
 ;; are not right unless I also add this method of setting the default font.
 (add-to-list 'default-frame-alist '(font . "SauceCodePro Nerd Font-14"))
+
+(add-hook 'after-make-frame-functions (lambda () (cz/set-fonts)))
 
 ;; tab-bar
 (set-face-attribute 'tab-bar-tab nil
