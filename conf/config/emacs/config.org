@@ -161,14 +161,13 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 
 #+begin_src emacs-lisp
 ;; Light themes
-(add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-maris-light t)))
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'tsdh-light t)))
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'doom-opera-light t)))
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'doom-tomorrow-day t)))
+;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-light t)))
+;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-maris-light t)))
 
 ;; Dark themes
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-maris-dark t)))
+(add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-maris-dark t)))
 ;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'modus-vivendi t)))
+;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'modus-vivendi-tinted t)))
 ;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'doom-city-lights t))) ;; Use without transparency
 ;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'doom-outrun-electric t)))
 #+end_src
