@@ -50,9 +50,6 @@ dotfiles:
   f_vconsole.conf:
     src: etc/vconsole.conf
     dst: /etc/vconsole.conf
-  f_theme.bash:
-    src: config/i3/themes/landscape/theme.bash
-    dst: ~/.config/i3/themes/landscape/theme.bash
   f_xprofile:
     src: xprofile
     dst: ~/.xprofile
@@ -62,21 +59,9 @@ dotfiles:
   f_config.kdl:
     src: config/zellij/config.kdl
     dst: ~/.config/zellij/config.kdl
-  d_scripts:
-    src: config/i3/scripts
-    dst: ~/.config/i3/scripts
   f_config.sh:
     src: config/dmenu-translate/config.sh
     dst: ~/.config/dmenu-translate/config.sh
-  d_config.d:
-    src: config/i3/config.d
-    dst: ~/.config/i3/config.d
-  f_config.ini:
-    src: config/i3/themes/landscape/polybar/config.ini
-    dst: ~/.config/i3/themes/landscape/polybar/config.ini
-  f_modules.ini:
-    src: config/i3/themes/landscape/polybar/modules.ini
-    dst: ~/.config/i3/themes/landscape/polybar/modules.ini
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
@@ -279,8 +264,6 @@ profiles:
     - f_tmux.conf
     - f_config.kdl
     - f_config.sh
-    - d_config.d
-    - f_modules.ini
     - f_gitconfig
     - f_config.org
     - f_early-init.el
@@ -339,8 +322,6 @@ profiles:
     - f_tmux.conf
     - f_config.kdl
     - f_config.sh
-    - d_config.d
-    - f_modules.ini
     - f_gitconfig
     - f_config.org
     - f_early-init.el
