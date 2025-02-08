@@ -22,3 +22,5 @@ keybind = alt+shift+f=goto_split:right
 keybind = alt+shift+b=goto_split:left
 keybind = alt+shift+p=goto_split:top
 keybind = alt+shift+n=goto_split:bottom
+keybind = alt+1=goto_split:left
+keybind = alt+2=goto_split:right
