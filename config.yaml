@@ -194,6 +194,10 @@ dotfiles:
   f_ghostty_config:
     src: config/ghostty/config
     dst: ~/.config/ghostty/config
+  f_brightness.sh:
+    src: bin/brightness.sh
+    dst: ~/.bin/brightness.sh
+    chmod: '755'
 profiles:
   hyper-city:
     dotfiles:
@@ -246,6 +250,7 @@ profiles:
     - f_settings.json
     - f_yandex-music.conf
     - f_ghostty_config
+    - f_brightness.sh
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -304,6 +309,7 @@ profiles:
     - f_settings.json
     - f_yandex-music.conf
     - f_ghostty_config
+    - f_brightness.sh
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -362,3 +368,4 @@ profiles:
     - f_settings.json
     - f_yandex-music.conf
     - f_ghostty_config
+    - f_brightness.sh
