@@ -579,20 +579,22 @@ Defining the various fonts that Emacs will use.
   (set-face-attribute 'font-lock-comment-face nil
                       :slant 'italic)
   (set-face-attribute 'font-lock-keyword-face nil
-                      :slant 'italic))
+                      :slant 'italic)
 
-(cz/set-fonts)
+  (set-frame-font "SauceCodePro Nerd Font-15" nil t)
 
-;; This sets the default font on all graphical frames created after restarting Emacs.
-;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
-;; are not right unless I also add this method of setting the default font.
+  ;; tab-bar
+  (set-face-attribute 'tab-bar-tab nil
+                      :inherit 'unspecified))
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame frame
+                  (cz/set-fonts))))
+  (cz/set-fonts))
+
 (add-to-list 'default-frame-alist '(font . "SauceCodePro Nerd Font-15"))
-
-(add-hook 'after-make-frame-functions (lambda () (cz/set-fonts)))
-
-;; tab-bar
-(set-face-attribute 'tab-bar-tab nil
-                    :inherit 'unspecified)
 #+end_src
 
 ** Zooming In/Out
