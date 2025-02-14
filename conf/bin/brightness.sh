@@ -13,4 +13,4 @@ case $1 in
     ;;
 esac
 
-notify-send -t 1000 "Brightness" "$(brightnessctl g | awk '{print int($1 / $(brightnessctl m) * 100)}')"
+notify-send -t 1000 "Brightness" "$(brightnessctl | grep 'Current brightness' | awk -F'[()%]' '{print $2}')%" -h string:x-canonical-private-synchronous:brightness -i display-brightness-symbolic
