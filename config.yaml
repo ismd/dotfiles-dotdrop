@@ -198,6 +198,10 @@ dotfiles:
     src: bin/brightness.sh
     dst: ~/.bin/brightness.sh
     chmod: '755'
+  f_51-mitigate-annoying-profile-switch.conf:
+    src: config/wireplumber/wireplumber.conf.d/51-mitigate-annoying-profile-switch.conf
+    dst:
+      ~/.config/wireplumber/wireplumber.conf.d/51-mitigate-annoying-profile-switch.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -251,6 +255,7 @@ profiles:
     - f_yandex-music.conf
     - f_ghostty_config
     - f_brightness.sh
+    - f_51-mitigate-annoying-profile-switch.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -310,6 +315,7 @@ profiles:
     - f_yandex-music.conf
     - f_ghostty_config
     - f_brightness.sh
+    - f_51-mitigate-annoying-profile-switch.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -369,3 +375,4 @@ profiles:
     - f_yandex-music.conf
     - f_ghostty_config
     - f_brightness.sh
+    - f_51-mitigate-annoying-profile-switch.conf
