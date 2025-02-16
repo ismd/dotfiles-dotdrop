@@ -2021,7 +2021,7 @@ https://github.com/Alexander-Miller/treemacs
   :ensure t
   :config
   (ws-butler-global-mode 1) 
-  (setq ws-butler-global-exempt-modes '(markdown-mode)))
+  (setq ws-butler-global-exempt-modes '(dockerfile-ts-mode markdown-mode terraform-mode)))
 #+end_src
 
 * VERTICO
