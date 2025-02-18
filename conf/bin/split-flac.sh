@@ -19,7 +19,8 @@ fd . -e cue "$DIR" --print0 | while IFS= read -r -d '' FILE; do
   mkdir -p "$CUE_DIR/.split"
 
   enca -L ru -x UTF-8 "$FILE"
-  shnsplit -d "$CUE_DIR/.split" -f "$FILE" -t "%n. %t" "$CUE_DIR"/*.flac
+  shnsplit -d "$CUE_DIR/.split" -f "$FILE" -t "%n. %t" -o "flac flac -V --best -o %f -" "$CUE_DIR"/*.flac
+
   rm -f "$CUE_DIR/.split"/00*pregap*
   cuetag.sh "$FILE" "$CUE_DIR/.split"/*.flac
 
