@@ -202,6 +202,10 @@ dotfiles:
     src: config/wireplumber/wireplumber.conf.d/51-mitigate-annoying-profile-switch.conf
     dst:
       ~/.config/wireplumber/wireplumber.conf.d/51-mitigate-annoying-profile-switch.conf
+  f_split-flac.sh:
+    src: bin/split-flac.sh
+    dst: ~/.bin/split-flac.sh
+    chmod: '755'
 profiles:
   hyper-city:
     dotfiles:
@@ -256,6 +260,7 @@ profiles:
     - f_ghostty_config
     - f_brightness.sh
     - f_51-mitigate-annoying-profile-switch.conf
+    - f_split-flac.sh
   ismd-work:
     dotfiles:
     - f_editorconfig
