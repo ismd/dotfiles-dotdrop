@@ -79,6 +79,7 @@ application/pdf=org.gnome.Evince.desktop;org.pwmt.zathura-pdf-mupdf.desktop;okul
 image/vnd.djvu+multipage=org.gnome.Evince.desktop;
 application/epub+zip=okularApplication_epub.desktop;org.gnome.Evince.desktop;
 image/webp=gimp.desktop;
+application/x-cue=ec.desktop;
 
 [Default Applications]
 application/json=ec.desktop;
