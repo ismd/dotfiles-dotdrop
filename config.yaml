@@ -307,7 +307,6 @@ profiles:
     - f_chrome-flags.conf
     - f_chromium-flags.conf
     - f_electron-flags.conf
-    - f_tlp.conf
     - d_waybar
     - f_settings.ini
     - f_gtk-3.0_settings.ini
@@ -368,7 +367,6 @@ profiles:
     - f_chrome-flags.conf
     - f_chromium-flags.conf
     - f_electron-flags.conf
-    - f_tlp.conf
     - d_waybar
     - f_settings.ini
     - f_gtk-3.0_settings.ini
