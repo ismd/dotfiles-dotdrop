@@ -402,10 +402,21 @@
   "theme.bar.margin_top": "0.5em",
   "theme.bar.margin_sides": "0.5em",
   "bar.workspaces.show_icons": false,
-  "bar.workspaces.show_numbered": false,
+  "bar.workspaces.show_numbered": true,
   "menus.volume.raiseMaximumVolume": false,
   "menus.clock.time.military": false,
   "menus.clock.time.hideSeconds": false,
   "menus.clock.weather.location": "Los Angeles",
-  "menus.clock.weather.unit": "imperial"
+  "menus.clock.weather.unit": "imperial",
+  "theme.bar.menus.monochrome": false,
+  "wallpaper.pywal": true,
+  "wallpaper.image": "/home/ismd/Pictures/wallpaper.jpg",
+  "theme.bar.menus.opacity": 97,
+  "theme.matugen": true,
+  "theme.matugen_settings.mode": "light",
+  "theme.matugen_settings.scheme_type": "fidelity",
+  "theme.matugen_settings.variation": "standard_1",
+  "theme.matugen_settings.contrast": 0,
+  "theme.bar.transparent": false,
+  "theme.bar.opacity": 97
 }
