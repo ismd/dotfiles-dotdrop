@@ -411,12 +411,13 @@
   "theme.bar.menus.monochrome": false,
   "wallpaper.pywal": true,
   "wallpaper.image": "/home/ismd/Pictures/wallpaper.jpg",
-  "theme.bar.menus.opacity": 97,
+  "theme.bar.menus.opacity": 100,
   "theme.matugen": true,
   "theme.matugen_settings.mode": "light",
   "theme.matugen_settings.scheme_type": "fidelity",
   "theme.matugen_settings.variation": "standard_1",
   "theme.matugen_settings.contrast": 0,
   "theme.bar.transparent": false,
-  "theme.bar.opacity": 97
+  "theme.bar.opacity": 90,
+  "theme.notification.opacity": 90
 }
