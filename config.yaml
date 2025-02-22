@@ -50,9 +50,6 @@ dotfiles:
   f_vconsole.conf:
     src: etc/vconsole.conf
     dst: /etc/vconsole.conf
-  f_xprofile:
-    src: xprofile
-    dst: ~/.xprofile
   f_tmux.conf:
     src: config/tmux/tmux.conf
     dst: ~/.config/tmux/tmux.conf
@@ -275,7 +272,6 @@ profiles:
     - f_user-dirs.locale
     - f_ec.desktop
     - f_vconsole.conf
-    - f_xprofile
     - f_tmux.conf
     - f_config.kdl
     - f_config.sh
@@ -335,7 +331,6 @@ profiles:
     - f_user-dirs.locale
     - f_ec.desktop
     - f_vconsole.conf
-    - f_xprofile
     - f_tmux.conf
     - f_config.kdl
     - f_config.sh
