@@ -14,6 +14,8 @@ fish_add_path -p ~/.pub-cache/bin
 abbr -a aci arc commit
 abbr -a aco arc checkout
 abbr -a acob arc checkout -b
+abbr -a dc dotdrop compare
+abbr -a di dotdrop install
 abbr -a gci git commit
 abbr -a gco git checkout
 abbr -a gcob git checkout -b
