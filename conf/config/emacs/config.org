@@ -50,6 +50,7 @@
 - [[#kubernetes][KUBERNETES]]
 - [[#language-support][LANGUAGE SUPPORT]]
   - [[#dart][Dart]]
+  - [[#fish][Fish]]
   - [[#go][Go]]
   - [[#json][JSON]]
   - [[#markdown][Markdown]]
@@ -1193,6 +1194,14 @@ https://github.com/amake/flutter.el
               ("C-M-x" . #'flutter-run-or-hot-reload))
   :custom
   (flutter-sdk-path "~/src/flutter"))
+#+end_src
+
+** Fish
+https://github.com/emacsmirror/fish-mode
+
+#+begin_src emacs-lisp
+(use-package fish-mode
+  :ensure t)
 #+end_src
 
 ** Go
