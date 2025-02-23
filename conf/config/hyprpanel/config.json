@@ -395,7 +395,7 @@
   "tear": false,
   "menus.transition": "crossfade",
   "scalingPriority": "gdk",
-  "theme.bar.floating": false,
+  "theme.bar.floating": true,
   "bar.autoHide": "never",
   "theme.bar.buttons.enableBorders": false,
   "theme.bar.margin_bottom": "0em",
