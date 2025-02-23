@@ -404,10 +404,10 @@
   "bar.workspaces.show_icons": false,
   "bar.workspaces.show_numbered": true,
   "menus.volume.raiseMaximumVolume": false,
-  "menus.clock.time.military": false,
-  "menus.clock.time.hideSeconds": false,
-  "menus.clock.weather.location": "Los Angeles",
-  "menus.clock.weather.unit": "imperial",
+  "menus.clock.time.military": true,
+  "menus.clock.time.hideSeconds": true,
+  "menus.clock.weather.location": "Belgrade",
+  "menus.clock.weather.unit": "metric",
   "theme.bar.menus.monochrome": false,
   "wallpaper.pywal": true,
   "wallpaper.image": "/home/ismd/Pictures/wallpaper.jpg",
@@ -419,5 +419,6 @@
   "theme.matugen_settings.contrast": 0,
   "theme.bar.transparent": false,
   "theme.bar.opacity": 90,
-  "theme.notification.opacity": 90
+  "theme.notification.opacity": 90,
+  "bar.customModules.cava.showActiveOnly": true
 }
