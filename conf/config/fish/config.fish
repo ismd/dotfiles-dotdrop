@@ -1,8 +1,4 @@
 if status is-interactive
-    function postexec_newline --on-event fish_postexec
-        echo
-    end
-
     set -U fish_greeting
 end
 
