@@ -1,8 +1,10 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+    function postexec_newline --on-event fish_postexec
+        echo
+    end
 
-set fish_greeting
+    set -U fish_greeting
+end
 
 # PATH
 fish_add_path -p ~/.bin
@@ -12,6 +14,14 @@ fish_add_path -p ~/.config/emacs/bin
 fish_add_path -p ~/src/flutter/bin
 fish_add_path -p ~/.pub-cache/bin
 
+# Abbreviations
+abbr -a aci arc commit
+abbr -a aco arc checkout
+abbr -a acob arc checkout -b
+abbr -a gci git commit
+abbr -a gco git checkout
+abbr -a gcob git checkout -b
+
 # Aliases
-alias dotdrop='~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
-alias nv=nvim
+alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
+alias nv nvim
