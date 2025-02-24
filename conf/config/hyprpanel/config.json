@@ -420,5 +420,62 @@
   "theme.bar.transparent": false,
   "theme.bar.opacity": 90,
   "theme.notification.opacity": 90,
+  {%@@ if profile == "hyper-city" @@%}
+  "bar.customModules.cava.showActiveOnly": true,
+  "bar.customModules.weather.unit": "metric",
+  "bar.battery.label": true,
+  "bar.battery.hideLabelWhenFull": false,
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "network",
+        "bluetooth",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  }
+  {%@@ else @@%}
   "bar.customModules.cava.showActiveOnly": true
+  {%@@ endif @@%}
 }
