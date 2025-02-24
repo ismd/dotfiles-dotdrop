@@ -5,7 +5,6 @@ end
 # PATH
 fish_add_path -p ~/.bin
 fish_add_path -p ~/.local/bin
-fish_add_path -p ~/.local/share/nvm/v20.18.2/bin
 fish_add_path -p ~/.config/emacs/bin
 fish_add_path -p ~/src/flutter/bin
 fish_add_path -p ~/.pub-cache/bin
@@ -26,3 +25,6 @@ abbr -a gs git status
 # Aliases
 alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
 alias nv nvim
+
+# nvm
+set -U nvm_default_version lts/iron
