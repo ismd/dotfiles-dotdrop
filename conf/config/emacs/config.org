@@ -663,7 +663,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (cz/leader-keys-C-x
     "b" '(consult-project-buffer :wk "Switch buffer")
     "B" '(consult-buffer-other-window :wk "Switch buffer other window")
-    "k" '(kill-this-buffer :wk "Kill this buffer")
+    "k" '(kill-current-buffer :wk "Kill this buffer")
     "K" '(kill-buffer-and-window :wk "Kill buffer"))
 
   ;;
@@ -701,7 +701,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "b C" '(clone-indirect-buffer-other-window :wk "Clone indirect buffer in new window")
     "b d" '(bookmark-delete :wk "Delete bookmark")
     "b I" '(ibuffer :wk "Ibuffer")
-    "b k" '(kill-this-buffer :wk "Kill this buffer")
+    "b k" '(kill-current-buffer :wk "Kill this buffer")
     "b l" '(list-bookmarks :wk "List bookmarks")
     "b m" '(bookmark-set :wk "Set bookmark")
     "b n" '(next-buffer :wk "Next buffer")
@@ -732,7 +732,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
               (progn
                 (delete-file filename)
                 (message "Deleted file %s" filename)
-                (kill-this-buffer))
+                (kill-current-buffer))
             (message "Canceled"))
         (message "Not a file"))))
 
