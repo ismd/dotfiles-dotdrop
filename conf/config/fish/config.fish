@@ -19,6 +19,9 @@ abbr -a di dotdrop install
 abbr -a gci git commit
 abbr -a gco git checkout
 abbr -a gcob git checkout -b
+abbr -a gd git diff
+abbr -a gp git pull
+abbr -a gs git status
 
 # Aliases
 alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
