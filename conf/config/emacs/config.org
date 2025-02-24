@@ -1528,6 +1528,8 @@ https://github.com/oantolin/orderless
 
 #+begin_src emacs-lisp
 (setq org-directory "~/org/")
+
+(add-hook 'org-mode-hook (lambda () (setq tab-width 8)))
 #+end_src
 
 ** Enabling Table of Contents
