@@ -203,9 +203,6 @@ dotfiles:
   f_config.json:
     src: config/hyprpanel/config.json
     dst: ~/.config/hyprpanel/config.json
-  f_fish_prompt.fish:
-    src: config/fish/functions/fish_prompt.fish
-    dst: ~/.config/fish/functions/fish_prompt.fish
   f_multicd.fish:
     src: config/fish/functions/multicd.fish
     dst: ~/.config/fish/functions/multicd.fish
@@ -264,7 +261,6 @@ profiles:
     - f_51-mitigate-annoying-profile-switch.conf
     - f_split-flac.sh
     - f_config.json
-    - f_fish_prompt.fish
     - f_multicd.fish
   ismd-work:
     dotfiles:
@@ -325,7 +321,6 @@ profiles:
     - f_51-mitigate-annoying-profile-switch.conf
     - f_split-flac.sh
     - f_config.json
-    - f_fish_prompt.fish
     - f_multicd.fish
   ismd-black:
     dotfiles:
@@ -386,5 +381,4 @@ profiles:
     - f_51-mitigate-annoying-profile-switch.conf
     - f_split-flac.sh
     - f_config.json
-    - f_fish_prompt.fish
     - f_multicd.fish
