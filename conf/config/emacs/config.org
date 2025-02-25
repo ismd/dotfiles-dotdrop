@@ -162,7 +162,7 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 
 #+begin_src emacs-lisp
 ;; Light themes
-(add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-deuteranopia-light t)))
+(add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-light t)))
 
 ;; Dark themes
 ;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-maris-dark t)))
