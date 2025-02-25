@@ -17,8 +17,8 @@ abbr -a adi arc diff
 abbr -a apl arc pull
 abbr -a aps arc push
 abbr -a ast arc status
-abbr -a dco dotdrop compare
-abbr -a din dotdrop install
+abbr -a dc dotdrop compare
+abbr -a di dotdrop install
 abbr -a gci git commit
 abbr -a gco git checkout
 abbr -a gcob git checkout -b
