@@ -90,6 +90,7 @@
 - [[#sane-defaults][SANE DEFAULTS]]
   - [[#scroll][Scroll]]
   - [[#tab-bar][Tab Bar]]
+  - [[#tab-line][Tab Line]]
 - [[#shells-and-terminals][SHELLS AND TERMINALS]]
   - [[#eshell][Eshell]]
   - [[#vterm][Vterm]]
@@ -616,15 +617,18 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-=" '(text-scale-increase :wk "Increase font size")
    "C--" '(text-scale-decrease :wk "Decrease font size")
    "C-0" '(text-scale-adjust :wk "Adjust font size")
-   "C-1" '((lambda () (interactive) (tab-bar-select-tab 1)) :wk "Select tab 1")
-   "C-2" '((lambda () (interactive) (tab-bar-select-tab 2)) :wk "Select tab 2")
-   "C-3" '((lambda () (interactive) (tab-bar-select-tab 3)) :wk "Select tab 3")
-   "C-4" '((lambda () (interactive) (tab-bar-select-tab 4)) :wk "Select tab 4")
-   "C-5" '((lambda () (interactive) (tab-bar-select-tab 5)) :wk "Select tab 5")
-   "C-6" '((lambda () (interactive) (tab-bar-select-tab 6)) :wk "Select tab 6")
-   "C-7" '((lambda () (interactive) (tab-bar-select-tab 7)) :wk "Select tab 7")
-   "C-8" '((lambda () (interactive) (tab-bar-select-tab 8)) :wk "Select tab 8")
-   "C-9" '((lambda () (interactive) (tab-bar-select-tab 9)) :wk "Select tab 9")
+   ;; "C-1" '((lambda () (interactive) (tab-bar-select-tab 1)) :wk "Select tab 1")
+   ;; "C-2" '((lambda () (interactive) (tab-bar-select-tab 2)) :wk "Select tab 2")
+   ;; "C-3" '((lambda () (interactive) (tab-bar-select-tab 3)) :wk "Select tab 3")
+   ;; "C-4" '((lambda () (interactive) (tab-bar-select-tab 4)) :wk "Select tab 4")
+   ;; "C-5" '((lambda () (interactive) (tab-bar-select-tab 5)) :wk "Select tab 5")
+   ;; "C-6" '((lambda () (interactive) (tab-bar-select-tab 6)) :wk "Select tab 6")
+   ;; "C-7" '((lambda () (interactive) (tab-bar-select-tab 7)) :wk "Select tab 7")
+   ;; "C-8" '((lambda () (interactive) (tab-bar-select-tab 8)) :wk "Select tab 8")
+   ;; "C-9" '((lambda () (interactive) (tab-bar-select-tab 9)) :wk "Select tab 9")
+
+   "C-<tab>" '(tab-line-switch-to-next-tab :wk "Switch to next tab")
+   "C-<iso-lefttab>" '(tab-line-switch-to-prev-tab :wk "Switch to previous tab")
 
    "C-;" '(complete-symbol :wk "Complete symbol")
    "C-a" '(mwim-beginning-of-code-or-line :wk "Beginning of line or indentation")
@@ -1659,6 +1663,8 @@ https://github.com/emacsorphanage/popwin
 * PROJECT
 
 #+begin_src emacs-lisp
+(setq project-file-history-behavior 'relativize
+      project-mode-line t)
 (setq project-switch-commands
       '((project-find-file "File" "f")
         (project-dired "Directory" "d")
@@ -1671,10 +1677,10 @@ https://github.com/emacsorphanage/popwin
 https://github.com/fritzgrabo/project-tab-groups
 
 #+begin_src emacs-lisp
-(use-package project-tab-groups
-  :ensure t
-  :config
-  (project-tab-groups-mode 1))
+;; (use-package project-tab-groups
+;;   :ensure t
+;;   :config
+;;   (project-tab-groups-mode 1))
 #+end_src
 
 * PROJECTILE
@@ -1790,6 +1796,28 @@ The following settings are simple modes that are enabled (or disabled) so that E
       tab-bar-new-tab-choice "*scratch*"
       tab-bar-new-tab-to 'rightmost
       tab-bar-tab-hints t)
+#+end_src
+
+** Tab Line
+
+#+begin_src emacs-lisp
+(defun cz/get-project-file-buffers ()
+  (project-buffers (project-current)))
+
+(use-package tab-line
+  :ensure nil
+  :hook (elpaca-after-init-hook . global-tab-line-mode)
+  :config
+  (setq tab-line-new-button-show nil
+        tab-line-close-button-show nil
+        tab-line-switch-cycling t
+        tab-line-tabs-buffer-group-function #'cz/tab-line-tabs-buffer-group-by-project
+        tab-line-tabs-function #'tab-line-tabs-buffer-groups))
+
+(defun cz/tab-line-tabs-buffer-group-by-project (buffer)
+  "Group buffers by project, excluding non-file buffers."
+  (when (buffer-file-name buffer)
+    (tab-line-tabs-buffer-group-by-project buffer)))
 #+end_src
 
 * SHELLS AND TERMINALS
