@@ -394,7 +394,7 @@
   "terminal": "$TERM",
   "tear": false,
   "menus.transition": "crossfade",
-  "scalingPriority": "gdk",
+  "scalingPriority": "hyprland",
   "theme.bar.floating": true,
   "bar.autoHide": "never",
   "theme.bar.buttons.enableBorders": false,
