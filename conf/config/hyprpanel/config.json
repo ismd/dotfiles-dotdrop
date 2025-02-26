@@ -420,5 +420,6 @@
   "theme.bar.transparent": false,
   "theme.bar.opacity": 90,
   "theme.notification.opacity": 90,
-  "bar.customModules.cava.showActiveOnly": true
+  "bar.customModules.cava.showActiveOnly": true,
+  "bar.customModules.weather.unit": "metric"
 }
