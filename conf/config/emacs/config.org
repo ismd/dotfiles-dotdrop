@@ -1677,10 +1677,8 @@ https://github.com/emacsorphanage/popwin
 https://github.com/fritzgrabo/project-tab-groups
 
 #+begin_src emacs-lisp
-;; (use-package project-tab-groups
-;;   :ensure t
-;;   :config
-;;   (project-tab-groups-mode 1))
+(use-package project-tab-groups
+  :ensure t)
 #+end_src
 
 * PROJECTILE
