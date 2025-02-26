@@ -36,4 +36,5 @@ alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
 alias nv nvim
 
 # nvm
-set -U nvm_default_version lts/iron
+set -U nvm_default_version lts/jod
+set -U nvm_data ~/.nvm
