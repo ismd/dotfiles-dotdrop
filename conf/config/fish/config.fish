@@ -10,6 +10,7 @@ fish_add_path -p ~/src/flutter/bin
 fish_add_path -p ~/.pub-cache/bin
 
 # Abbreviations
+abbr -a aa arc add
 abbr -a aci arc commit
 abbr -a aco arc checkout
 abbr -a acob arc checkout -b
@@ -21,6 +22,7 @@ abbr -a as arc status
 abbr -a dc dotdrop compare
 abbr -a di dotdrop install
 
+abbr -a ga git add 
 abbr -a gci git commit
 abbr -a gco git checkout
 abbr -a gcob git checkout -b
