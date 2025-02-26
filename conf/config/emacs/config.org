@@ -1666,7 +1666,8 @@ https://github.com/emacsorphanage/popwin
 (setq project-file-history-behavior 'relativize
       project-mode-line t)
 (setq project-switch-commands
-      '((project-find-file "File" "f")
+      '((project-switch-to-buffer "Buffer" "b")
+        (project-find-file "File" "f")
         (project-dired "Directory" "d")
         (magit-project-status "Magit" "m")
         (consult-ripgrep "ripgrep" "r")))
