@@ -69,6 +69,7 @@
   - [[#nerd-icons-completion][Nerd Icons Completion]]
   - [[#nerd-icons-corfu][Nerd Icons Corfu]]
   - [[#nerd-icons-ibuffer][Nerd Icons Ibuffer]]
+- [[#nvm][NVM]]
 - [[#orderless][ORDERLESS]]
 - [[#org-mode][ORG MODE]]
   - [[#enabling-table-of-contents][Enabling Table of Contents]]
@@ -1512,6 +1513,16 @@ https://github.com/seagle0128/nerd-icons-ibuffer
           (mark " "
                 (name 50 -1)
                 " " filename))))
+#+end_src
+
+* NVM
+https://github.com/rejeep/nvm.el
+
+#+begin_src emacs-lisp
+(use-package nvm
+  :ensure (:host github :repo "rejeep/nvm.el")
+  :config
+  (nvm-use "22"))
 #+end_src
 
 * ORDERLESS
