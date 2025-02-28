@@ -1820,8 +1820,8 @@ The following settings are simple modes that are enabled (or disabled) so that E
   :custom-face
   (tab-line-tab-group ((t (:foreground "#002FA0"))))
   :config
-  (setq tab-line-new-button-show nil
-        tab-line-close-button-show nil
+  (setq tab-line-close-button-show nil
+        tab-line-new-button-show nil
         tab-line-switch-cycling t
         tab-line-tabs-buffer-group-function #'cz/tab-line-tabs-buffer-group-by-project
         tab-line-tabs-function #'tab-line-tabs-buffer-groups)
