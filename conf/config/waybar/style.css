@@ -73,3 +73,7 @@ window#waybar {
 #tray {
   padding-top: 2px;
 }
+
+#battery {
+  padding-right: 10px;
+}
