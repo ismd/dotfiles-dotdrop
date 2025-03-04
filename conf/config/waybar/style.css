@@ -62,8 +62,13 @@ window#waybar {
 #custom-power,
 #custom-menu,
 #idle_inhibitor,
-#language {
+#language,
+#bluetooth {
   padding: 0 20px;
+}
+
+#clock {
+  padding-left: 0;
 }
 
 #language {
@@ -72,8 +77,4 @@ window#waybar {
 
 #tray {
   padding-top: 2px;
-}
-
-#battery {
-  padding-right: 10px;
 }

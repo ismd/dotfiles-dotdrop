@@ -11,8 +11,9 @@
     ],
     "modules-right": [
         "hyprland/language",
-        "tray",        
+        "tray",
         "wireplumber",
+        "bluetooth",
         "battery",
         "clock"
     ],
@@ -43,6 +44,14 @@
         "max-volume": 200,
         "format-icons": ["", "", ""],
         "on-click": "pavucontrol"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
     },
     "battery": {
         "format": "{icon}",
