@@ -6,12 +6,6 @@
 }
 
 window#waybar {
-  background: rgba(0, 0, 0, 0);
-}
-
-.modules-left,
-.modules-center,
-.modules-right {
   background-color: rgba(0, 43, 51, .7);
 }
 
@@ -28,7 +22,7 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 2px 8px 2px 9px;
+  padding: 1px 8px 3px 9px;
   background-color: transparent;
 }
 
@@ -49,41 +43,11 @@ window#waybar {
   background: rgba(255, 0, 0, 0.2);
 }
 
-#clock,
 #battery,
-#cpu,
-#memory,
-#temperature,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#custom-power,
-#custom-menu,
-#idle_inhibitor,
+#bluetooth,
+#clock,
 #language,
-#bluetooth {
-  padding: 0 20px;
-}
-
-#clock {
-  padding-left: 0;
-}
-
-#language {
-  padding-right: 0;
-}
-
-#tray {
-  padding-top: 2px;
-}
-
-#battery {
-  padding-left: 0;
-  padding-right: 26px;
-}
-
-#bluetooth {
-  padding-top: 2px;
+#tray,
+#wireplumber {
+  padding: 1px 13px 0;
 }
