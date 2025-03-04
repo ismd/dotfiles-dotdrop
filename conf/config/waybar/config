@@ -1,28 +1,48 @@
 {
-    "layer": "top",
     "position": "bottom",
-    "height": 36,
-    "margin": "0 10 18 10",
+    "margin": "0 10px 9px 10px",
+    "reload_style_on_change": true,
 
     "modules-left": [
         "hyprland/workspaces"
     ],
-    "modules-center": [],
+    "modules-center": [
+        "hyprland/window"
+    ],
     "modules-right": [
-        "tray",
-        "battery",
         "hyprland/language",
+        "tray",        
         "wireplumber",
+        "battery",
         "clock"
     ],
 
+    "hyprland/window": {
+        "format": "{title}",
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 20
+    },
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
         "all-outputs": true
     },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "format-sr": "SR"
+    },
     "tray": {
         "spacing": 10
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "max-volume": 200,
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol"
     },
     "battery": {
         "format": "{icon}",
@@ -32,14 +52,8 @@
             "critical": 15
         }
     },
-    "wireplumber": {
-        "format": "{icon} {volume}%",
-        "format-muted": "",
-        "max-volume": 150,
-        "format-icons": ["", "", ""]
-    },
     "clock": {
-        "format": " {:%H:%M}",
+        "format": "{:%a, %d %b %H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -51,11 +65,5 @@
                 "today": "<span color='#a6e3a1'><b><u>{}</u></b></span>"
             }
         }
-    },
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "EN",
-        "format-ru": "RU",
-        "format-sr": "SR"
-    }
+    }    
 }
