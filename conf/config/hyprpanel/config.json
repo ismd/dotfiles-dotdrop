@@ -403,7 +403,7 @@
   "theme.bar.margin_sides": "10px",
   "bar.workspaces.show_icons": false,
   "bar.workspaces.show_numbered": true,
-  "menus.volume.raiseMaximumVolume": false,
+  "menus.volume.raiseMaximumVolume": true,
   "menus.clock.time.military": true,
   "menus.clock.time.hideSeconds": false,
   "menus.clock.weather.location": "Belgrade",
