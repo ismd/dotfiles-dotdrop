@@ -18,7 +18,7 @@ window#waybar {
 }
 
 .modules-center {
-  padding: 0 12px 2px;
+  padding: 0 12px;
 }
 
 .modules-right {
@@ -26,13 +26,13 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 1px 8px 3px;
+  padding: 2px 8px 3px;
   background-color: transparent;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
-	background-color: rgba(0,153,153,1);
+  background-color: rgba(0, 153, 153, 1);
 }
 
 #workspaces button.focused {
@@ -40,11 +40,11 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: rgba(192, 192, 192, 0.5);
+  background: rgba(192, 192, 192, .5);
 }
 
 #workspaces button.urgent {
-  background: rgba(255, 0, 0, 0.2);
+  background: rgba(255, 0, 0, .2);
 }
 
 #battery,
