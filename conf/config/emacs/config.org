@@ -1664,10 +1664,12 @@ https://github.com/emacsorphanage/popwin
 (use-package popwin
   :ensure t
   :config
-  (push "*Flycheck errors*" popwin:special-display-config)
-  (push "*lsp-help*" popwin:special-display-config)
-  (push "*Warnings*" popwin:special-display-config)
-  (push "*xref*" popwin:special-display-config)
+  (dolist (buffer '("*Flycheck errors*"
+                    "*Org Links*"
+                    "*Warnings*"
+                    "*lsp-help*"
+                    "*xref*"))
+    (push buffer popwin:special-display-config))
   (popwin-mode 1))
 #+end_src
 
