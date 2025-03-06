@@ -55,3 +55,10 @@ window#waybar {
 #wireplumber {
   padding: 1px 13px 0;
 }
+
+#battery,
+#bluetooth,
+#tray,
+#wireplumber {
+  padding-top: 2px;
+}
