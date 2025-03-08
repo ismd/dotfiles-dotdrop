@@ -894,6 +894,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "w m n" '(buf-move-down :wk "Buffer move down")
     "w m p" '(buf-move-up :wk "Buffer move up")
     "w m f" '(buf-move-right :wk "Buffer move right")
+    "w s" '(cz/window-split-toggle :wk "Toggle window split")
     "w w" '(:ignore t :wk "Tabspaces")
     "w w C" '(tabspaces-clear-buffers :wk "Tabspaces clear buffers"))
 
