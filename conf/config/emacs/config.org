@@ -921,6 +921,14 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-f" '(copilot-accept-completion-by-word :wk "Accept completion by word"))
 
   ;;
+  ;; Copilot Chat
+  ;;
+  (general-define-key
+   :keymaps 'copilot-chat-prompt-mode-map
+   "M-n" nil
+   "M-p" nil)
+
+  ;;
   ;; Corfu
   ;;
   (general-define-key
@@ -999,6 +1007,14 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    :keymaps 'org-mode-map
    "M-g a" '(consult-org-agenda :wk "Org agenda")
    "M-g o" '(consult-org-heading :wk "Org heading"))
+
+  ;;
+  ;; Polymode
+  ;;
+  (general-define-key
+   :keymaps 'polymode-mode-map
+   "M-n" nil
+   "M-p" nil)
 
   ;;
   ;; Projectile
