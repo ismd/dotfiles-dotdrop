@@ -3,3 +3,4 @@ flycheck_*
 .idea
 .terraform
 node_modules
+.aider*
