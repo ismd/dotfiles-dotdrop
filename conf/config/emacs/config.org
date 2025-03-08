@@ -14,6 +14,7 @@
   - [[#lsp-keymap-init][LSP Keymap Init]]
 - [[#ai][AI]]
   - [[#github-copilot][GitHub Copilot]]
+  - [[#github-copilot-chat][GitHub Copilot Chat]]
   - [[#gptel][gptel]]
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#atomic-chrome][ATOMIC CHROME]]
@@ -200,6 +201,16 @@ https://github.com/copilot-emacs/copilot.el
                     (setq-local copilot--indent-warning-printed-p t)))
   :custom
   (copilot-indent-offset-warning-disable t))
+#+end_src
+
+** GitHub Copilot Chat
+https://github.com/chep/copilot-chat.el
+
+#+begin_src emacs-lisp
+(use-package copilot-chat
+  :ensure t
+  :hook (git-commit-setup . copilot-chat-insert-commit-message))
+
 #+end_src
 
 ** gptel
@@ -693,9 +704,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "a" '(:ignore t :wk "AI")
     "a RET" '(gptel-send :wk "Send to GPTel")
     "a M-RET" '(gptel-menu :wk "GPTel menu")
-    "a g" '(gptel :wk "GPTel")
     "a a" '(gptel-add :wk "GPTel add")
-    "a f" '(gptel-add-file :wk "GPTel add file"))
+    "a g" '(gptel :wk "GPTel")
+    "a f" '(gptel-add-file :wk "GPTel add file")
+    "a r" '(gptel-rewrite :wk "GPTel rewrite"))
 
   (cz/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
