@@ -210,8 +210,10 @@ https://github.com/chep/copilot-chat.el
 (use-package copilot-chat
   :ensure t
   :hook (git-commit-setup . copilot-chat-insert-commit-message)
+  :custom
+  (copilot-chat-follow t)
   :config
-  (copilot-chat-set-model "claude-3.7-sonnet"))
+  (copilot-chat-set-model "claude-3.7-sonnet-thought"))
 #+end_src
 
 ** gptel
@@ -1787,7 +1789,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 #+begin_src emacs-lisp
 (delete-selection-mode 1)    ;; You can select text and delete it by typing.
-;; (desktop-save-mode 1)        ;; Save the desktop on exit.
+(desktop-save-mode 1)        ;; Save the desktop on exit.
 ;; (electric-indent-mode -1)    ;; Turn off the weird indenting that Emacs does by default.
 (electric-pair-mode 1)       ;; Turns on automatic parens pairing
 ;; The following prevents <> from auto-pairing when electric-pair-mode is on.
@@ -1813,12 +1815,17 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 (setq calendar-week-start-day 1) ;; Set the calendar to start on Monday
 (setq completion-cycle-threshold 3)
+(setq desktop-restore-frames t)
 (setq dired-kill-when-opening-new-dired-buffer t)
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message nil)
 (setq org-edit-src-content-indentation 0) ;; Set src block automatic indent to 0 instead of 2.
 (setq save-place-file (concat user-emacs-directory ".emacs-places"))
 (setq warning-minimum-level :error)
+
+;; Auto-save when Emacs is idle
+(run-with-idle-timer 300 t (lambda ()
+                             (desktop-save desktop-dirname)))
 #+end_src
 
 ** Scroll
