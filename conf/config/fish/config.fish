@@ -38,3 +38,8 @@ alias nv nvim
 # nvm
 set -U nvm_default_version lts/jod
 set -U nvm_data ~/.nvm
+
+# Secrets
+if test -f ~/.config/fish/secrets.fish
+    source ~/.config/fish/secrets.fish
+end
