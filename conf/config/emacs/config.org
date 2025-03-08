@@ -209,7 +209,9 @@ https://github.com/chep/copilot-chat.el
 #+begin_src emacs-lisp
 (use-package copilot-chat
   :ensure t
-  :hook (git-commit-setup . copilot-chat-insert-commit-message))
+  :hook (git-commit-setup . copilot-chat-insert-commit-message)
+  :config
+  (copilot-chat-set-model "claude-3.7-sonnet"))
 #+end_src
 
 ** gptel
@@ -702,12 +704,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (cz/leader-keys
     "a" '(:ignore t :wk "AI")
     "a c" '(:ignore t :wk "Copilot Chat")
-    "a c a" '(copilot-chat-add-current-buffer :wk "Add current buffer")
-    "a c c" '(copilot-chat-display :wk "Chat display")
-    "a c d" '(copilot-chat-del-current-buffer :wk "Delete current buffer")
-    "a c l" '(copilot-chat-list :wk "Copilot chat list")
+    "a c RET" '(copilot-chat-display :wk "Chat display")
     "a c M-RET" '(copilot-chat-transient :wk "Copilot chat transient")
-    ;; TODO copilot-chat-transient-code
+    "a c b" '(copilot-chat-transient-buffers :wk "Buffers")
+    "a c c" '(copilot-chat-transient-code :wk "Code")
     "a g" '(:ignore t :wk "GPTel")
     "a g RET" '(gptel-send :wk "Send to GPTel")
     "a g M-RET" '(gptel-menu :wk "GPTel menu")
