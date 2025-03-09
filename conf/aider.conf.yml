@@ -1,2 +1,3 @@
+model: sonnet
 cache-prompts: true
 light-mode: true
