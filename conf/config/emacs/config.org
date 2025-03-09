@@ -13,6 +13,7 @@
   - [[#themes][Themes]]
   - [[#lsp-keymap-init][LSP Keymap Init]]
 - [[#ai][AI]]
+  - [[#aider][Aider]]
   - [[#github-copilot][GitHub Copilot]]
   - [[#github-copilot-chat][GitHub Copilot Chat]]
   - [[#gptel][gptel]]
@@ -114,6 +115,7 @@
   - [[#lastfm][Last.fm]]
 - [[#xref][XREF]]
 - [[#which-key][WHICH-KEY]]
+- [[#window-management][WINDOW MANAGEMENT]]
 - [[#window-numbering][WINDOW NUMBERING]]
 - [[#workspaces][WORKSPACES]]
 
@@ -183,6 +185,14 @@ This variable must be set before the =lsp= package is loaded.
 #+end_src
 
 * AI
+
+** Aider
+https://github.com/tninja/aider.el
+
+#+begin_src emacs-lisp
+(use-package aider
+  :straight (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-core.el" "aider-file.el" "aider-code-change.el" "aider-discussion.el" "aider-prompt-mode.el")))
+#+end_src
 
 ** GitHub Copilot
 https://github.com/copilot-emacs/copilot.el
@@ -710,6 +720,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (cz/leader-keys
     "a" '(:ignore t :wk "AI")
+    "a a" '(aider-transient-menu :wk "Aider transient menu")
     "a c" '(:ignore t :wk "Copilot Chat")
     "a c RET" '(copilot-chat-display :wk "Chat display")
     "a c M-RET" '(copilot-chat-transient :wk "Copilot chat transient")
