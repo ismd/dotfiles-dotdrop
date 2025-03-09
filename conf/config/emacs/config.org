@@ -191,7 +191,7 @@ https://github.com/tninja/aider.el
 
 #+begin_src emacs-lisp
 (use-package aider
-  :straight (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-core.el" "aider-file.el" "aider-code-change.el" "aider-discussion.el" "aider-prompt-mode.el")))
+  :ensure (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-core.el" "aider-file.el" "aider-code-change.el" "aider-discussion.el" "aider-prompt-mode.el")))
 #+end_src
 
 ** GitHub Copilot
