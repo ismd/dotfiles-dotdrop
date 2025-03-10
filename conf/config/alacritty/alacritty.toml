@@ -1,9 +1,9 @@
 [font]
-size = 17.0
 normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
+size = 16.0
 
 [window]
-opacity = 0.88
-padding = { x = 25, y = 25 }
-dynamic_padding = true
 blur = true
+dynamic_padding = true
+opacity = 0.87
+padding = { x = 25, y = 25 }
