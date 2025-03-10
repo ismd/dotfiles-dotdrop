@@ -369,7 +369,8 @@ https://github.com/minad/consult
   ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
   ;;;; 5. No project support
   ;; (setq consult-project-function nil)
-  )
+
+  (add-to-list 'consult-buffer-filter "^\\*"))
 #+end_src
 
 ** Embark Consult
