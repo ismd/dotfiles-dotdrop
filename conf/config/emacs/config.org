@@ -1401,6 +1401,7 @@ https://emacs-lsp.github.io/lsp-mode/
          (go-ts-mode . lsp-deferred)
          (js-ts-mode . lsp-deferred)
          (json-ts-mode . lsp-deferred)
+         (python-ts-mode . lsp-deferred)
          (terraform-mode . lsp-deferred)
          (tsx-ts-mode . lsp-deferred)
          (typescript-ts-mode . lsp-deferred)
