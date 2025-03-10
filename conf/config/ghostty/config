@@ -18,7 +18,7 @@ keybind = ctrl+alt+8=goto_tab:8
 keybind = ctrl+alt+9=goto_tab:9
 keybind = ctrl+x>2=new_split:down
 keybind = ctrl+x>3=new_split:right
-keybind = alt+e=write_scrollback_file:open
+keybind = alt+e=write_screen_file:open
 keybind = ctrl+alt+f=goto_split:right
 keybind = ctrl+alt+b=goto_split:left
 keybind = ctrl+alt+p=goto_split:top
