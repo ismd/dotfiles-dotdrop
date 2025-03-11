@@ -212,6 +212,9 @@ dotfiles:
   f_aider.conf.yml:
     src: aider.conf.yml
     dst: ~/.aider.conf.yml
+  d_dunst:
+    src: config/dunst
+    dst: ~/.config/dunst
 profiles:
   hyper-city:
     dotfiles:
@@ -330,6 +333,7 @@ profiles:
     - f_multicd.fish
     - f_99-power-profile.rules
     - f_aider.conf.yml
+    - d_dunst
   ismd-black:
     dotfiles:
     - f_editorconfig
