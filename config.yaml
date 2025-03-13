@@ -271,6 +271,8 @@ profiles:
     - f_split-flac.sh
     - f_config.json
     - f_multicd.fish
+    - f_aider.conf.yml
+    - d_dunst
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -395,3 +397,5 @@ profiles:
     - f_config.json
     - f_multicd.fish
     - f_99-power-profile.rules
+    - f_aider.conf.yml
+    - d_dunst
