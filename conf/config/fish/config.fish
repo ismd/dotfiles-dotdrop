@@ -32,8 +32,10 @@ abbr -a gpush git push
 abbr -a gs git status
 
 # Aliases
+alias c 'set dir (command ls -lah | fzf | awk "{print \$9}"); and cd $dir'
 alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
 alias nv nvim
+alias pk 'set pid (ps -aux | fzf | awk "{print \$2}"); and kill -9 $pid'
 
 # nvm
 set -U nvm_default_version lts/jod
