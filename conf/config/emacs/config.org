@@ -1018,7 +1018,9 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (general-define-key
    :keymaps 'markdown-mode-map
    "M-n" nil
-   "M-p" nil)
+   "M-p" nil
+   "C-M-n" '(markdown-outline-next :wk "Next heading")
+   "C-M-p" '(markdown-outline-previous :wk "Previous heading"))
 
   ;;
   ;; Org
@@ -1026,7 +1028,9 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (general-define-key
    :keymaps 'org-mode-map
    "M-g a" '(consult-org-agenda :wk "Org agenda")
-   "M-g o" '(consult-org-heading :wk "Org heading"))
+   "M-g o" '(consult-org-heading :wk "Org heading")
+   "C-M-n" '(org-next-visible-heading :wk "Next heading")
+   "C-M-p" '(org-previous-visible-heading :wk "Previous heading"))
 
   ;;
   ;; Polymode
