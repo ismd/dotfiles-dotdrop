@@ -222,6 +222,7 @@ https://github.com/chep/copilot-chat.el
   :hook (git-commit-setup . copilot-chat-insert-commit-message)
   :custom
   (copilot-chat-follow t)
+  (copilot-chat-frontend 'markdown)
   :config
   (copilot-chat-set-model "claude-3.7-sonnet-thought"))
 #+end_src
