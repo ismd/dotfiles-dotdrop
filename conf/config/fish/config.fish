@@ -37,6 +37,10 @@ alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
 alias nv nvim
 alias pk 'set pid (ps -aux | fzf | awk "{print \$2}"); and kill -9 $pid'
 
+# fzf
+set FZF_DEFAULT_OPTS '--height 40% --layout=reverse --border --margin 1,2'
+fzf --fish | source
+
 # nvm
 set -U nvm_default_version lts/jod
 set -U nvm_data ~/.nvm
