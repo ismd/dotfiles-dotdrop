@@ -103,48 +103,6 @@ apply_emacs_theme() {
   fi
 }
 
-# Function to apply Alacritty theme
-apply_alacritty_theme() {
-    local theme_dir="$THEMES_DIR/$THEME_NAME/alacritty"
-    if [ -d "$theme_dir" ]; then
-        if [ "$VERBOSE" = true ]; then
-            echo "Applying Alacritty theme from $theme_dir"
-        fi
-        
-        if [ -f "$theme_dir/alacritty.toml" ]; then
-            mkdir -p "$HOME/.config/alacritty"
-            cp "$theme_dir/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
-        fi
-    else
-        echo "Warning: Alacritty theme directory not found at $theme_dir"
-    fi
-}
-
-# Function to apply Hyprland theme
-apply_hyprland_theme() {
-    local theme_dir="$THEMES_DIR/$THEME_NAME/hyprland"
-    if [ -d "$theme_dir" ]; then
-        if [ "$VERBOSE" = true ]; then
-            echo "Applying Hyprland theme from $theme_dir"
-        fi
-        
-        if [ -f "$theme_dir/hyprland.conf" ]; then
-            mkdir -p "$HOME/.config/hypr"
-            cp "$theme_dir/hyprland.conf" "$HOME/.config/hypr/hyprland.conf"
-            
-            # Reload Hyprland config if it's running
-            if pgrep -x "Hyprland" > /dev/null; then
-                hyprctl reload
-                if [ "$VERBOSE" = true ]; then
-                    echo "Hyprland configuration reloaded"
-                fi
-            fi
-        fi
-    else
-        echo "Warning: Hyprland theme directory not found at $theme_dir"
-    fi
-}
-
 # Function to apply Waybar theme
 apply_waybar_theme() {
     local theme_dir="$THEMES_DIR/$THEME_NAME/waybar"
