@@ -166,15 +166,11 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 *** Load Theme
 
 #+begin_src emacs-lisp
-;; Light themes
-(add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-light t)))
-
-;; Dark themes
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'ef-maris-dark t)))
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'modus-vivendi t)))
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'modus-vivendi-tinted t)))
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'doom-city-lights t))) ;; Use without transparency
-;; (add-hook 'elpaca-after-init-hook (lambda () (load-theme 'doom-outrun-electric t)))
+(defvar theme-name 'ef-light "The name of the theme to use")
+(load-file "~/.config/emacs/theme.el")
+(add-hook 'elpaca-after-init-hook
+          (lambda ()
+            (load-theme theme-name t)))
 #+end_src
 
 ** LSP Keymap Init
@@ -1128,7 +1124,8 @@ https://github.com/dgutov/diff-hl
   :demand t
   :custom
   (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
-  (transient-display-buffer-action '(display-buffer-below-selected)))
+  ;; (transient-display-buffer-action '(display-buffer-below-selected))
+  )
 #+end_src
 
 * HIGHLIGHT INDENT GUIDES
