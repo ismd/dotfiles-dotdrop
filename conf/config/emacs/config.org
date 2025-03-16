@@ -1394,7 +1394,7 @@ https://emacs-lsp.github.io/lsp-mode/
         lsp-ui-sideline-show-diagnostics t
         lsp-ui-sideline-show-hover nil)
   (setq lsp-disabled-clients '(tfls))
-  :hook ((bash-ls-mode . lsp-deferred)
+  :hook ((bash-ts-mode . lsp-deferred)
          (css-ts-mode . lsp-deferred)
          (dart-mode . lsp-deferred)
          (dockerfile-ts-mode . lsp-deferred)
