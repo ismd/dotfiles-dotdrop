@@ -41,6 +41,7 @@
   - [[#cyrillic-keybindings][Cyrillic Keybindings]]
 - [[#git][GIT]]
   - [[#diff-hl][Diff Hl]]
+  - [[#git-gutter][Git Gutter]]
   - [[#git-time-machine][Git Time Machine]]
   - [[#magit][Magit]]
 - [[#highlight-indent-guides][HIGHLIGHT INDENT GUIDES]]
@@ -1101,13 +1102,27 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 https://github.com/dgutov/diff-hl
 
 #+begin_src emacs-lisp
-(use-package diff-hl
+;; (use-package diff-hl
+;;   :ensure t
+;;   :hook ((dired-mode . diff-hl-dired-mode)
+;;          (magit-pre-refresh . diff-hl-magit-pre-refresh)
+;;          (magit-post-refresh . diff-hl-magit-post-refresh))
+;;   :config
+;;   (global-diff-hl-mode))
+#+end_src
+
+** Git Gutter
+https://github.com/emacsorphanage/git-gutter
+
+#+begin_src emacs-lisp
+(use-package git-gutter
   :ensure t
-  :hook ((dired-mode . diff-hl-dired-mode)
-         (magit-pre-refresh . diff-hl-magit-pre-refresh)
-         (magit-post-refresh . diff-hl-magit-post-refresh))
+  :custom
+  (git-gutter:modified-sign " ")
+  (git-gutter:added-sign " ")
+  (git-gutter:deleted-sign " ")
   :config
-  (global-diff-hl-mode))
+  (global-git-gutter-mode t))
 #+end_src
 
 ** Git Time Machine
