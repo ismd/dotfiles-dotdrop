@@ -1,6 +1,6 @@
 export ALTERNATE_EDITOR=""
 export BROWSER=brave
-export CHROME_EXECUTABLE=com.google.Chrome
+export CHROME_EXECUTABLE=google-chrome-stable
 export EDITOR=ec-editor
 export GTK_USE_PORTAL=1
 export HISTCONTROL=ignoredups:erasedups
