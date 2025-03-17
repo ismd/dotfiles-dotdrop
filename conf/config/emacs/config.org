@@ -167,7 +167,8 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 
 #+begin_src emacs-lisp
 (defvar theme-name 'ef-light "The name of the theme to use")
-(load-file "~/.config/emacs/theme.el")
+(when (file-exists-p "~/.config/emacs/theme.el")
+  (load-file "~/.config/emacs/theme.el"))
 (add-hook 'elpaca-after-init-hook
           (lambda ()
             (load-theme theme-name t)))
