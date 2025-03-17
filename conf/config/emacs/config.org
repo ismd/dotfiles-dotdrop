@@ -960,7 +960,9 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   ;;
   (general-define-key
    :keymaps 'ibuffer-mode-map
-   "TAB" '(ibuffer-toggle-filter-group :wk "Toggle filter group"))
+   "TAB" '(ibuffer-toggle-filter-group :wk "Toggle filter group")
+   "C-M-n" '(ibuffer-forward-filter-group :wk "Next filter group")
+   "C-M-p" '(ibuffer-backward-filter-group :wk "Previous filter group"))
 
   ;;
   ;; Indent Rigidly
