@@ -1091,6 +1091,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 (define-key key-translation-map (kbd "M-в") (kbd "M-d"))
 
 (define-key key-translation-map (kbd "C-.") (kbd "C-/"))
+(define-key key-translation-map (kbd "M-Ю") (kbd "M->"))
+(define-key key-translation-map (kbd "M-Б") (kbd "M-<"))
 #+end_src
 
 * GIT
