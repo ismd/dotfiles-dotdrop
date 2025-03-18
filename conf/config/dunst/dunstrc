@@ -1,5 +1,5 @@
 [global]
-font = "RobotoMono Nerd Font 12"
+font = "Ubuntu Nerd Font 12"
 follow = mouse
 frame_width = 1
 frame_color = "#b4befe"
