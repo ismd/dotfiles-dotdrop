@@ -212,6 +212,9 @@ dotfiles:
   d_themes:
     src: config/themes
     dst: ~/.config/themes
+  f_hypridle.conf:
+    src: config/hypr/hypridle.conf
+    dst: ~/.config/hypr/hypridle.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -269,6 +272,7 @@ profiles:
     - d_dunst
     - f_theme-switcher.sh
     - d_themes
+    - f_hypridle.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -331,6 +335,7 @@ profiles:
     - d_dunst
     - f_theme-switcher.sh
     - d_themes
+    - f_hypridle.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -393,3 +398,4 @@ profiles:
     - d_dunst
     - f_theme-switcher.sh
     - d_themes
+    - f_hypridle.conf
