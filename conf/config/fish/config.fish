@@ -34,6 +34,7 @@ abbr -a gs git status
 # Aliases
 alias c 'set dir (command ls -lah | fzf | awk "{print \$9}"); and cd $dir'
 alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
+alias guitar-pro 'wine ~/.wine/drive_c/Program\ Files/Arobas\ Music/Guitar\ Pro\ 8/GuitarPro.exe'
 alias nv nvim
 alias pk 'set pid (ps -aux | fzf | awk "{print \$2}"); and kill -9 $pid'
 
