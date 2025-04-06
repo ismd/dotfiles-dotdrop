@@ -14,6 +14,7 @@
   - [[#lsp-keymap-init][LSP Keymap Init]]
 - [[#ai][AI]]
   - [[#aider][Aider]]
+  - [[#chatgpt-shell][chatgpt-shell]]
   - [[#github-copilot][GitHub Copilot]]
   - [[#github-copilot-chat][GitHub Copilot Chat]]
   - [[#gptel][gptel]]
@@ -190,6 +191,17 @@ https://github.com/tninja/aider.el
 #+begin_src emacs-lisp
 (use-package aider
   :ensure (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-core.el" "aider-file.el" "aider-code-change.el" "aider-discussion.el" "aider-prompt-mode.el")))
+#+end_src
+
+** chatgpt-shell
+https://github.com/xenodium/chatgpt-shell
+
+#+begin_src emacs-lisp
+(use-package chatgpt-shell
+  :ensure t
+  :custom
+  ((chatgpt-shell-anthropic-key #'anthropic-api-key)
+   (chatgpt-shell-model-version "claude-3-7-sonnet-latest")))
 #+end_src
 
 ** GitHub Copilot
