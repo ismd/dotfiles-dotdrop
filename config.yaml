@@ -216,6 +216,9 @@ dotfiles:
   f_hypridle.conf:
     src: config/hypr/hypridle.conf
     dst: ~/.config/hypr/hypridle.conf
+  d_openrazer:
+    src: config/openrazer
+    dst: ~/.config/openrazer
 profiles:
   hyper-city:
     dotfiles:
@@ -274,6 +277,7 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
+    - d_openrazer
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -337,6 +341,7 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
+    - d_openrazer
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -400,3 +405,4 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
+    - d_openrazer
