@@ -219,6 +219,10 @@ dotfiles:
   d_openrazer:
     src: config/openrazer
     dst: ~/.config/openrazer
+  f_set-android-layout.sh:
+    src: bin/set-android-layout.sh
+    dst: ~/.bin/set-android-layout.sh
+    chmod: '755'
 profiles:
   hyper-city:
     dotfiles:
@@ -278,6 +282,7 @@ profiles:
     - d_themes
     - f_hypridle.conf
     - d_openrazer
+    - f_set-android-layout.sh
   ismd-work:
     dotfiles:
     - f_editorconfig
