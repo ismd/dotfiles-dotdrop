@@ -216,13 +216,16 @@ dotfiles:
   f_hypridle.conf:
     src: config/hypr/hypridle.conf
     dst: ~/.config/hypr/hypridle.conf
-  d_openrazer:
-    src: config/openrazer
-    dst: ~/.config/openrazer
   f_set-android-layout.sh:
     src: bin/set-android-layout.sh
     dst: ~/.bin/set-android-layout.sh
     chmod: '755'
+  f_persistence.conf:
+    src: config/openrazer/persistence.conf
+    dst: ~/.config/openrazer/persistence.conf
+  f_razer.conf:
+    src: config/openrazer/razer.conf
+    dst: ~/.config/openrazer/razer.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -281,8 +284,9 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
-    - d_openrazer
     - f_set-android-layout.sh
+    - f_persistence.conf
+    - f_razer.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -346,7 +350,8 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
-    - d_openrazer
+    - f_persistence.conf
+    - f_razer.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -410,4 +415,5 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
-    - d_openrazer
+    - f_persistence.conf
+    - f_razer.conf
