@@ -226,6 +226,9 @@ dotfiles:
   f_razer.conf:
     src: config/openrazer/razer.conf
     dst: ~/.config/openrazer/razer.conf
+  f_kitty.conf:
+    src: config/kitty/kitty.conf
+    dst: ~/.config/kitty/kitty.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -287,6 +290,7 @@ profiles:
     - f_set-android-layout.sh
     - f_persistence.conf
     - f_razer.conf
+    - f_kitty.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -352,6 +356,7 @@ profiles:
     - f_hypridle.conf
     - f_persistence.conf
     - f_razer.conf
+    - f_kitty.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -417,3 +422,4 @@ profiles:
     - f_hypridle.conf
     - f_persistence.conf
     - f_razer.conf
+    - f_kitty.conf
