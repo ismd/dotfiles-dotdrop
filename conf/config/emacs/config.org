@@ -94,6 +94,7 @@
 - [[#ripgrep][RIPGREP]]
 - [[#sane-defaults][SANE DEFAULTS]]
   - [[#scroll][Scroll]]
+  - [[#ssh-agent][SSH Agent]]
   - [[#tab-bar][Tab Bar]]
   - [[#tab-line][Tab Line]]
 - [[#shells-and-terminals][SHELLS AND TERMINALS]]
@@ -1892,6 +1893,11 @@ The following settings are simple modes that are enabled (or disabled) so that E
       scroll-step 1)
 
 ;; (pixel-scroll-precision-mode 1)
+#+end_src
+
+** SSH Agent
+#+begin_src emacs-lisp
+(setenv "SSH_AUTH_SOCK" "/run/user/1000/ssh-agent.socket")
 #+end_src
 
 ** Tab Bar
