@@ -1890,9 +1890,8 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (setq mouse-wheel-follow-mouse 't
       mouse-wheel-progressive-speed nil
       mouse-wheel-scroll-amount '(1 ((shift) . 1))
+        mouse-wheel-tilt-scroll t
       scroll-step 1)
-
-;; (pixel-scroll-precision-mode 1)
 #+end_src
 
 ** SSH Agent
