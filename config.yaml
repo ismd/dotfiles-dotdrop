@@ -220,15 +220,16 @@ dotfiles:
     src: bin/set-android-layout.sh
     dst: ~/.bin/set-android-layout.sh
     chmod: '755'
-  f_persistence.conf:
-    src: config/openrazer/persistence.conf
-    dst: ~/.config/openrazer/persistence.conf
   f_razer.conf:
     src: config/openrazer/razer.conf
     dst: ~/.config/openrazer/razer.conf
   f_kitty.conf:
     src: config/kitty/kitty.conf
     dst: ~/.config/kitty/kitty.conf
+  f_monitors.sh:
+    src: bin/monitors.sh
+    dst: ~/.bin/monitors.sh
+    chmod: '755'
 profiles:
   hyper-city:
     dotfiles:
@@ -288,7 +289,6 @@ profiles:
     - d_themes
     - f_hypridle.conf
     - f_set-android-layout.sh
-    - f_persistence.conf
     - f_razer.conf
     - f_kitty.conf
   ismd-work:
@@ -354,9 +354,9 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
-    - f_persistence.conf
     - f_razer.conf
     - f_kitty.conf
+    - f_monitors.sh
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -420,6 +420,6 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
-    - f_persistence.conf
     - f_razer.conf
     - f_kitty.conf
+    - f_monitors.sh
