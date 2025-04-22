@@ -673,6 +673,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-<tab>" '(tab-line-switch-to-next-tab :wk "Switch to next tab")
    "C-<iso-lefttab>" '(tab-line-switch-to-prev-tab :wk "Switch to previous tab")
 
+   "C-R" '((lambda () (interactive) (revert-buffer nil t)) :wk "Reload buffer")
+
    "C-;" '(complete-symbol :wk "Complete symbol")
    "C-a" '(mwim-beginning-of-code-or-line :wk "Beginning of line or indentation")
    "C-e" '(mwim-end-of-line-or-code :wk "End of line or indentation")
@@ -760,7 +762,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "b m" '(bookmark-set :wk "Set bookmark")
     "b n" '(next-buffer :wk "Next buffer")
     "b p" '(previous-buffer :wk "Previous buffer")
-    "b r" '(revert-buffer :wk "Reload buffer")
+    "b r" '((lambda () (interactive) (revert-buffer nil t)) :wk "Reload buffer")
     "b w" '(bookmark-save :wk "Save current bookmarks to bookmark file"))
 
   (cz/leader-keys
