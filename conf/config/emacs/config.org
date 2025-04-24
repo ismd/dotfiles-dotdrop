@@ -1898,7 +1898,11 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 ** SSH Agent
 #+begin_src emacs-lisp
+{%@@ if profile == "ismd-work" @@%}
+(setenv "SSH_AUTH_SOCK" "/home/ismd/.skotty/sock/default.sock")
+{%@@ else @@%}
 (setenv "SSH_AUTH_SOCK" "/run/user/1000/ssh-agent.socket")
+{%@@ endif @@%}
 #+end_src
 
 ** Tab Bar
