@@ -42,7 +42,7 @@
         "format": "{icon} {volume}%",
         "format-muted": "",
         "max-volume": 200,
-        "format-icons": ["", "", ""],
+        "format-icons": ["", "", " "],
         "on-click": "pavucontrol"
     },
     "bluetooth": {
