@@ -354,6 +354,7 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
+    - f_set-android-layout.sh
     - f_razer.conf
     - f_kitty.conf
     - f_monitors.sh
@@ -420,6 +421,7 @@ profiles:
     - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
+    - f_set-android-layout.sh
     - f_razer.conf
     - f_kitty.conf
     - f_monitors.sh
