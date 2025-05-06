@@ -1875,6 +1875,8 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (setq completion-cycle-threshold 3)
 (setq desktop-restore-frames t)
 (setq dired-kill-when-opening-new-dired-buffer t)
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024))
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message nil)
 (setq org-edit-src-content-indentation 0) ;; Set src block automatic indent to 0 instead of 2.
