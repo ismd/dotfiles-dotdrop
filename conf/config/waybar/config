@@ -1,6 +1,6 @@
 {
     "position": "bottom",
-    "margin": "0 10px 9px 10px",
+    // "margin": "0 10px 9px 10px",
     "fixed-center": false,
     "reload_style_on_change": true,
 

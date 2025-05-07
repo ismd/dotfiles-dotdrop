@@ -1,5 +1,5 @@
 * {
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 
 window#waybar,
@@ -14,7 +14,7 @@ window#waybar {
 }
 
 .modules-left {
-  padding: 3px;
+  /* padding: 3px; */
 }
 
 .modules-center {
