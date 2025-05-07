@@ -230,6 +230,9 @@ dotfiles:
     src: bin/monitors.sh
     dst: ~/.bin/monitors.sh
     chmod: '755'
+  f_emacs-pager.sh:
+    src: bin/emacs-pager.sh
+    dst: ~/.bin/emacs-pager.sh
 profiles:
   hyper-city:
     dotfiles:
@@ -291,6 +294,7 @@ profiles:
     - f_set-android-layout.sh
     - f_razer.conf
     - f_kitty.conf
+    - f_emacs-pager.sh
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -358,6 +362,7 @@ profiles:
     - f_razer.conf
     - f_kitty.conf
     - f_monitors.sh
+    - f_emacs-pager.sh
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -425,3 +430,4 @@ profiles:
     - f_razer.conf
     - f_kitty.conf
     - f_monitors.sh
+    - f_emacs-pager.sh
