@@ -1,3 +1,7 @@
+function fish_greeting
+    fortune | cowsay | lolcat
+end
+
 if status is-interactive
     set -U fish_greeting
 end
