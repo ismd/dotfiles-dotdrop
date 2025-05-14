@@ -1541,7 +1541,10 @@ This package allows you to move to the beginning/end of a line or code.
 
 #+begin_src emacs-lisp
 (use-package mwim
-  :ensure t)
+  :ensure t
+  :config
+  (setq mwim-beginning-of-line-function 'beginning-of-line
+        mwim-end-of-line-function 'end-of-line))
 #+end_src
 
 * MULTIPLE CURSORS
