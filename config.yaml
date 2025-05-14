@@ -233,6 +233,9 @@ dotfiles:
   f_emacs-pager.sh:
     src: bin/emacs-pager.sh
     dst: ~/.bin/emacs-pager.sh
+  f_y.fish:
+    src: config/fish/functions/y.fish
+    dst: ~/.config/fish/functions/y.fish
 profiles:
   hyper-city:
     dotfiles:
@@ -295,6 +298,7 @@ profiles:
     - f_razer.conf
     - f_kitty.conf
     - f_emacs-pager.sh
+    - f_y.fish
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -363,6 +367,7 @@ profiles:
     - f_kitty.conf
     - f_monitors.sh
     - f_emacs-pager.sh
+    - f_y.fish
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -431,3 +436,4 @@ profiles:
     - f_kitty.conf
     - f_monitors.sh
     - f_emacs-pager.sh
+    - f_y.fish
