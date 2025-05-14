@@ -1883,6 +1883,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (setq initial-scratch-message nil)
 (setq org-edit-src-content-indentation 0) ;; Set src block automatic indent to 0 instead of 2.
 (setq save-place-file (concat user-emacs-directory ".emacs-places"))
+(setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 (setq warning-minimum-level :error)
 
 ;; Auto-save when Emacs is idle
