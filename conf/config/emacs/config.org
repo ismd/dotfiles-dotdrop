@@ -767,7 +767,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (cz/leader-keys
     "d" '(:ignore t :wk "Dired")
-    "d d" '(dirvish :wk "Open dired")
+    "d d" '(dired :wk "Open dired")
     "d j" '(dired-jump :wk "Dired jump to current")
     "d t" '(treemacs-select-directory :wk "Open directory in treemacs"))
 
@@ -1780,7 +1780,7 @@ https://github.com/emacsorphanage/popwin
 (setq project-switch-commands
       '((consult-project-buffer "Buffer" "b")
         (project-find-file "File" "f")
-        (dirvish "Directory" "d")
+        (project-dired "Directory" "d")
         (magit-project-status "Magit" "m")
         (consult-ripgrep "ripgrep" "r")))
 (setq project-vc-extra-root-markers '(".idea" ".project.el" ".projectile" "a.yaml" "package.json"))
