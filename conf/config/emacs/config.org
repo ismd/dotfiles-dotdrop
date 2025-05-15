@@ -486,8 +486,12 @@ https://github.com/alexluigit/dirvish
   :ensure t
   :after nerd-icons
   :hook
-  (dirvish-directory-view-mode . (lambda () (visual-line-mode -1)))
-  (dired-mode-hook . (lambda () (visual-line-mode -1)))
+  (dirvish-directory-view-mode . (lambda ()
+                                   (tab-line-mode -1)
+                                   (visual-line-mode -1)))
+  (dired-mode-hook . (lambda ()
+                       (tab-line-mode -1)
+                       (visual-line-mode -1)))
   :init
   (dirvish-override-dired-mode)
   :custom
@@ -509,6 +513,7 @@ https://github.com/alexluigit/dirvish
                                  (format " %s " (nerd-icons-faicon "nf-fa-angle_right"))))
   (setq dired-listing-switches
         "-l --almost-all --human-readable --group-directories-first --no-group")
+  (setq dirvish-side-width 27)
   :bind ; Bind `dirvish|dirvish-side|dirvish-dwim' as you see fit
   (;; ("C-c f" . dirvish-fd)
    :map dirvish-mode-map ; Dirvish inherits `dired-mode-map'
@@ -689,6 +694,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-s" '(avy-goto-char-timer :wk "Jump to character")
    "M-y" '(consult-yank-pop :wk "Yank pop")
 
+   ;; "M-0" '(treemacs-select-window :wk "Treemacs")
+   "M-0" '(winum-select-window-0-or-10 :wk "Select window 0 or 10")
    "M-1" '(winum-select-window-1 :wk "Select window 1")
    "M-2" '(winum-select-window-2 :wk "Select window 2")
    "M-3" '(winum-select-window-3 :wk "Select window 3")
@@ -698,7 +705,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-7" '(winum-select-window-7 :wk "Select window 7")
    "M-8" '(winum-select-window-8 :wk "Select window 8")
    "M-9" '(winum-select-window-9 :wk "Select window 9")
-   "M-0" '(treemacs-select-window :wk "Treemacs")
    )
 
   ;;
@@ -900,7 +906,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "t" '(:ignore t :wk "Toggle")
     "t f" '(flycheck-mode :wk "Toggle flycheck")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
-    "t t" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs project")
+    ;; "t t" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs project")
+    "t t" '(dirvish-side :wk "Dirvish side")
     "t v" '(vterm-toggle :wk "Toggle vterm")
     "t w" '(visual-line-mode :wk "Toggle word wrap"))
 
@@ -2342,9 +2349,16 @@ https://github.com/mihaiolteanu/lastfm.el
 https://github.com/deb0ch/emacs-winum
 
 #+begin_src emacs-lisp
+(defun ismd/winum-assign-0-to-dirvish-side ()
+  (when (string-match-p mode-name "Dired by name") 0))
+
 (use-package winum
   :ensure t
   :config
+  (add-to-list 'winum-assign-functions #'ismd/winum-assign-0-to-dirvish-side)
+
+  (setq winum-auto-assign-0-to-minibuffer t
+        winum-scope 'frame-local)
   (winum-mode))
 #+end_src
 
