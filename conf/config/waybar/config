@@ -11,6 +11,7 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "custom/weather",
         "hyprland/language",
         "tray",
         "wireplumber",
@@ -73,5 +74,12 @@
                 "today": "<span color='#a6e3a1'><b><u>{}</u></b></span>"
             }
         }
-    }    
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar --location Moscow --date-format \"%a, %d.%m.%Y\" --hide-conditions --nerd",
+        "return-type": "json"
+    },
 }
