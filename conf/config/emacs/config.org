@@ -235,7 +235,7 @@ https://github.com/chep/copilot-chat.el
   :hook (git-commit-setup . copilot-chat-insert-commit-message)
   :custom
   (copilot-chat-backend 'request)
-  (copilot-chat-follow t)
+  (copilot-chat-follow nil)
   (copilot-chat-frontend 'shell-maker)
   :config
   (copilot-chat-set-model "o4-mini"))
