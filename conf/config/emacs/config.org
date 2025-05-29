@@ -28,6 +28,7 @@
   - [[#cape][CAPE]]
 - [[#dashboard][DASHBOARD]]
 - [[#delete-word-and-line][DELETE WORD AND LINE]]
+- [[#desktop-save][DESKTOP SAVE]]
 - [[#diminish][DIMINISH]]
 - [[#dirvish][DIRVISH]]
 - [[#ediff][EDIFF]]
@@ -468,6 +469,18 @@ If at end of line, delete the following newline char."
     (when (eolp)
       (delete-char 1))
     (delete-region (point) end)))
+#+end_src
+
+* DESKTOP SAVE
+This is a package that saves the state of your Emacs session, including open files, buffers, and window configurations, so that you can restore it later.
+
+#+begin_src emacs-lisp
+(setq desktop-dirname user-emacs-directory)
+(desktop-save-mode 1)
+
+;; Auto-save when Emacs is idle
+(run-with-idle-timer 300 t (lambda ()
+                             (desktop-save desktop-dirname)))
 #+end_src
 
 * DIMINISH
@@ -1862,7 +1875,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 #+begin_src emacs-lisp
 (delete-selection-mode 1)    ;; You can select text and delete it by typing.
-(desktop-save-mode 1)        ;; Save the desktop on exit.
 ;; (electric-indent-mode -1)    ;; Turn off the weird indenting that Emacs does by default.
 (electric-pair-mode 1)       ;; Turns on automatic parens pairing
 ;; The following prevents <> from auto-pairing when electric-pair-mode is on.
@@ -1899,10 +1911,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (setq save-place-file (concat user-emacs-directory ".emacs-places"))
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 (setq warning-minimum-level :error)
-
-;; Auto-save when Emacs is idle
-(run-with-idle-timer 300 t (lambda ()
-                             (desktop-save desktop-dirname)))
 #+end_src
 
 ** Scroll
