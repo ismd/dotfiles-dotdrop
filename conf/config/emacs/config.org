@@ -234,10 +234,11 @@ https://github.com/chep/copilot-chat.el
   :ensure t
   :hook (git-commit-setup . copilot-chat-insert-commit-message)
   :custom
+  (copilot-chat-backend 'request)
   (copilot-chat-follow t)
-  (copilot-chat-frontend 'markdown)
+  (copilot-chat-frontend 'shell-maker)
   :config
-  (copilot-chat-set-model "claude-3.7-sonnet-thought"))
+  (copilot-chat-set-model "o4-mini"))
 #+end_src
 
 ** gptel
