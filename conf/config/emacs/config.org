@@ -60,6 +60,7 @@
   - [[#go][Go]]
   - [[#json][JSON]]
   - [[#markdown][Markdown]]
+  - [[#python][Python]]
   - [[#terraform][Terraform]]
   - [[#yaml][YAML]]
 - [[#lsp][LSP]]
@@ -605,7 +606,6 @@ https://github.com/purcell/envrc
 #+begin_src emacs-lisp
 (use-package envrc
   :ensure t
-  :demand t
   :init
   (envrc-global-mode))
 #+end_src
@@ -1406,6 +1406,14 @@ https://github.com/seagle0128/grip-mode
   (add-hook 'post-command-hook #'nb/refontify-on-linemove nil t))
 
 (add-hook 'markdown-mode-hook #'nb/markdown-unhighlight)
+#+end_src
+
+** Python
+#+begin_src emacs-lisp
+(use-package pet
+  :ensure t
+  :config
+  (add-hook 'python-base-mode-hook 'pet-mode -10))
 #+end_src
 
 ** Terraform
