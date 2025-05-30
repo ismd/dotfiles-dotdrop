@@ -964,6 +964,14 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "o" '(consult-outline :wk "Outline"))
 
   ;;
+  ;; Comint
+  ;;
+  (general-define-key
+   :keymaps 'comint-mode-map
+   "C-M-n" '(comint-next-prompt :wk "Next prompt")
+   "C-M-p" '(comint-previous-prompt :wk "Previous prompt"))
+
+  ;;
   ;; Copilot
   ;;
   (general-define-key
