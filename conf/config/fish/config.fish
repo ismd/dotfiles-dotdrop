@@ -55,3 +55,6 @@ set -U nvm_data ~/.nvm
 if test -f ~/.config/fish/secrets.fish
     source ~/.config/fish/secrets.fish
 end
+
+# direnv
+direnv hook fish | source
