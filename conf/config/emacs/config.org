@@ -34,6 +34,7 @@
 - [[#ediff][EDIFF]]
 - [[#editorconfig][EDITORCONFIG]]
 - [[#embark][EMBARK]]
+- [[#direnv][DIRENV]]
 - [[#expand-region][EXPAND REGION]]
 - [[#flycheck][FLYCHECK]]
 - [[#fonts][FONTS]]
@@ -598,6 +599,17 @@ https://github.com/oantolin/embark
                  (window-parameters (mode-line-format . none)))))
 #+end_src
 
+* DIRENV
+https://github.com/purcell/envrc
+
+#+begin_src emacs-lisp
+(use-package envrc
+  :ensure t
+  :demand t
+  :init
+  (envrc-global-mode))
+#+end_src
+
 * EXPAND REGION
 https://github.com/magnars/expand-region.el
 
@@ -969,7 +981,9 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (general-define-key
    :keymaps 'comint-mode-map
    "C-M-n" '(comint-next-prompt :wk "Next prompt")
-   "C-M-p" '(comint-previous-prompt :wk "Previous prompt"))
+   "C-M-p" '(comint-previous-prompt :wk "Previous prompt")
+   "M-n" nil
+   "M-p" nil)
 
   ;;
   ;; Copilot
