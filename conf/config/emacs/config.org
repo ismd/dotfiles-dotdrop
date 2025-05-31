@@ -2035,7 +2035,7 @@ Vterm is a terminal emulator within Emacs.  The 'shell-file-name' setting sets t
 
 * STARTING THE DAEMON
 #+begin_src emacs-lisp
-;; (server-start)
+(server-start)
 #+end_src
 
 * SUDO EDIT
