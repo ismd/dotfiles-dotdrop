@@ -129,27 +129,23 @@
 To keep this =config.org= a reasonable length, I have moved a lot of code to individual scripts that will be sourced by this config.  These scripts are found in "~/.config/emacs/scripts" and do not contain any code that most people are likely to need to edit.
 
 ** Adding the scripts directory to path
-
 #+begin_src emacs-lisp
 (add-to-list 'load-path "~/.config/emacs/scripts/")
 #+end_src
 
 ** Sourcing the scripts
-
 #+begin_src emacs-lisp
 (require 'elpaca-setup) ;; The Elpaca Package Manager
 (require 'buffer-move)  ;; Buffer-move for better window management
 #+end_src
 
 ** Transient
-
 #+begin_src emacs-lisp
 (use-package transient
   :ensure t)
 #+end_src
 
 ** Custom File
-
 #+begin_src emacs-lisp
 (setq custom-file (expand-file-name "customs.el" user-emacs-directory))
 (add-hook 'elpaca-after-init-hook (lambda () (load custom-file 'noerror)))
@@ -159,9 +155,7 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 #+end_src
 
 ** Themes
-
 *** Init Themes
-
 #+begin_src emacs-lisp
 (org-babel-load-file
   (expand-file-name
@@ -170,7 +164,6 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 #+end_src
 
 *** Load Theme
-
 #+begin_src emacs-lisp
 (defvar theme-name 'modus-operandi "The name of the theme to use")
 (when (file-exists-p "~/.config/emacs/theme.el")
@@ -188,7 +181,6 @@ This variable must be set before the =lsp= package is loaded.
 #+end_src
 
 * AI
-
 ** Aider
 https://github.com/tninja/aider.el
 
@@ -392,7 +384,6 @@ https://github.com/minad/consult
 #+end_src
 
 ** Embark Consult
-
 #+begin_src emacs-lisp
 (use-package embark-consult
   :ensure t
@@ -447,7 +438,6 @@ Emacs Dashboard is an extensible startup screen showing you recent files, bookma
 #+end_src
 
 * DELETE WORD AND LINE
-
 #+begin_src emacs-lisp
 ;; Delete word
 (defun cz/delete-word (arg)
@@ -554,7 +544,6 @@ https://github.com/alexluigit/dirvish
 #+end_src
 
 * EDIFF
-
 #+begin_src emacs-lisp
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -679,7 +668,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 #+end_src
 
 * GENERAL KEYBINDINGS
-
 #+begin_src emacs-lisp
 (use-package general
   :ensure (:wait t)
@@ -1136,7 +1124,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 #+end_src
 
 ** Cyrillic Keybindings
-
 #+begin_src emacs-lisp
 (define-key key-translation-map (kbd "C-а") (kbd "C-f"))
 (define-key key-translation-map (kbd "C-и") (kbd "C-b"))
@@ -1160,7 +1147,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 #+end_src
 
 * GIT
-
 ** Diff Hl
 https://github.com/dgutov/diff-hl
 
@@ -1245,7 +1231,6 @@ Adding highlights to TODO and related words.
 #+end_src
 
 * HIPPIE EXPAND
-
 #+begin_src emacs-lisp
 (setq hippie-expand-try-functions-list
       '(try-complete-file-name-partially
@@ -1257,7 +1242,6 @@ Adding highlights to TODO and related words.
 #+end_src
 
 * IBUFFER
-
 #+begin_src emacs-lisp
 (add-hook 'ibuffer-mode-hook
           (lambda ()
@@ -1266,7 +1250,6 @@ Adding highlights to TODO and related words.
 #+end_src
 
 ** Ibuffer Project
-
 #+begin_src emacs-lisp
 (use-package ibuffer-project
   :ensure t
@@ -1361,7 +1344,6 @@ Using =json-ts-mode= instead of =json-mode=.
 #+end_src
 
 ** Markdown
-
 *** Grip
 https://github.com/seagle0128/grip-mode
 
@@ -1373,7 +1355,6 @@ https://github.com/seagle0128/grip-mode
 #+end_src
 
 *** Unhighlight
-
 #+begin_src emacs-lisp
 (defvar nb/current-line '(0 . 0)
   "(start . end) of current line in current buffer")
@@ -1509,7 +1490,6 @@ https://emacs-lsp.github.io/lsp-mode/
 #+end_src
 
 ** LSP UI
-
 #+begin_src emacs-lisp
 (use-package lsp-ui
   :ensure t
@@ -1687,7 +1667,6 @@ https://github.com/oantolin/orderless
 #+end_src
 
 * ORG MODE
-
 #+begin_src emacs-lisp
 (setq org-directory "~/org/")
 
@@ -1695,7 +1674,6 @@ https://github.com/oantolin/orderless
 #+end_src
 
 ** Enabling Table of Contents
-
 #+begin_src emacs-lisp
 (use-package toc-org
   :ensure t
@@ -1734,7 +1712,6 @@ Org-tempo is not a separate package but a module within org that can be enabled.
 #+end_src
 
 ** Org TODO
-
 #+begin_src emacs-lisp
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "WAIT" "HOLD" "DONE")))
@@ -1823,7 +1800,6 @@ https://github.com/emacsorphanage/popwin
 #+end_src
 
 * PROJECT
-
 #+begin_src emacs-lisp
 (setq project-file-history-behavior 'relativize
       project-mode-line t)
@@ -1860,7 +1836,6 @@ Currently using =project.el= instead of =projectile=.
 #+end_src
 
 * PROTOBUF
-
 #+begin_src emacs-lisp
 (use-package protobuf-mode
   :ensure t)
@@ -1940,7 +1915,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 #+end_src
 
 ** Scroll
-
 #+begin_src emacs-lisp
 (setq mouse-wheel-follow-mouse 't
       mouse-wheel-progressive-speed nil
@@ -1959,7 +1933,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 #+end_src
 
 ** Tab Bar
-
 #+begin_src emacs-lisp
 (setq tab-always-indent t
       tab-bar-auto-width nil
@@ -1972,7 +1945,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 #+end_src
 
 ** Tab Line
-
 #+begin_src emacs-lisp
 (defun cz/get-project-file-buffers ()
   (project-buffers (project-current)))
@@ -2062,7 +2034,6 @@ Vterm is a terminal emulator within Emacs.  The 'shell-file-name' setting sets t
 #+end_src
 
 * STARTING THE DAEMON
-
 #+begin_src emacs-lisp
 ;; (server-start)
 #+end_src
@@ -2137,7 +2108,6 @@ https://github.com/mclear-tools/tabspaces
 #+end_src
 
 * TLDR
-
 #+begin_src emacs-lisp
 (use-package tldr
   :ensure t)
@@ -2154,7 +2124,6 @@ With Emacs version 29, true transparency has been added.
 Before Emacs 29, tree-sitter was a [[https://emacs-tree-sitter.github.io/][package]] that could be installed. With Emacs 29, tree-sitter is built-in in package =treesit.el=.
 
 ** Treesit Auto
-
 #+begin_src emacs-lisp
 (use-package treesit-auto
   :ensure t
@@ -2232,7 +2201,6 @@ https://github.com/Alexander-Miller/treemacs
 #+end_src
 
 * TRIMMING WHITESPACE
-
 #+begin_src emacs-lisp
 (use-package ws-butler
   :ensure t
@@ -2335,7 +2303,6 @@ https://github.com/mihaiolteanu/lastfm.el
 #+end_src
 
 * XREF
-
 #+begin_src emacs-lisp
 (use-package xref
   :ensure t
@@ -2366,7 +2333,6 @@ https://github.com/mihaiolteanu/lastfm.el
 #+end_src
 
 * WINDOW MANAGEMENT
-
 #+begin_src emacs-lisp
 (defun cz/window-split-toggle ()
   "Toggle between horizontal and vertical split with two windows."
