@@ -2354,7 +2354,7 @@ https://github.com/deb0ch/emacs-winum
 
 #+begin_src emacs-lisp
 (defun ismd/winum-assign-0-to-dirvish-side ()
-  (when (string-match-p mode-name "Dired by name") 0))
+  (when (string-match-p "Dired by name" (format-mode-line mode-name)) 0))
 
 (use-package winum
   :ensure t
