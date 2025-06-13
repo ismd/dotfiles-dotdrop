@@ -28,6 +28,7 @@
   - [[#cape][CAPE]]
 - [[#dashboard][DASHBOARD]]
 - [[#delete-word-and-line][DELETE WORD AND LINE]]
+- [[#denote][DENOTE]]
 - [[#desktop-save][DESKTOP SAVE]]
 - [[#diminish][DIMINISH]]
 - [[#dirvish][DIRVISH]]
@@ -465,6 +466,19 @@ If at end of line, delete the following newline char."
     (delete-region (point) end)))
 #+end_src
 
+* DENOTE
+https://github.com/protesilaos/denote
+
+#+begin_src emacs-lisp
+(use-package denote
+  :ensure t
+  :hook (dired-mode . denote-dired-mode)
+  :config
+  (setq denote-directory (expand-file-name "~/Nextcloud/Notes/"))
+  (setq denote-known-keywords '("work-yandex-cloud" "private"))
+  (denote-rename-buffer-mode 1))
+#+end_src
+
 * DESKTOP SAVE
 This is a package that saves the state of your Emacs session, including open files, buffers, and window configurations, so that you can restore it later.
 
@@ -878,6 +892,15 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "m a" '(mc/mark-all-like-this :wk "Mark all like this")
     "m d" '(mc/mark-all-dwim :wk "Mark all dwim")
     "m l" '(mc/edit-lines :wk "Edit lines"))
+
+  (cz/leader-keys
+    "n" '(:ignore t :wk "Notes")
+    "n b" '(denote-backlinks :wk "Backlinks")
+    "n d" '(denote-dired :wk "Dired")
+    "n g" '(denote-grep :wk "Grep")
+    "n l" '(denote-link :wk "Link")
+    "n n" '(denote :wk "Denote")
+    "n r" '(denote-rename-file :wk "Rename file"))
 
   (cz/leader-keys
     "o" '(:ignore t :wk "Org")
@@ -1669,7 +1692,9 @@ https://github.com/oantolin/orderless
 
 * ORG MODE
 #+begin_src emacs-lisp
-(setq org-directory "~/org/")
+(setq org-directory (expand-file-name "~/Nextcloud/Notes/"))
+(setq org-agenda-files (list (expand-file-name "~/Nextcloud/Notes/")))
+(setq org-complete-tags-always-offer-all-agenda-tags t)
 
 (add-hook 'org-mode-hook (lambda () (setq tab-width 8)))
 #+end_src
@@ -1743,20 +1768,21 @@ https://github.com/org-roam/org-roam
 https://www.orgroam.com/
 
 #+begin_src emacs-lisp
-(use-package org-roam
-  :ensure t
-  :custom
-  (org-roam-directory "~/Nextcloud/org-roam")
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n g" . org-roam-graph)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-         ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
-  :config
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-  (org-roam-db-autosync-mode))
+;; (use-package org-roam
+;;   :ensure t
+;;   :custom
+;;   (org-roam-completion-everywhere t)
+;;   (org-roam-directory (expand-file-name "~/Nextcloud/Notes/"))
+;;   :bind (("C-c n l" . org-roam-buffer-toggle)
+;;          ("C-c n f" . org-roam-node-find)
+;;          ("C-c n g" . org-roam-graph)
+;;          ("C-c n i" . org-roam-node-insert)
+;;          ("C-c n c" . org-roam-capture)
+;;          ;; Dailies
+;;          ("C-c n j" . org-roam-dailies-capture-today))
+;;   :config
+;;   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+;;   (org-roam-db-autosync-mode))
 #+end_src
 
 * PERSISTENT SCRATCH
