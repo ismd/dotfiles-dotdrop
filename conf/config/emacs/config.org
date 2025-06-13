@@ -641,16 +641,16 @@ Defining the various fonts that Emacs will use.
 (defun cz/set-fonts ()
   "Set the fonts for Emacs."
   (set-face-attribute 'default nil
-                      :font "SauceCodePro Nerd Font"
-                      :height 140
+                      :font "CodeNewRoman Nerd Font Mono"
+                      :height 150
                       :weight 'regular)
   (set-face-attribute 'variable-pitch nil
                       :font "RobotoMono Nerd Font"
-                      :height 140
+                      :height 150
                       :weight 'regular)
   (set-face-attribute 'fixed-pitch nil
-                      :font "SauceCodePro Nerd Font"
-                      :height 140
+                      :font "CodeNewRoman Nerd Font Mono"
+                      :height 150
                       :weight 'regular)
 
   (set-face-attribute 'font-lock-comment-face nil
@@ -658,7 +658,7 @@ Defining the various fonts that Emacs will use.
   (set-face-attribute 'font-lock-keyword-face nil
                       :slant 'italic)
 
-  (set-frame-font "SauceCodePro Nerd Font-15" nil t)
+  (set-frame-font "CodeNewRoman Nerd Font Mono-15" nil t)
 
   ;; tab-bar
   (set-face-attribute 'tab-bar-tab nil
@@ -671,7 +671,7 @@ Defining the various fonts that Emacs will use.
                   (cz/set-fonts))))
   (cz/set-fonts))
 
-(add-to-list 'default-frame-alist '(font . "SauceCodePro Nerd Font-14"))
+(add-to-list 'default-frame-alist '(font . "CodeNewRoman Nerd Font Mono-15"))
 #+end_src
 
 ** Zooming In/Out
