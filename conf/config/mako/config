@@ -2,26 +2,28 @@
 #   man 5 mako
 # To view all configuration options.
 
-format=<b>%a ⏵</b> %s\n%b
-sort=-time
-output=DP-2
-layer=overlay
-anchor=bottom-center
-background-color=#2e3440
+font=Ubuntu Nerd Font 12
+background-color=#009999
+text-color=#c0c0c0
 width=300
 height=110
 margin=5
 padding=0,5,10
 border-size=2
-border-color=#88c0d0
-border-radius=15
-icons=0
+border-color=#002b33
+border-radius=5
+icons=1
+format=<b>%a ⏵</b> %s\n%b
+sort=-time
+output=DP-2
+layer=overlay
+anchor=top-right
 max-icon-size=64
 default-timeout=5000
 ignore-timeout=1
 
 [urgency=normal]
-border-color=#d08770
+border-color=#002b33
 
 [urgency=high]
 border-color=#bf616a
