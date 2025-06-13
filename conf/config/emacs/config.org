@@ -1,8 +1,8 @@
-#+TITLE: GNU Emacs Config
-#+AUTHOR: Vladimir Kosteley
-#+DESCRIPTION: Personal Emacs config
-#+STARTUP: showeverything
-#+OPTIONS: toc:2
+#+title: GNU Emacs Config
+#+author: Vladimir Kosteley
+#+description: Personal Emacs config
+#+startup: showeverything
+#+options: toc:2
 
 * TABLE OF CONTENTS :toc:
 - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
