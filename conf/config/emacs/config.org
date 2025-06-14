@@ -706,7 +706,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-<tab>" '(tab-line-switch-to-next-tab :wk "Switch to next tab")
    "C-<iso-lefttab>" '(tab-line-switch-to-prev-tab :wk "Switch to previous tab")
 
-   "C-R" '((lambda () (interactive) (revert-buffer nil t)) :wk "Reload buffer")
+   "C-S-r" '((lambda () (interactive) (revert-buffer nil t)) :wk "Reload buffer")
    "C-<" '(previous-buffer :wk "Previous buffer")
    "C->" '(next-buffer :wk "Next buffer")
 
@@ -865,6 +865,12 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "h x" '(describe-command :wk "Display full documentation for command"))
 
   (cz/leader-keys
+    "m" '(:ignore t :wk "Multiple cursors")
+    "m a" '(mc/mark-all-like-this :wk "Mark all like this")
+    "m d" '(mc/mark-all-dwim :wk "Mark all dwim")
+    "m l" '(mc/edit-lines :wk "Edit lines"))
+
+  (cz/leader-keys
     "M" '(:ignore t :wk "Music")
     "M a" '(vuiet-play-artist :wk "Play artist")
     "M A" '(vuiet-play-album :wk "Play album")
@@ -888,12 +894,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "M T" '(vuiet-play-track-search :wk "Play track search"))
 
   (cz/leader-keys
-    "m" '(:ignore t :wk "Multiple cursors")
-    "m a" '(mc/mark-all-like-this :wk "Mark all like this")
-    "m d" '(mc/mark-all-dwim :wk "Mark all dwim")
-    "m l" '(mc/edit-lines :wk "Edit lines"))
-
-  (cz/leader-keys
     "n" '(:ignore t :wk "Notes")
     "n b" '(denote-backlinks :wk "Backlinks")
     "n d" '(denote-dired :wk "Dired")
@@ -907,21 +907,17 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (cz/leader-keys
     "o" '(:ignore t :wk "Org")
     "o a" '(org-agenda :wk "Org agenda")
+    "o b" '(:ignore t :wk "Tables")
+    "o b -" '(org-table-insert-hline :wk "Insert hline in table")
+    "o B" '(org-babel-tangle :wk "Org babel tangle")
+    "o d" '(:ignore t :wk "Date/deadline")
+    "o d t" '(org-time-stamp :wk "Org time stamp")
     "o e" '(org-export-dispatch :wk "Org export dispatch")
     "o i" '(org-toggle-item :wk "Org toggle item")
     "o o" '(org-emphasize :wk "Org emphasize")
     "o t" '(org-todo :wk "Org todo")
-    "o B" '(org-babel-tangle :wk "Org babel tangle")
     "o T" '(org-todo-list :wk "Org todo list")
     "o x" '(org-toggle-checkbox :wk "Org toggle checkbox"))
-
-  (cz/leader-keys
-    "o b" '(:ignore t :wk "Tables")
-    "o b -" '(org-table-insert-hline :wk "Insert hline in table"))
-
-  (cz/leader-keys
-    "o d" '(:ignore t :wk "Date/deadline")
-    "o d t" '(org-time-stamp :wk "Org time stamp"))
 
   (cz/leader-keys
     "p" '(:keymap project-prefix-map :wk "Project"))
@@ -1049,8 +1045,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (general-define-key
    :keymaps 'indent-rigidly-map
    "b" '(indent-rigidly-left :wk "Indent left")
-   "f" '(indent-rigidly-right :wk "Indent right")
    "B" '(indent-rigidly-left-to-tab-stop :wk "Indent left to tab stop")
+   "f" '(indent-rigidly-right :wk "Indent right")
    "F" '(indent-rigidly-right-to-tab-stop :wk "Indent right to tab stop"))
 
   ;;
