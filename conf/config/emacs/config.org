@@ -1101,8 +1101,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-g a" '(consult-org-agenda :wk "Org agenda")
    "M-g o" '(consult-org-heading :wk "Org heading")
    "C-M-i" '(completion-at-point :wk "Complete at point")
-   "C-S-n" '(org-next-visible-heading :wk "Next heading")
-   "C-S-p" '(org-previous-visible-heading :wk "Previous heading"))
+   "C-S-n" '(org-forward-heading-same-level :wk "Next heading")
+   "C-S-p" '(org-backward-heading-same-level :wk "Previous heading"))
 
   ;;
   ;; Polymode
