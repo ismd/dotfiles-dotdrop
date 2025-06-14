@@ -897,9 +897,11 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "n" '(:ignore t :wk "Notes")
     "n b" '(denote-backlinks :wk "Backlinks")
     "n d" '(denote-dired :wk "Dired")
+    "n f" '(denote-open-or-create :wk "Open or create note")
     "n g" '(denote-grep :wk "Grep")
     "n l" '(denote-link :wk "Link")
     "n n" '(denote :wk "Denote")
+    "n N" '(denote-subdirectory :wk "Denote subdirectory")
     "n r" '(denote-rename-file :wk "Rename file"))
 
   (cz/leader-keys
