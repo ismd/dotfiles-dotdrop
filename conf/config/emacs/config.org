@@ -514,12 +514,12 @@ https://github.com/alexluigit/dirvish
                                            :foreground (face-background 'default))))
   :init
   (dirvish-override-dired-mode)
-  :custom
-  (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
-   '(("h" "~/"                          "Home")
-     ("d" "~/Downloads/"                "Downloads")))
+  ;; :custom
+  ;; (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
+  ;;  '(("h" "~/"                          "Home")
+  ;;    ("d" "~/Downloads/"                "Downloads")))
   :config
-  (dirvish-peek-mode) ; Preview files in minibuffer
+  ;; (dirvish-peek-mode) ; Preview files in minibuffer
   (dirvish-side-follow-mode) ; similar to `treemacs-follow-mode'
   (setq dirvish-mode-line-format
         '(:left (sort symlink) :right (omit yank index)))
