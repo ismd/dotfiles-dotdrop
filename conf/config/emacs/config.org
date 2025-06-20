@@ -1719,7 +1719,7 @@ Org-bullets gives us attractive bullets rather than asterisks.
 #+end_src
 
 ** Source Code Block Tag Expansion
-Org-tempo is not a separate package but a module within org that can be enabled.  Org-tempo allows for '<s' followed by TAB to expand to a begin_src tag.  Other expansions available include:
+Org-tempo is not a separate package but a module within org that can be enabled.  Org-tempo allows for '<s' followed by TAB to expand to a ~begin_src~ tag.  Other expansions available include:
 
 #+begin_src org
 | Typing the below + TAB | Expands to ...                          |
