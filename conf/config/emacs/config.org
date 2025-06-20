@@ -474,8 +474,10 @@ https://github.com/protesilaos/denote
   :ensure t
   :hook (dired-mode . denote-dired-mode)
   :config
+  (setq denote-date-prompt-use-org-read-date t)
   (setq denote-directory (expand-file-name "~/Nextcloud/Notes/"))
-  (setq denote-known-keywords '("work-yandex-cloud" "private"))
+  (setq denote-infer-keywords t)
+  (setq denote-known-keywords '("it" "people" "private"))
   (denote-rename-buffer-mode 1))
 #+end_src
 
