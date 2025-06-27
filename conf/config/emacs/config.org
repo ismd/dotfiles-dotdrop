@@ -207,11 +207,8 @@ https://github.com/xenodium/chatgpt-shell
 https://github.com/copilot-emacs/copilot.el
 
 #+begin_src emacs-lisp
-(use-package jsonrpc
-  :ensure t)
-
 (use-package copilot
-  :after (editorconfig jsonrpc)
+  :after (editorconfig)
   :ensure (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist"))
   :hook
   (prog-mode . copilot-mode)
@@ -1415,11 +1412,43 @@ https://github.com/seagle0128/grip-mode
 #+end_src
 
 ** Python
+*** Jedi
+https://github.com/tkf/emacs-jedi
+
+#+begin_src emacs-lisp
+
+#+end_src
+
+*** Elpy
+https://github.com/jorgenschaefer/elpy
+
+#+begin_src emacs-lisp
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
+#+end_src
+
+*** Pet
+https://github.com/wyuenho/emacs-pet
+
 #+begin_src emacs-lisp
 (use-package pet
   :ensure t
+  :custom
+  (python-indent-guess-indent-offset-verbose nil)
   :config
   (add-hook 'python-base-mode-hook 'pet-mode -10))
+#+end_src
+
+*** Pyvenv
+https://github.com/jorgenschaefer/pyvenv
+
+#+begin_src emacs-lisp
+;; (use-package pyvenv
+;;   :ensure t
+;;   :config
+;;   (pyvenv-mode t))
 #+end_src
 
 ** Terraform
