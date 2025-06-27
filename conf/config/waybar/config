@@ -49,8 +49,8 @@
     "bluetooth": {
         "format": "",
         "tooltip-format": "{controller_alias}\t{controller_address}",
-	"tooltip-format-connected": "{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "on-click": "blueman-manager"
     },
     "battery": {
