@@ -1722,11 +1722,14 @@ https://github.com/oantolin/orderless
 
 * ORG MODE
 #+begin_src emacs-lisp
-(setq org-directory (expand-file-name "~/Nextcloud/Notes/"))
-(setq org-agenda-files (list (expand-file-name "~/Nextcloud/Notes/")))
-(setq org-complete-tags-always-offer-all-agenda-tags t)
-
-(add-hook 'org-mode-hook (lambda () (setq tab-width 8)))
+(use-package org
+  :ensure nil
+  :hook (org-mode . org-indent-mode)
+  :config
+  (setq org-directory (expand-file-name "~/Nextcloud/Notes/"))
+  (setq org-agenda-files (list (expand-file-name "~/Nextcloud/Notes/")))
+  (setq org-complete-tags-always-offer-all-agenda-tags t)
+  (add-hook 'org-mode-hook (lambda () (setq tab-width 8))))
 #+end_src
 
 ** Enabling Table of Contents
@@ -1741,10 +1744,10 @@ https://github.com/oantolin/orderless
 Org-bullets gives us attractive bullets rather than asterisks.
 
 #+begin_src emacs-lisp
-(add-hook 'org-mode-hook 'org-indent-mode)
 (use-package org-bullets
-  :ensure t)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  :ensure t
+  :hook
+  (org-mode . org-bullets-mode))
 #+end_src
 
 ** Source Code Block Tag Expansion
