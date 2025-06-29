@@ -723,8 +723,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-s" '(avy-goto-char-timer :wk "Jump to character")
    "M-y" '(consult-yank-pop :wk "Yank pop")
 
-   ;; "M-0" '(treemacs-select-window :wk "Treemacs")
-   "M-0" '(winum-select-window-0-or-10 :wk "Select window 0 or 10")
+   "M-0" '(treemacs-select-window :wk "Treemacs")
+   ;; "M-0" '(winum-select-window-0-or-10 :wk "Select window 0 or 10")
    "M-1" '(winum-select-window-1 :wk "Select window 1")
    "M-2" '(winum-select-window-2 :wk "Select window 2")
    "M-3" '(winum-select-window-3 :wk "Select window 3")
@@ -940,8 +940,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "t" '(:ignore t :wk "Toggle")
     "t f" '(flycheck-mode :wk "Toggle flycheck")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
-    ;; "t t" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs project")
-    "t t" '(dirvish-side :wk "Dirvish side")
+    "t t" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs project")
+    ;; "t t" '(dirvish-side :wk "Dirvish side")
     "t v" '(vterm-toggle :wk "Toggle vterm")
     "t w" '(visual-line-mode :wk "Toggle word wrap"))
 
