@@ -79,7 +79,7 @@
         "format": "{}°",
         "tooltip": true,
         "interval": 3600,
-        "exec": "wttrbar --location Moscow --date-format \"%a, %d.%m.%Y\" --hide-conditions --nerd",
+        "exec": "wttrbar --location Belgrade --date-format \"%a, %d.%m.%Y\" --hide-conditions --nerd",
         "return-type": "json"
     },
 }
