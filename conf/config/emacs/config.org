@@ -1325,7 +1325,7 @@ https://github.com/emacsorphanage/dart-mode
 (use-package lsp-dart
   :ensure t
   :custom
-  (lsp-dart-sdk-dir "/opt/dart-sdk"))
+  (lsp-dart-sdk-dir "~/src/flutter/bin/cache/dart-sdk"))
 #+end_src
 
 *** FLUTTER
