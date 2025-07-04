@@ -1359,6 +1359,20 @@ https://github.com/amake/flutter.el
   (flutter-sdk-path "~/src/flutter"))
 #+end_src
 
+**** Hover
+https://github.com/ericdallo/hover.el
+Seems like hover is for desktop only, so I don't use it on my mobile devices.
+
+#+begin_src emacs-lisp
+;; (use-package hover
+;;   :ensure t
+;;   :after (dart-mode flutter)
+;;   :bind (:map flutter-mode-map
+;;               ("C-c C-h" . hover))
+;;   :custom
+;;   (hover-hot-reload-on-save nil))
+#+end_src
+
 ** Fish
 https://github.com/emacsmirror/fish-mode
 
