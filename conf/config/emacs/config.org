@@ -15,6 +15,7 @@
 - [[#ai][AI]]
   - [[#aider][Aider]]
   - [[#chatgpt-shell][chatgpt-shell]]
+  - [[#elysium][elysium]]
   - [[#github-copilot][GitHub Copilot]]
   - [[#github-copilot-chat][GitHub Copilot Chat]]
   - [[#gptel][gptel]]
@@ -200,7 +201,24 @@ https://github.com/xenodium/chatgpt-shell
   :ensure t
   :custom
   ((chatgpt-shell-anthropic-key #'anthropic-api-key)
-   (chatgpt-shell-model-version "claude-3-7-sonnet-latest")))
+   (chatgpt-shell-model-version "claude-sonnet-4-20250514")))
+#+end_src
+
+** elysium
+https://github.com/lanceberge/elysium
+
+This package integrates with gptel and provides capability to insert AI results into the current buffer.
+
+#+begin_src emacs-lisp
+(use-package elysium
+  :ensure t)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package smerge-mode
+  :ensure nil
+  :hook
+  (prog-mode . smerge-mode))
 #+end_src
 
 ** GitHub Copilot
