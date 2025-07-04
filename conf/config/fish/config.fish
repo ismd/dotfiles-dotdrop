@@ -58,3 +58,5 @@ end
 
 # direnv
 direnv hook fish | source
+
+alias claude="/home/ismd/.claude/local/claude"
