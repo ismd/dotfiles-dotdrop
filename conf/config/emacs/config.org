@@ -794,10 +794,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "a c b" '(copilot-chat-transient-buffers :wk "Buffers")
     "a c c" '(copilot-chat-transient-code :wk "Code")
     "a g" '(:ignore t :wk "GPTel")
-    "a g RET" '(gptel-send :wk "Send to GPTel")
+    "a g RET" '(gptel :wk "GPTel")
     "a g M-RET" '(gptel-menu :wk "GPTel menu")
     "a g a" '(gptel-add :wk "GPTel add")
-    "a g g" '(gptel :wk "GPTel")
+    "a g g" '(gptel-send :wk "Send to GPTel")
     "a g f" '(gptel-add-file :wk "GPTel add file")
     "a g r" '(gptel-rewrite :wk "GPTel rewrite"))
 
