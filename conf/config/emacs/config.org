@@ -12,9 +12,11 @@
   - [[#custom-file][Custom File]]
   - [[#themes][Themes]]
   - [[#lsp-keymap-init][LSP Keymap Init]]
+  - [[#useful-functions][Useful Functions]]
 - [[#ai][AI]]
   - [[#aider][Aider]]
   - [[#chatgpt-shell][chatgpt-shell]]
+  - [[#claude-code][Claude Code]]
   - [[#elysium][elysium]]
   - [[#github-copilot][GitHub Copilot]]
   - [[#github-copilot-chat][GitHub Copilot Chat]]
@@ -183,6 +185,19 @@ This variable must be set before the =lsp= package is loaded.
 (setq lsp-keymap-prefix "C-c l")
 #+end_src
 
+** Useful Functions
+#+begin_src emacs-lisp
+(defun ismd/add-display-buffer-rule (buffer-name &optional window-width)
+  "Add a display-buffer rule for BUFFER-NAME with optional WINDOW-WIDTH (default 0.35)."
+  (let ((width (or window-width 0.35)))
+    (add-to-list 'display-buffer-alist
+                 `(,buffer-name
+                   (display-buffer-in-side-window)
+                   (side . right)
+                   (window-width . ,width)
+                   (window-parameters . ((no-delete-other-windows . t)))))))
+#+end_src
+
 * AI
 ** Aider
 https://github.com/tninja/aider.el
@@ -202,6 +217,41 @@ https://github.com/xenodium/chatgpt-shell
   :custom
   ((chatgpt-shell-anthropic-key #'anthropic-api-key)
    (chatgpt-shell-model-version "claude-sonnet-4-20250514")))
+#+end_src
+
+** Claude Code
+https://github.com/stevemolitor/claude-code.el
+
+#+begin_src emacs-lisp
+(use-package eat
+  :ensure t)
+#+end_src
+
+#+begin_src emacs-lisp
+(defun ismd/claude-notify (title message)
+  "Display a Linux notification using notify-send."
+  (if (executable-find "notify-send")
+      (call-process "notify-send" nil nil nil title message)
+    (message "%s: %s" title message)))
+
+(defun ismd/claude-notify-with-sound (title message)
+  "Display a Linux notification with sound."
+  (when (executable-find "notify-send")
+    (call-process "notify-send" nil nil nil title message))
+  ;; Play sound if paplay is available
+  (when (executable-find "paplay")
+    (call-process "paplay" nil nil nil "/usr/share/sounds/freedesktop/stereo/message.oga")))
+
+(use-package claude-code
+  :ensure (:host github :repo "stevemolitor/claude-code.el" :rev :newest)
+  :custom
+  (claude-code-program "~/.claude/local/claude")
+  ;; (claude-code-notification-function #'ismd/claude-notify)
+  (claude-code-notification-function #'ismd/claude-notify-with-sound)
+  :config
+  (ismd/add-display-buffer-rule "^\\*claude")
+
+  (claude-code-mode))
 #+end_src
 
 ** elysium
@@ -249,6 +299,8 @@ https://github.com/chep/copilot-chat.el
   (copilot-chat-follow nil)
   (copilot-chat-frontend 'shell-maker)
   :config
+  (ismd/add-display-buffer-rule "^\\*Copilot Chat")
+
   (copilot-chat-set-model "o4-mini"))
 #+end_src
 
@@ -799,7 +851,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "a g a" '(gptel-add :wk "GPTel add")
     "a g g" '(gptel-send :wk "Send to GPTel")
     "a g f" '(gptel-add-file :wk "GPTel add file")
-    "a g r" '(gptel-rewrite :wk "GPTel rewrite"))
+    "a g r" '(gptel-rewrite :wk "GPTel rewrite")
+    "a l" '(:keymap claude-code-command-map :wk "Claude Code"))
 
   (cz/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
@@ -1039,6 +1092,26 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    :keymaps 'corfu-map
    "TAB" nil
    "<tab>" nil)
+
+  ;;
+  ;; Eat
+  ;;
+  (general-define-key
+   :keymaps 'eat-semi-char-mode-map
+   "C-n" nil
+   "C-p" nil
+   "M-n" nil
+   "M-p" nil
+   "M-1" nil
+   "M-2" nil
+   "M-3" nil
+   "M-4" nil
+   "M-5" nil
+   "M-6" nil
+   "M-7" nil
+   "M-8" nil
+   "M-9" nil
+   "M-0" nil)
 
   ;;
   ;; Git
