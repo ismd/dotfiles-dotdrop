@@ -206,10 +206,6 @@ dotfiles:
   d_dunst:
     src: config/dunst
     dst: ~/.config/dunst
-  f_theme-switcher.sh:
-    src: bin/theme-switcher.sh
-    dst: ~/.bin/theme-switcher.sh
-    chmod: '755'
   d_themes:
     src: config/themes
     dst: ~/.config/themes
@@ -291,7 +287,6 @@ profiles:
     - f_multicd.fish
     - f_aider.conf.yml
     - d_dunst
-    - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
     - f_set-android-layout.sh
@@ -359,7 +354,6 @@ profiles:
     - f_99-power-profile.rules
     - f_aider.conf.yml
     - d_dunst
-    - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
     - f_set-android-layout.sh
@@ -428,7 +422,6 @@ profiles:
     - f_99-power-profile.rules
     - f_aider.conf.yml
     - d_dunst
-    - f_theme-switcher.sh
     - d_themes
     - f_hypridle.conf
     - f_set-android-layout.sh
