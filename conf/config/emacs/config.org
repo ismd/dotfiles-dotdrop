@@ -196,6 +196,33 @@ This variable must be set before the =lsp= package is loaded.
                    (side . right)
                    (window-width . ,width)
                    (window-parameters . ((no-delete-other-windows . t)))))))
+
+(defvar-local temporary-buffer-p nil
+  "Non-nil if this buffer is a temporary buffer that should be closed when switching away.")
+
+(defun find-file-temporarily (filename)
+  "Open a file temporarily. The buffer will be automatically closed when switching to another buffer."
+  (interactive "FFind file temporarily: ")
+  (let ((buffer (find-file-noselect filename)))
+    (with-current-buffer buffer
+      (setq-local temporary-buffer-p t)
+      (setq-local buffer-read-only t)) ; Make it read-only to prevent accidental edits
+    (switch-to-buffer buffer)))
+
+(defvar temporary-buffer-cleanup-in-progress nil
+  "Guard variable to prevent infinite recursion during cleanup.")
+
+(defun temporary-buffer-cleanup ()
+  "Clean up temporary buffers when switching away from them."
+  (unless temporary-buffer-cleanup-in-progress
+    (let ((temporary-buffer-cleanup-in-progress t)
+          (prev-buffer (other-buffer (current-buffer) t)))
+      (when (and prev-buffer
+                 (buffer-live-p prev-buffer)
+                 (buffer-local-value 'temporary-buffer-p prev-buffer))
+        (kill-buffer prev-buffer)))))
+
+(add-hook 'buffer-list-update-hook #'temporary-buffer-cleanup)
 #+end_src
 
 * AI
@@ -902,6 +929,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "f D" '(cz/delete-this-file :wk "Delete this file")
     "f e" '((lambda () (interactive) (dired "~/.config/emacs")) :wk "Open user-emacs-directory in dired")
     "f f" '(find-file :wk "Find file")
+    "f F" '(find-file-temporarily :wk "Find file temporarily")
     "f j" '(consult-fd :wk "Find file with fd")
     "f l" '(consult-locate :wk "Locate a file")
     "f r" '(consult-recent-file :wk "Recent file")
