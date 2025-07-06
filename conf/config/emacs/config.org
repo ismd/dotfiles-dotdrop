@@ -2142,12 +2142,19 @@ The following settings are simple modes that are enabled (or disabled) so that E
   :ensure nil
   :hook (elpaca-after-init-hook . global-tab-line-mode)
   :custom-face
-  (tab-line-tab-group ((t (:foreground "#002FA0"))))
+  (tab-line-tab ((t (:inherit tab-line :box nil))))
+  (tab-line-tab-current ((t (:inherit tab-line-tab :foreground "#ecf0ff" :background "#2f527b" :box nil))))
+  (tab-line-tab-group ((t (:foreground "#50c878"))))
+  (tab-line-tab-inactive ((t (:inherit tab-line-tab :foreground "#888888" :background "#2a2a2a" :box nil))))
   :config
   (setq tab-line-close-button-show nil
         tab-line-new-button-show nil
+        tab-line-separator ""
         tab-line-switch-cycling t
+        tab-line-tab-name-function #'cz/tab-line-name-buffer
         tab-line-tabs-buffer-group-function #'cz/tab-line-tabs-buffer-group-by-project
+        tab-line-tabs-buffer-group-sort-function #'cz/tab-line-tabs-buffer-group-sort-by-creation-time
+        tab-line-tabs-buffer-list-function #'cz/tab-line-tabs-buffer-list
         tab-line-tabs-function #'tab-line-tabs-buffer-groups)
 
   (add-to-list 'tab-line-tab-face-functions #'tab-line-tab-face-group))
@@ -2155,7 +2162,83 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (defun cz/tab-line-tabs-buffer-group-by-project (buffer)
   "Group buffers by project, excluding non-file buffers."
   (when (buffer-file-name buffer)
-    (tab-line-tabs-buffer-group-by-project buffer)))
+    (let ((group-name (tab-line-tabs-buffer-group-by-project buffer)))
+      (when group-name
+        (concat " " group-name " ")))))
+
+(defun cz/tab-line-tabs-buffer-list ()
+  "Return buffer list without putting current buffer first."
+  (seq-filter (lambda (b) (and (buffer-live-p b)
+                               (/= (aref (buffer-name b) 0) ?\s)))
+              (seq-uniq (append (mapcar #'car (window-prev-buffers))
+                                (buffer-list)))))
+
+(defvar buffer-creation-times (make-hash-table :test 'equal)
+  "Hash table storing buffer creation times by buffer name.")
+
+(defvar-local buffer-creation-time nil
+  "Time when buffer was created.")
+
+(defun track-buffer-creation ()
+  "Set creation time for new buffers."
+  (let ((buffer-key (buffer-file-name)))
+    (when buffer-key
+      (unless (gethash buffer-key buffer-creation-times)
+        (puthash buffer-key (current-time) buffer-creation-times))
+      (setq buffer-creation-time (gethash buffer-key buffer-creation-times)))))
+
+(defun cleanup-buffer-creation-time ()
+  "Remove creation time when buffer is killed."
+  (let ((buffer-key (buffer-file-name)))
+    (when buffer-key
+      (remhash buffer-key buffer-creation-times))))
+
+(add-hook 'find-file-hook #'track-buffer-creation)
+(add-hook 'buffer-list-update-hook #'track-buffer-creation)
+(add-hook 'kill-buffer-hook #'cleanup-buffer-creation-time)
+
+(defun cz/tab-line-tabs-buffer-group-sort-by-creation-time (a b)
+  "Sort buffers by creation time (oldest first)."
+  (let ((time-a (buffer-local-value 'buffer-creation-time a))
+        (time-b (buffer-local-value 'buffer-creation-time b)))
+    (and time-a time-b (time-less-p time-a time-b))))
+
+(defcustom tab-line-tab-min-width 10
+  "Minimum width of a tab in characters."
+  :type 'integer
+  :group 'tab-line)
+
+(defcustom tab-line-tab-max-width 30
+  "Maximum width of a tab in characters."
+  :type 'integer
+  :group 'tab-line)
+
+(defun cz/tab-line-name-buffer (buffer &rest _buffers)
+  "Create name for tab with padding and truncation.
+If buffer name is shorter than `tab-line-tab-max-width' it gets
+centered with spaces, otherwise it is truncated, to preserve
+equal width for all tabs.  This function also tries to fit as
+many tabs in window as possible, so if there are no room for tabs
+with maximum width, it calculates new width for each tab and
+truncates text if needed.  Minimal width can be set with
+`tab-line-tab-min-width' variable."
+  (with-current-buffer buffer
+    (let* ((window-width (window-width (get-buffer-window)))
+           (tab-amount (length (tab-line-tabs-window-buffers)))
+           (window-max-tab-width (if (>= (* (+ tab-line-tab-max-width 3) tab-amount) window-width)
+                                     (/ window-width tab-amount)
+                                   tab-line-tab-max-width))
+           (tab-width (- (cond ((> window-max-tab-width tab-line-tab-max-width)
+                                tab-line-tab-max-width)
+                               ((< window-max-tab-width tab-line-tab-min-width)
+                                tab-line-tab-min-width)
+                               (t window-max-tab-width))
+                         3)) ;; compensation for ' x ' button
+           (buffer-name (string-trim (buffer-name)))
+           (name-width (length buffer-name)))
+      (if (>= name-width tab-width)
+          (concat  " " (truncate-string-to-width buffer-name (- tab-width 2)) "…")
+        (concat " " buffer-name " ")))))
 #+end_src
 
 * SHELLS AND TERMINALS
