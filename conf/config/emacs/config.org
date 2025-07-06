@@ -155,8 +155,8 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 (setq custom-file (expand-file-name "customs.el" user-emacs-directory))
 (add-hook 'elpaca-after-init-hook (lambda () (load custom-file 'noerror)))
 
-(setq cz/custom-file (expand-file-name "custom.el" user-emacs-directory))
-(add-hook 'elpaca-after-init-hook (lambda () (load cz/custom-file 'noerror)))
+(setq ismd/custom-file (expand-file-name "custom.el" user-emacs-directory))
+(add-hook 'elpaca-after-init-hook (lambda () (load ismd/custom-file 'noerror)))
 #+end_src
 
 ** Themes
@@ -536,21 +536,21 @@ Emacs Dashboard is an extensible startup screen showing you recent files, bookma
 * DELETE WORD AND LINE
 #+begin_src emacs-lisp
 ;; Delete word
-(defun cz/delete-word (arg)
+(defun ismd/delete-word (arg)
   "Delete characters forward until encountering the end of a word.
 With argument ARG, do this that many times."
   (interactive "p")
   (delete-region (point) (progn (forward-word arg) (point))))
 
 ;; Delete word backward
-(defun cz/delete-word-backward (arg)
+(defun ismd/delete-word-backward (arg)
   "Delete characters backward until encountering the end of a word.
 With argument ARG, do this that many times."
   (interactive "p")
-  (cz/delete-word (- arg)))
+  (ismd/delete-word (- arg)))
 
 ;; Delete line
-(defun cz/delete-line ()
+(defun ismd/delete-line ()
   "Delete text from current position to end of line char.
 If at end of line, delete the following newline char."
   (interactive)
@@ -734,7 +734,7 @@ Defining the various fonts that Emacs will use.
 
 ** Setting the Font Face
 #+begin_src emacs-lisp
-(defun cz/set-fonts ()
+(defun ismd/set-fonts ()
   "Set the fonts for Emacs."
   (set-face-attribute 'default nil
                       :font "CodeNewRoman Nerd Font Mono"
@@ -764,8 +764,8 @@ Defining the various fonts that Emacs will use.
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (cz/set-fonts))))
-  (cz/set-fonts))
+                  (ismd/set-fonts))))
+  (ismd/set-fonts))
 
 (add-to-list 'default-frame-alist '(font . "CodeNewRoman Nerd Font Mono-15"))
 #+end_src
@@ -809,12 +809,12 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-;" '(complete-symbol :wk "Complete symbol")
    "C-a" '(mwim-beginning-of-code-or-line :wk "Beginning of line or indentation")
    "C-e" '(mwim-end-of-line-or-code :wk "End of line or indentation")
-   "C-k" '(cz/delete-line :wk "Delete line")
+   "C-k" '(ismd/delete-line :wk "Delete line")
    "C-s" '((lambda () (interactive) (consult-line nil 1)) :wk "Search for string")
 
    "M-/" '(hippie-expand :wk "Hippie expand")
-   "M-<backspace>" '(cz/delete-word-backward :wk "Delete word backward")
-   "M-d" '(cz/delete-word :wk "Delete word")
+   "M-<backspace>" '(ismd/delete-word-backward :wk "Delete word backward")
+   "M-d" '(ismd/delete-word :wk "Delete word")
    "M-n" '((lambda () (interactive) (scroll-up-command 3)) :wk "Scroll down")
    "M-p" '((lambda () (interactive) (scroll-down-command 3)) :wk "Scroll up")
    "M-s" '(avy-goto-char-timer :wk "Jump to character")
@@ -836,11 +836,11 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   ;;
   ;; C-x
   ;;
-  (general-create-definer cz/leader-keys-C-x
+  (general-create-definer ismd/leader-keys-C-x
     :prefix "C-x"
     :keymaps 'override)
 
-  (cz/leader-keys-C-x
+  (ismd/leader-keys-C-x
     "b" '(consult-project-buffer :wk "Switch buffer")
     "B" '(consult-buffer-other-window :wk "Switch buffer other window")
     "k" '(kill-current-buffer :wk "Kill this buffer")
@@ -849,11 +849,11 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   ;;
   ;; C-c
   ;;
-  (general-create-definer cz/leader-keys
+  (general-create-definer ismd/leader-keys
     :prefix "C-c"
     :keymaps 'override)
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "." '(embark-act :wk "Embark act")
     "=" '(er/expand-region :wk "Expand region")
     "+" '(er/expand-region :wk "Expand region")
@@ -864,7 +864,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "TAB" '(indent-rigidly :wk "Indent region")
     "M-x" '(consult-mode-command :wk "Consult command"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "a" '(:ignore t :wk "AI")
     "a a" '(aider-transient-menu :wk "Aider transient menu")
     "a c" '(:ignore t :wk "Copilot Chat")
@@ -881,7 +881,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "a g r" '(gptel-rewrite :wk "GPTel rewrite")
     "a l" '(:keymap claude-code-command-map :wk "Claude Code"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
     "b b" '(switch-to-buffer :wk "Switch buffer")
     "b c" '(clone-indirect-buffer :wk "Create indirect buffer copy in a split")
@@ -896,13 +896,13 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "b r" '((lambda () (interactive) (revert-buffer nil t)) :wk "Reload buffer")
     "b w" '(bookmark-save :wk "Save current bookmarks to bookmark file"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "d" '(:ignore t :wk "Dired")
     "d d" '(dired :wk "Open dired")
     "d j" '(dired-jump :wk "Dired jump to current")
     "d t" '(treemacs-select-directory :wk "Open directory in treemacs"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "e" '(:ignore t :wk "Embark/Evaluate")
     "e c" '(embark-collect :wk "Embark collect")
     "e e" '(embark-export :wk "Embark export")
@@ -910,7 +910,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "e r" '(eval-region :wk "Evaluate elisp in region")
     "e s" '(eshell :which-key "Eshell"))
 
-  (defun cz/delete-this-file ()
+  (defun ismd/delete-this-file ()
     "Delete the file associated with the current buffer and kill the buffer with confirmation."
     (interactive)
     (let ((filename (buffer-file-name)))
@@ -923,10 +923,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
             (message "Canceled"))
         (message "Not a file"))))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "f" '(:ignore t :wk "Files")
     "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Open emacs config.org")
-    "f D" '(cz/delete-this-file :wk "Delete this file")
+    "f D" '(ismd/delete-this-file :wk "Delete this file")
     "f e" '((lambda () (interactive) (dired "~/.config/emacs")) :wk "Open user-emacs-directory in dired")
     "f f" '(find-file :wk "Find file")
     "f F" '(find-file-temporarily :wk "Find file temporarily")
@@ -938,7 +938,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "f U" '(sudo-edit :wk "Sudo edit this file")
     "f x" '(scratch-buffer :wk "Scratch buffer"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "h" '(:ignore t :wk "Help")
     "h b" '(describe-bindings :wk "Describe bindings")
     "h c" '(describe-char :wk "Describe character under cursor")
@@ -962,13 +962,13 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "h w" '(where-is :wk "Prints keybinding for command if set")
     "h x" '(describe-command :wk "Display full documentation for command"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "m" '(:ignore t :wk "Multiple cursors")
     "m a" '(mc/mark-all-like-this :wk "Mark all like this")
     "m d" '(mc/mark-all-dwim :wk "Mark all dwim")
     "m l" '(mc/edit-lines :wk "Edit lines"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "M" '(:ignore t :wk "Music")
     "M a" '(vuiet-play-artist :wk "Play artist")
     "M A" '(vuiet-play-album :wk "Play album")
@@ -991,7 +991,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "M t" '(vuiet-play-track :wk "Play track")
     "M T" '(vuiet-play-track-search :wk "Play track search"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "n" '(:ignore t :wk "Notes")
     "n b" '(denote-backlinks :wk "Backlinks")
     "n d" '(denote-dired :wk "Dired")
@@ -1002,7 +1002,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "n N" '(denote-subdirectory :wk "Denote subdirectory")
     "n r" '(denote-rename-file :wk "Rename file"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "o" '(:ignore t :wk "Org")
     "o a" '(org-agenda :wk "Org agenda")
     "o b" '(:ignore t :wk "Tables")
@@ -1017,16 +1017,16 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "o T" '(org-todo-list :wk "Org todo list")
     "o x" '(org-toggle-checkbox :wk "Org toggle checkbox"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "p" '(:keymap project-prefix-map :wk "Project"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "q" '(:ignore t :wk "Quit")
     "q f" '(delete-frame :wk "Delete frame")
     "q q" '(save-buffers-kill-emacs :wk "Quit Emacs")
     "q r" '(restart-emacs :wk "Restart Emacs"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "s" '(:ignore t :wk "Search")
     "s d" '(rg :wk "Ripgrep in directory")
     "s g" '(consult-grep :wk "Grep")
@@ -1035,7 +1035,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "s r" '(consult-ripgrep :wk "Consult ripgrep")
     "s t" '(tldr :wk "Lookup TLDR docs for a command"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "t" '(:ignore t :wk "Toggle")
     "t f" '(flycheck-mode :wk "Toggle flycheck")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
@@ -1044,7 +1044,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "t v" '(vterm-toggle :wk "Toggle vterm")
     "t w" '(visual-line-mode :wk "Toggle word wrap"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "v" '(:ignore t :wk "Version control")
     "v /" '(magit-dispatch :wk "Magit dispatch")
     "v ." '(magit-file-dispatch :wk "Magit file dispatch")
@@ -1052,7 +1052,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "v m" '(magit-git-mergetool :wk "Magit git mergetool")
     "v t" '(git-timemachine :wk "Git time machine"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "w" '(:ignore t :wk "Workspaces/Windows")
     "w c" '(tabspaces-open-or-create-project-and-workspace :wk "Open or create project and workspace")
     "w k" '(tabspaces-kill-buffers-close-workspace :wk "Kill buffers and close workspace")
@@ -1061,11 +1061,11 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "w m n" '(buf-move-down :wk "Buffer move down")
     "w m p" '(buf-move-up :wk "Buffer move up")
     "w m f" '(buf-move-right :wk "Buffer move right")
-    "w s" '(cz/window-split-toggle :wk "Toggle window split")
+    "w s" '(ismd/window-split-toggle :wk "Toggle window split")
     "w w" '(:ignore t :wk "Tabspaces")
     "w w C" '(tabspaces-clear-buffers :wk "Tabspaces clear buffers"))
 
-  (cz/leader-keys
+  (ismd/leader-keys
     "C-f" '(:ignore t :wk "Fold")
     "C-f C-f" '(treesit-fold-toggle :wk "Fold")
     "C-f C-a C-f" '(treesit-fold-close-all :wk "Fold all")
@@ -1074,10 +1074,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   ;;
   ;; M-g
   ;;
-  (general-create-definer cz/leader-keys-M-g
+  (general-create-definer ismd/leader-keys-M-g
     :prefix "M-g")
 
-  (cz/leader-keys-M-g
+  (ismd/leader-keys-M-g
     "g" '(consult-goto-line :wk "Go to line")
     "i" '(consult-imenu :wk "Imenu")
     "I" '(consult-imenu-multi :wk "Imenu multi")
@@ -2163,7 +2163,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 ** Tab Line
 #+begin_src emacs-lisp
-(defun cz/get-project-file-buffers ()
+(defun ismd/get-project-file-buffers ()
   (project-buffers (project-current)))
 
 (use-package tab-line
@@ -2179,22 +2179,22 @@ The following settings are simple modes that are enabled (or disabled) so that E
         tab-line-new-button-show nil
         tab-line-separator ""
         tab-line-switch-cycling t
-        tab-line-tab-name-function #'cz/tab-line-name-buffer
-        tab-line-tabs-buffer-group-function #'cz/tab-line-tabs-buffer-group-by-project
-        tab-line-tabs-buffer-group-sort-function #'cz/tab-line-tabs-buffer-group-sort-by-creation-time
-        tab-line-tabs-buffer-list-function #'cz/tab-line-tabs-buffer-list
+        tab-line-tab-name-function #'ismd/tab-line-name-buffer
+        tab-line-tabs-buffer-group-function #'ismd/tab-line-tabs-buffer-group-by-project
+        tab-line-tabs-buffer-group-sort-function #'ismd/tab-line-tabs-buffer-group-sort-by-creation-time
+        tab-line-tabs-buffer-list-function #'ismd/tab-line-tabs-buffer-list
         tab-line-tabs-function #'tab-line-tabs-buffer-groups)
 
   (add-to-list 'tab-line-tab-face-functions #'tab-line-tab-face-group))
 
-(defun cz/tab-line-tabs-buffer-group-by-project (buffer)
+(defun ismd/tab-line-tabs-buffer-group-by-project (buffer)
   "Group buffers by project, excluding non-file buffers."
   (when (buffer-file-name buffer)
     (let ((group-name (tab-line-tabs-buffer-group-by-project buffer)))
       (when group-name
         (concat " " group-name " ")))))
 
-(defun cz/tab-line-tabs-buffer-list ()
+(defun ismd/tab-line-tabs-buffer-list ()
   "Return buffer list without putting current buffer first."
   (seq-filter (lambda (b) (and (buffer-live-p b)
                                (/= (aref (buffer-name b) 0) ?\s)))
@@ -2225,7 +2225,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (add-hook 'buffer-list-update-hook #'track-buffer-creation)
 (add-hook 'kill-buffer-hook #'cleanup-buffer-creation-time)
 
-(defun cz/tab-line-tabs-buffer-group-sort-by-creation-time (a b)
+(defun ismd/tab-line-tabs-buffer-group-sort-by-creation-time (a b)
   "Sort buffers by creation time (oldest first)."
   (let ((time-a (buffer-local-value 'buffer-creation-time a))
         (time-b (buffer-local-value 'buffer-creation-time b)))
@@ -2241,7 +2241,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
   :type 'integer
   :group 'tab-line)
 
-(defun cz/tab-line-name-buffer (buffer &rest _buffers)
+(defun ismd/tab-line-name-buffer (buffer &rest _buffers)
   "Create name for tab with padding and truncation.
 If buffer name is shorter than `tab-line-tab-max-width' it gets
 centered with spaces, otherwise it is truncated, to preserve
@@ -2634,7 +2634,7 @@ https://github.com/mihaiolteanu/lastfm.el
 
 * WINDOW MANAGEMENT
 #+begin_src emacs-lisp
-(defun cz/window-split-toggle ()
+(defun ismd/window-split-toggle ()
   "Toggle between horizontal and vertical split with two windows."
   (interactive)
   (if (> (length (window-list)) 2)
