@@ -1437,10 +1437,12 @@ Emacs has built-in programming language modes for Lisp, Scheme, DSSSL, Ada, ASM,
 
 ** Dart
 https://github.com/emacsorphanage/dart-mode
+https://emacs-lsp.github.io/lsp-dart/
 
 #+begin_src emacs-lisp
 (use-package dart-mode
   :ensure t)
+
 (use-package lsp-dart
   :ensure t
   :custom
