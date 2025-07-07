@@ -1126,8 +1126,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   ;;
   (general-define-key
    :keymaps 'eat-semi-char-mode-map
-   "C-n" nil
-   "C-p" nil
+   ;; "C-n" nil
+   ;; "C-p" nil
    "M-n" nil
    "M-p" nil
    "M-1" nil
