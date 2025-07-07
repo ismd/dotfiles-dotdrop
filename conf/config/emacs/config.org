@@ -1189,7 +1189,9 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-7" nil
    "M-8" nil
    "M-9" nil
-   "M-0" nil)
+   "M-0" nil
+   "M-n" nil
+   "M-p" nil)
 
   ;;
   ;; Makefile
