@@ -232,6 +232,9 @@ dotfiles:
   f_y.fish:
     src: config/fish/functions/y.fish
     dst: ~/.config/fish/functions/y.fish
+  f_theme.conf:
+    src: config/kitty/theme.conf
+    dst: ~/.config/kitty/theme.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -294,6 +297,7 @@ profiles:
     - f_kitty.conf
     - f_emacs-pager.sh
     - f_y.fish
+    - f_theme.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -362,6 +366,7 @@ profiles:
     - f_monitors.sh
     - f_emacs-pager.sh
     - f_y.fish
+    - f_theme.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -430,3 +435,4 @@ profiles:
     - f_monitors.sh
     - f_emacs-pager.sh
     - f_y.fish
+    - f_theme.conf
