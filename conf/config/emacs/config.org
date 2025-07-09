@@ -2176,9 +2176,9 @@ The following settings are simple modes that are enabled (or disabled) so that E
   :hook (elpaca-after-init-hook . global-tab-line-mode)
   :custom-face
   (tab-line-tab ((t (:inherit tab-line :box nil))))
-  (tab-line-tab-current ((t (:inherit tab-line-tab :foreground "#ecf0ff" :background "#2f527b" :box nil))))
-  (tab-line-tab-group ((t (:foreground "#70a0ff"))))
-  (tab-line-tab-inactive ((t (:inherit tab-line-tab :foreground "#888888" :background "#2a2a2a" :box nil))))
+  (tab-line-tab-current ((t (:inherit doom-modeline-buffer-file))))
+  (tab-line-tab-group ((t (:inherit doom-modeline-project-name))))
+  (tab-line-tab-inactive ((t (:inherit doom-modeline-buffer-minor-mode))))
   :config
   (setq tab-line-close-button-show nil
         tab-line-new-button-show nil
@@ -2422,7 +2422,7 @@ https://github.com/mclear-tools/tabspaces
 With Emacs version 29, true transparency has been added.  
 
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(alpha-background . 80))
+;; (add-to-list 'default-frame-alist '(alpha-background . 80))
 #+end_src
 
 * TREE SITTER
