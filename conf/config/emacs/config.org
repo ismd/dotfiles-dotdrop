@@ -2182,7 +2182,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
   :config
   (setq tab-line-close-button-show nil
         tab-line-new-button-show nil
-        tab-line-separator ""
+        ;; tab-line-separator ""
         tab-line-switch-cycling t
         tab-line-tab-name-function #'ismd/tab-line-name-buffer
         tab-line-tabs-buffer-group-function #'ismd/tab-line-tabs-buffer-group-by-project
