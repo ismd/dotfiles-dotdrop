@@ -1307,14 +1307,22 @@ https://github.com/dgutov/diff-hl
 
 ** Git Gutter
 https://github.com/emacsorphanage/git-gutter
+https://github.com/emacsorphanage/git-gutter-fringe
+
+I use =git-gutter-fringe= because as I understand =git-gutter= doesn't work with Doom Themes.
 
 #+begin_src emacs-lisp
-(use-package git-gutter
+;; (use-package git-gutter
+;;   :ensure t
+;;   :custom
+;;   (git-gutter:modified-sign " ")
+;;   (git-gutter:added-sign " ")
+;;   (git-gutter:deleted-sign " ")
+;;   :config
+;;   (global-git-gutter-mode t))
+
+(use-package git-gutter-fringe
   :ensure t
-  :custom
-  (git-gutter:modified-sign " ")
-  (git-gutter:added-sign " ")
-  (git-gutter:deleted-sign " ")
   :config
   (global-git-gutter-mode t))
 #+end_src
