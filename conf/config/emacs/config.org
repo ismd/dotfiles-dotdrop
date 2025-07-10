@@ -1038,6 +1038,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (ismd/leader-keys
     "t" '(:ignore t :wk "Toggle")
+    "t c" '(claude-code-toggle :wk "Toggle Claude Code")
     "t f" '(flycheck-mode :wk "Toggle flycheck")
     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
     "t t" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs project")
@@ -1449,6 +1450,7 @@ https://emacs-lsp.github.io/lsp-dart/
 (use-package lsp-dart
   :ensure t
   :custom
+  (lsp-dart-dap-flutter-hot-reload-on-save t)
   (lsp-dart-sdk-dir "~/src/flutter/bin/cache/dart-sdk"))
 #+end_src
 
