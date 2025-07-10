@@ -3,14 +3,14 @@
 # To view all configuration options.
 
 font=Ubuntu Nerd Font 12
-background-color=#fcfcfc
-text-color=#193d4c
+background-color=#2d2d3a
+text-color=#b8bcc8
 width=300
 height=110
 margin=15
 padding=5,10,15
 border-size=2
-border-color=#193d4c
+border-color=#6c7086
 border-radius=5
 icons=1
 format=<b>%a ⏵</b> %s\n%b
@@ -23,17 +23,17 @@ default-timeout=5000
 ignore-timeout=1
 
 [urgency=normal]
-border-color=#193d4c
+border-color=#6c7086
 
 [urgency=high]
-border-color=#193d4c
+border-color=#c79399
 default-timeout=0
 
 [app-name=lightcord]
-border-color=#88c0d0
+border-color=#7c8fa3
 
 [summary~="log-.*"]
-border-color=#a3be8c
+border-color=#8fa89f
 
 [app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
 invisible=1
