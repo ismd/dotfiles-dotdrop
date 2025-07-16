@@ -2189,7 +2189,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
   (tab-line-tab ((t (:inherit tab-line :box nil))))
   (tab-line-tab-current ((t (:inherit doom-modeline-highlight))))
   (tab-line-tab-group ((t (:inherit doom-modeline-info))))
-  (tab-line-tab-inactive ((t (:inherit doom-modeline-buffer-minor-mode :foreground "gray60"))))
+  (tab-line-tab-inactive ((t (:inherit doom-modeline-buffer-minor-mode :foreground "gray50"))))
   :config
   (setq tab-line-close-button-show nil
         tab-line-new-button-show nil
