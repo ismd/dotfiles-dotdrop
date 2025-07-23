@@ -1347,6 +1347,7 @@ I use =git-gutter-fringe= because as I understand =git-gutter= doesn't work with
   :demand t
   :custom
   (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+  (magit-ediff-dwim-show-on-hunks t)
   ;; (transient-display-buffer-action '(display-buffer-below-selected))
   )
 #+end_src
