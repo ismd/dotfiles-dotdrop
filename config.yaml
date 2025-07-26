@@ -206,9 +206,6 @@ dotfiles:
   d_dunst:
     src: config/dunst
     dst: ~/.config/dunst
-  d_themes:
-    src: config/themes
-    dst: ~/.config/themes
   f_hypridle.conf:
     src: config/hypr/hypridle.conf
     dst: ~/.config/hypr/hypridle.conf
@@ -290,7 +287,6 @@ profiles:
     - f_multicd.fish
     - f_aider.conf.yml
     - d_dunst
-    - d_themes
     - f_hypridle.conf
     - f_set-android-layout.sh
     - f_razer.conf
@@ -358,7 +354,6 @@ profiles:
     - f_99-power-profile.rules
     - f_aider.conf.yml
     - d_dunst
-    - d_themes
     - f_hypridle.conf
     - f_set-android-layout.sh
     - f_razer.conf
@@ -427,7 +422,6 @@ profiles:
     - f_99-power-profile.rules
     - f_aider.conf.yml
     - d_dunst
-    - d_themes
     - f_hypridle.conf
     - f_set-android-layout.sh
     - f_razer.conf
