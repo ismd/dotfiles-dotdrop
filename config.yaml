@@ -232,6 +232,9 @@ dotfiles:
   f_theme.conf:
     src: config/kitty/theme.conf
     dst: ~/.config/kitty/theme.conf
+  f_post-hibernate-user.service:
+    src: etc/systemd/system/post-hibernate-user.service
+    dst: /etc/systemd/system/post-hibernate-user.service
 profiles:
   hyper-city:
     dotfiles:
@@ -362,6 +365,7 @@ profiles:
     - f_emacs-pager.sh
     - f_y.fish
     - f_theme.conf
+    - f_post-hibernate-user.service
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -430,3 +434,4 @@ profiles:
     - f_emacs-pager.sh
     - f_y.fish
     - f_theme.conf
+    - f_post-hibernate-user.service

@@ -1,0 +1,13 @@
+[Unit]
+Description=ThinkPad LEDs after hibernate for user
+After=suspend.target hibernate.target hybrid-sleep.target
+
+[Service]
+Type=oneshot
+User=ismd
+Group=ismd
+ExecStart=/home/ismd/.bin/thinkpad-leds.sh
+Environment=HOME=/home/ismd
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target
