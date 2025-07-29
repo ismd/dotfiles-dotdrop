@@ -235,6 +235,9 @@ dotfiles:
   f_rules.conf:
     src: config/hypr/custom.d/regular/rules.conf
     dst: ~/.config/hypr/custom.d/regular/rules.conf
+  f_env.conf:
+    src: config/hypr/custom.d/regular/env.conf
+    dst: ~/.config/hypr/custom.d/regular/env.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -297,6 +300,7 @@ profiles:
     - f_input.conf
     - f_monitors.conf
     - f_rules.conf
+    - f_env.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -366,6 +370,7 @@ profiles:
     - f_input.conf
     - f_monitors.conf
     - f_rules.conf
+    - f_env.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -435,3 +440,4 @@ profiles:
     - f_input.conf
     - f_monitors.conf
     - f_rules.conf
+    - f_env.conf
