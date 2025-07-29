@@ -131,15 +131,6 @@ dotfiles:
   f_default.kdl:
     src: config/zellij/layouts/default.kdl
     dst: ~/.config/zellij/layouts/default.kdl
-  f_hyprland.conf:
-    src: config/hypr/hyprland.conf
-    dst: ~/.config/hypr/hyprland.conf
-  f_hyprlock.conf:
-    src: config/hypr/hyprlock.conf
-    dst: ~/.config/hypr/hyprlock.conf
-  f_hyprpaper.conf:
-    src: config/hypr/hyprpaper.conf
-    dst: ~/.config/hypr/hyprpaper.conf
   f_config:
     src: config/mako/config
     dst: ~/.config/mako/config
@@ -152,9 +143,6 @@ dotfiles:
   f_chromium-flags.conf:
     src: config/chromium-flags.conf
     dst: ~/.config/chromium-flags.conf
-  f_electron-flags.conf:
-    src: config/electron-flags.conf
-    dst: ~/.config/electron-flags.conf
   f_tlp.conf:
     src: etc/tlp.conf
     dst: /etc/tlp.conf
@@ -167,9 +155,6 @@ dotfiles:
   f_index.theme:
     src: local/share/icons/default/index.theme
     dst: ~/.local/share/icons/default/index.theme
-  f_hyprland-portals.conf:
-    src: config/xdg-desktop-portal/hyprland-portals.conf
-    dst: ~/.config/xdg-desktop-portal/hyprland-portals.conf
   f_70-backlight.rules:
     src: etc/udev/rules.d/70-backlight.rules
     dst: /etc/udev/rules.d/70-backlight.rules
@@ -191,9 +176,6 @@ dotfiles:
     src: bin/split-flac.sh
     dst: ~/.bin/split-flac.sh
     chmod: '755'
-  f_config.json:
-    src: config/hyprpanel/config.json
-    dst: ~/.config/hyprpanel/config.json
   f_multicd.fish:
     src: config/fish/functions/multicd.fish
     dst: ~/.config/fish/functions/multicd.fish
@@ -206,9 +188,6 @@ dotfiles:
   d_dunst:
     src: config/dunst
     dst: ~/.config/dunst
-  f_hypridle.conf:
-    src: config/hypr/hypridle.conf
-    dst: ~/.config/hypr/hypridle.conf
   f_set-android-layout.sh:
     src: bin/set-android-layout.sh
     dst: ~/.bin/set-android-layout.sh
@@ -269,28 +248,21 @@ profiles:
     - f_ec-visual
     - f_alacritty.toml
     - f_default.kdl
-    - f_hyprland.conf
-    - f_hyprlock.conf
-    - f_hyprpaper.conf
     - f_config
     - f_brave-flags.conf
     - f_chrome-flags.conf
     - f_chromium-flags.conf
-    - f_electron-flags.conf
     - d_waybar
     - f_xresources
     - f_index.theme
-    - f_hyprland-portals.conf
     - f_yandex-music.conf
     - f_ghostty_config
     - f_brightness.sh
     - f_51-mitigate-annoying-profile-switch.conf
     - f_split-flac.sh
-    - f_config.json
     - f_multicd.fish
     - f_aider.conf.yml
     - d_dunst
-    - f_hypridle.conf
     - f_set-android-layout.sh
     - f_razer.conf
     - f_kitty.conf
@@ -334,30 +306,23 @@ profiles:
     - f_ec-visual
     - f_alacritty.toml
     - f_default.kdl
-    - f_hyprland.conf
-    - f_hyprlock.conf
-    - f_hyprpaper.conf
     - f_config
     - f_brave-flags.conf
     - f_chrome-flags.conf
     - f_chromium-flags.conf
-    - f_electron-flags.conf
     - d_waybar
     - f_xresources
     - f_index.theme
-    - f_hyprland-portals.conf
     - f_70-backlight.rules
     - f_yandex-music.conf
     - f_ghostty_config
     - f_brightness.sh
     - f_51-mitigate-annoying-profile-switch.conf
     - f_split-flac.sh
-    - f_config.json
     - f_multicd.fish
     - f_99-power-profile.rules
     - f_aider.conf.yml
     - d_dunst
-    - f_hypridle.conf
     - f_set-android-layout.sh
     - f_razer.conf
     - f_kitty.conf
@@ -403,30 +368,23 @@ profiles:
     - f_ec-visual
     - f_alacritty.toml
     - f_default.kdl
-    - f_hyprland.conf
-    - f_hyprlock.conf
-    - f_hyprpaper.conf
     - f_config
     - f_brave-flags.conf
     - f_chrome-flags.conf
     - f_chromium-flags.conf
-    - f_electron-flags.conf
     - d_waybar
     - f_xresources
     - f_index.theme
-    - f_hyprland-portals.conf
     - f_70-backlight.rules
     - f_yandex-music.conf
     - f_ghostty_config
     - f_brightness.sh
     - f_51-mitigate-annoying-profile-switch.conf
     - f_split-flac.sh
-    - f_config.json
     - f_multicd.fish
     - f_99-power-profile.rules
     - f_aider.conf.yml
     - d_dunst
-    - f_hypridle.conf
     - f_set-android-layout.sh
     - f_razer.conf
     - f_kitty.conf
