@@ -735,19 +735,27 @@ Defining the various fonts that Emacs will use.
 
 ** Setting the Font Face
 #+begin_src emacs-lisp
+{%@@ if profile in ["ismd-work", "ismd-black"] @@%}
+(setq ismd/font-family "CodeNewRoman Nerd Font Mono-13"
+      ismd/font-size 130)
+{%@@ else @@%}
+(setq ismd/font-family "CodeNewRoman Nerd Font Mono-14"
+      ismd/font-size 140)
+{%@@ endif @@%}
+
 (defun ismd/set-fonts ()
   "Set the fonts for Emacs."
   (set-face-attribute 'default nil
                       :font "CodeNewRoman Nerd Font Mono"
-                      :height 130
+                      :height ismd/font-size
                       :weight 'regular)
   (set-face-attribute 'variable-pitch nil
                       :font "RobotoMono Nerd Font"
-                      :height 130
+                      :height ismd/font-size
                       :weight 'regular)
   (set-face-attribute 'fixed-pitch nil
                       :font "CodeNewRoman Nerd Font Mono"
-                      :height 130
+                      :height ismd/font-size
                       :weight 'regular)
 
   (set-face-attribute 'font-lock-comment-face nil
@@ -755,7 +763,7 @@ Defining the various fonts that Emacs will use.
   (set-face-attribute 'font-lock-keyword-face nil
                       :slant 'italic)
 
-  (set-frame-font "CodeNewRoman Nerd Font Mono-13" nil t)
+  (set-frame-font ismd/font-family nil t)
 
   ;; tab-bar
   (set-face-attribute 'tab-bar-tab nil
@@ -768,7 +776,7 @@ Defining the various fonts that Emacs will use.
                   (ismd/set-fonts))))
   (ismd/set-fonts))
 
-(add-to-list 'default-frame-alist '(font . "CodeNewRoman Nerd Font Mono-13"))
+(add-to-list 'default-frame-alist `(font . ,ismd/font-family))
 #+end_src
 
 ** Zooming In/Out
