@@ -739,8 +739,8 @@ Defining the various fonts that Emacs will use.
 (setq ismd/font-family "CodeNewRoman Nerd Font Mono-13"
       ismd/font-size 130)
 {%@@ else @@%}
-(setq ismd/font-family "CodeNewRoman Nerd Font Mono-14"
-      ismd/font-size 140)
+(setq ismd/font-family "CodeNewRoman Nerd Font Mono-15"
+      ismd/font-size 150)
 {%@@ endif @@%}
 
 (defun ismd/set-fonts ()
