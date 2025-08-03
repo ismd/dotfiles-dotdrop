@@ -80,7 +80,7 @@ image/vnd.djvu+multipage=org.gnome.Evince.desktop;
 application/epub+zip=okularApplication_epub.desktop;org.gnome.Evince.desktop;
 image/webp=gimp.desktop;
 application/x-cue=ec.desktop;
-audio/flac=easytag.desktop;
+audio/flac=vlc.desktop;easytag.desktop;
 image/x-adobe-dng=org.xfce.ristretto.desktop;
 
 [Default Applications]
@@ -137,7 +137,7 @@ video/dv=org.videolan.VLC.desktop;
 video/fli=org.videolan.VLC.desktop;
 video/flv=org.videolan.VLC.desktop;
 video/mp2t=org.videolan.VLC.desktop;
-video/mp4=vlc.desktop;
+video/mp4=vlc.desktop
 video/mp4v-es=org.videolan.VLC.desktop;
 video/mpeg=org.videolan.VLC.desktop;
 video/msvideo=org.videolan.VLC.desktop;
@@ -177,3 +177,4 @@ application/pdf=org.gnome.Evince.desktop
 image/vnd.djvu+multipage=org.gnome.Evince.desktop
 application/epub+zip=okularApplication_epub.desktop
 image/x-adobe-dng=org.xfce.ristretto.desktop
+audio/flac=vlc.desktop
