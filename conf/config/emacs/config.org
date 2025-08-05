@@ -2488,7 +2488,7 @@ https://github.com/Alexander-Miller/treemacs
   (progn
     (setq treemacs-select-when-already-in-treemacs 'stay)
     (setq treemacs-width 30)
-    
+
     ;; Set smaller font for treemacs
     (set-face-attribute 'treemacs-root-face nil :height 0.8)
     (set-face-attribute 'treemacs-directory-face nil :height 0.8)
@@ -2496,7 +2496,7 @@ https://github.com/Alexander-Miller/treemacs
 
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
+    ;; (treemacs-resize-icons 44)
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
