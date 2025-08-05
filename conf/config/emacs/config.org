@@ -2513,11 +2513,12 @@ https://github.com/Alexander-Miller/treemacs
 
     (treemacs-hide-gitignored-files-mode nil)))
 
-(use-package treemacs-nerd-icons
-  :ensure t
-  :after (treemacs lsp-treemacs nerd-icons)
-  :config
-  (treemacs-load-theme "nerd-icons"))
+;; Disabled because misaligned icons in treemacs
+;; (use-package treemacs-nerd-icons
+;;   :ensure t
+;;   :after (treemacs lsp-treemacs nerd-icons)
+;;   :config
+;;   (treemacs-load-theme "nerd-icons"))
 
 (use-package treemacs-magit
   :ensure t
