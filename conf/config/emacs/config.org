@@ -323,13 +323,16 @@ https://github.com/chep/copilot-chat.el
   :ensure t
   :hook (git-commit-setup . copilot-chat-insert-commit-message)
   :custom
-  (copilot-chat-backend 'request)
-  (copilot-chat-follow nil)
+  ;; (copilot-chat-backend 'request)
+  ;; Recommendation: For generating Git commit messages:
+  ;; - **If you want high-quality, context-aware messages**: Go with **GPT-4.1** or **Gemini-2.0-flash-001**.
+  ;; - **If you prioritize speed and efficiency**: Use **GPT-4o**.
+  ;; - **If you're working in a resource-constrained environment**: Opt for **O3-mini**.
+  (copilot-chat-default-model "gemini-2.0-flash-001")
+  ;; (copilot-chat-follow nil)
   (copilot-chat-frontend 'shell-maker)
   :config
-  (ismd/add-display-buffer-rule "^\\*Copilot Chat")
-
-  (copilot-chat-set-model "o4-mini"))
+  (ismd/add-display-buffer-rule "^\\*Copilot Chat"))
 #+end_src
 
 ** gptel
