@@ -241,6 +241,15 @@ dotfiles:
   f_regular_settings.conf:
     src: config/hypr/custom.d/regular/settings.conf
     dst: ~/.config/hypr/custom.d/regular/settings.conf
+  f_settings.ini:
+    src: config/gtk-4.0/settings.ini
+    dst: ~/.config/gtk-4.0/settings.ini
+  f_gtk-3.0_settings.ini:
+    src: config/gtk-3.0/settings.ini
+    dst: ~/.config/gtk-3.0/settings.ini
+  f_gtkrc-2.0:
+    src: config/gtkrc-2.0
+    dst: ~/.config/gtkrc-2.0
 profiles:
   hyper-city:
     dotfiles:
@@ -305,6 +314,9 @@ profiles:
     - f_rules.conf
     - f_env.conf
     - f_regular_settings.conf
+    - f_settings.ini
+    - f_gtk-3.0_settings.ini
+    - f_gtkrc-2.0
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -376,6 +388,9 @@ profiles:
     - f_rules.conf
     - f_env.conf
     - f_regular_settings.conf
+    - f_settings.ini
+    - f_gtk-3.0_settings.ini
+    - f_gtkrc-2.0
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -447,3 +462,6 @@ profiles:
     - f_rules.conf
     - f_env.conf
     - f_regular_settings.conf
+    - f_settings.ini
+    - f_gtk-3.0_settings.ini
+    - f_gtkrc-2.0
