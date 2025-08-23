@@ -14,7 +14,6 @@
   - [[#mindre-theme][Mindre Theme]]
   - [[#modus-themes][Modus Themes]]
   - [[#nord-theme][Nord Theme]]
-- [[#load-theme][Load Theme]]
 
 * Themes
 
@@ -69,8 +68,8 @@
 ** IntelliJ Theme
 
 #+begin_src emacs-lisp
-(use-package intellij-theme
-  :ensure t)
+;; (use-package intellij-theme
+;;   :ensure t)
 #+end_src
 
 ** Leuven Theme
