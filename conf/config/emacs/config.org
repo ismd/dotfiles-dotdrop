@@ -81,6 +81,7 @@
   - [[#nerd-icons-corfu][Nerd Icons Corfu]]
   - [[#nerd-icons-ibuffer][Nerd Icons Ibuffer]]
 - [[#nvm][NVM]]
+- [[#olivetti][OLIVETTI]]
 - [[#orderless][ORDERLESS]]
 - [[#org-mode][ORG MODE]]
   - [[#enabling-table-of-contents][Enabling Table of Contents]]
@@ -1866,6 +1867,15 @@ https://github.com/rejeep/nvm.el
   :ensure (:host github :repo "rejeep/nvm.el")
   :config
   (nvm-use "22"))
+#+end_src
+
+* OLIVETTI
+https://github.com/rnkn/olivetti
+
+#+begin_src emacs-lisp
+(use-package olivetti
+  :ensure t
+  :hook (org-mode . olivetti-mode))
 #+end_src
 
 * ORDERLESS
