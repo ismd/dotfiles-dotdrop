@@ -1875,6 +1875,8 @@ https://github.com/rnkn/olivetti
 #+begin_src emacs-lisp
 (use-package olivetti
   :ensure t
+  :custom
+  (olivetti-style 'fancy)
   :hook (org-mode . olivetti-mode))
 #+end_src
 
