@@ -854,7 +854,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (ismd/leader-keys-C-x
     "b" '(consult-project-buffer :wk "Switch buffer")
-    "B" '(consult-buffer-other-window :wk "Switch buffer other window")
+    "B" '(switch-to-buffer :wk "Switch buffer")
     "k" '(kill-current-buffer :wk "Kill this buffer")
     "K" '(kill-buffer-and-window :wk "Kill buffer"))
 
@@ -896,7 +896,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (ismd/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
-    "b b" '(switch-to-buffer :wk "Switch buffer")
     "b c" '(clone-indirect-buffer :wk "Create indirect buffer copy in a split")
     "b C" '(clone-indirect-buffer-other-window :wk "Clone indirect buffer in new window")
     "b d" '(bookmark-delete :wk "Delete bookmark")
