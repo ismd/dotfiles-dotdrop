@@ -106,6 +106,7 @@
   - [[#ssh-agent][SSH Agent]]
   - [[#tab-bar][Tab Bar]]
   - [[#tab-line][Tab Line]]
+- [[#scroll-1][SCROLL]]
 - [[#shells-and-terminals][SHELLS AND TERMINALS]]
   - [[#eshell][Eshell]]
   - [[#vterm][Vterm]]
@@ -121,7 +122,6 @@
   - [[#treesit-fold][Treesit Fold]]
 - [[#treemacs][TREEMACS]]
 - [[#trimming-whitespace][TRIMMING WHITESPACE]]
-- [[#ultra-scroll][ULTRA SCROLL]]
 - [[#vertico][VERTICO]]
   - [[#vertico-posframe][Vertico Posframe]]
 - [[#vuiet][VUIET]]
@@ -799,6 +799,12 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   :demand t
   :config
   (general-define-key
+
+   ;; Scroll
+   "<prior>" '(good-scroll-up-full-screen :wk "Scroll up full screen")
+   "<next>" '(good-scroll-down-full-screen :wk "Scroll down full screen")
+   "M-v" '(good-scroll-up-full-screen :wk "Scroll up full screen")
+   "C-v" '(good-scroll-down-full-screen :wk "Scroll down full screen")
 
    "C-=" '(text-scale-increase :wk "Increase font size")
    "C--" '(text-scale-decrease :wk "Decrease font size")
@@ -2173,11 +2179,12 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 ** Scroll
 #+begin_src emacs-lisp
-(setq mouse-wheel-follow-mouse 't
-      mouse-wheel-progressive-speed nil
-      mouse-wheel-scroll-amount '(1 ((shift) . 1))
-        mouse-wheel-tilt-scroll t
-      scroll-step 1)
+(setq mouse-wheel-follow-mouse 't)
+;; (setq mouse-wheel-follow-mouse 't
+;;       mouse-wheel-progressive-speed nil
+;;       mouse-wheel-scroll-amount '(1 ((shift) . 1))
+;;         mouse-wheel-tilt-scroll t
+;;       scroll-step 1)
 #+end_src
 
 ** SSH Agent
@@ -2308,6 +2315,32 @@ truncates text if needed.  Minimal width can be set with
           (concat  " " (truncate-string-to-width buffer-name (- tab-width 2)) "…")
         (concat " " buffer-name " ")))))
 #+end_src
+
+* SCROLL
+https://github.com/jdtsmith/ultra-scroll
+https://github.com/io12/good-scroll.el
+
+#+begin_src emacs-lisp
+;; (pixel-scroll-precision-mode 1)
+;; (setq pixel-scroll-precision-interpolate-page t)
+
+;; (use-package ultra-scroll
+;;   :ensure t
+;;   :init
+;;   (setq scroll-conservatively 3
+;;         scroll-margin 0)
+;;   :config
+;;   (ultra-scroll-mode 1))
+
+(use-package good-scroll
+  :ensure t
+  ;; :init
+  ;; (setq scroll-conservatively 101
+  ;;       scroll-margin 0)
+  :config
+  (good-scroll-mode 1))
+#+end_src
+
 
 * SHELLS AND TERMINALS
 In my configs, all of my shells (bash, fish, zsh and the ESHELL) require my shell-color-scripts-git package to be installed.  On Arch Linux, you can install it from the AUR.  Otherwise, go to my shell-color-scripts repository on GitLab to get it.
@@ -2553,21 +2586,6 @@ https://github.com/Alexander-Miller/treemacs
   :config
   (ws-butler-global-mode 1) 
   (setq ws-butler-global-exempt-modes '(dockerfile-ts-mode markdown-mode terraform-mode)))
-#+end_src
-
-* ULTRA SCROLL
-https://github.com/jdtsmith/ultra-scroll
-
-Scroll emacs like lightning ⚡🖱️⚡
-
-#+begin_src emacs-lisp
-(use-package ultra-scroll
-  :ensure t
-  :init
-  (setq scroll-conservatively 3
-        scroll-margin 0)
-  :config
-  (ultra-scroll-mode 1))
 #+end_src
 
 * VERTICO
