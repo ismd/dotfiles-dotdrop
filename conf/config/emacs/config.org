@@ -2334,9 +2334,6 @@ https://github.com/io12/good-scroll.el
 
 (use-package good-scroll
   :ensure t
-  ;; :init
-  ;; (setq scroll-conservatively 101
-  ;;       scroll-margin 0)
   :config
   (good-scroll-mode 1))
 #+end_src
