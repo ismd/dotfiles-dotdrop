@@ -214,39 +214,24 @@ dotfiles:
   f_post-hibernate-user.service:
     src: etc/systemd/system/post-hibernate-user.service
     dst: /etc/systemd/system/post-hibernate-user.service
-  f_apps.conf:
-    src: config/hypr/custom.d/init/apps.conf
-    dst: ~/.config/hypr/custom.d/init/apps.conf
-  f_settings.conf:
-    src: config/hypr/custom.d/init/settings.conf
-    dst: ~/.config/hypr/custom.d/init/settings.conf
-  f_autostart.conf:
-    src: config/hypr/custom.d/regular/autostart.conf
-    dst: ~/.config/hypr/custom.d/regular/autostart.conf
-  f_binds.conf:
-    src: config/hypr/custom.d/regular/binds.conf
-    dst: ~/.config/hypr/custom.d/regular/binds.conf
-  f_input.conf:
-    src: config/hypr/custom.d/regular/input.conf
-    dst: ~/.config/hypr/custom.d/regular/input.conf
-  f_monitors.conf:
-    src: config/hypr/custom.d/regular/monitors.conf
-    dst: ~/.config/hypr/custom.d/regular/monitors.conf
-  f_rules.conf:
-    src: config/hypr/custom.d/regular/rules.conf
-    dst: ~/.config/hypr/custom.d/regular/rules.conf
-  f_env.conf:
-    src: config/hypr/custom.d/regular/env.conf
-    dst: ~/.config/hypr/custom.d/regular/env.conf
-  f_regular_settings.conf:
-    src: config/hypr/custom.d/regular/settings.conf
-    dst: ~/.config/hypr/custom.d/regular/settings.conf
   f_gtkrc-2.0:
     src: config/gtkrc-2.0
     dst: ~/.config/gtkrc-2.0
   f_99-fonts.conf:
     src: config/fontconfig/conf.d/99-fonts.conf
     dst: ~/.config/fontconfig/conf.d/99-fonts.conf
+  f_hypridle.conf:
+    src: config/hypr/hypridle.conf
+    dst: ~/.config/hypr/hypridle.conf
+  f_hyprland.conf:
+    src: config/hypr/hyprland.conf
+    dst: ~/.config/hypr/hyprland.conf
+  f_hyprlock.conf:
+    src: config/hypr/hyprlock.conf
+    dst: ~/.config/hypr/hyprlock.conf
+  f_hyprpaper.conf:
+    src: config/hypr/hyprpaper.conf
+    dst: ~/.config/hypr/hyprpaper.conf
 profiles:
   hyper-city:
     dotfiles:
@@ -302,15 +287,6 @@ profiles:
     - f_emacs-pager.sh
     - f_y.fish
     - f_theme.conf
-    - f_apps.conf
-    - f_settings.conf
-    - f_autostart.conf
-    - f_binds.conf
-    - f_input.conf
-    - f_monitors.conf
-    - f_rules.conf
-    - f_env.conf
-    - f_regular_settings.conf
     - f_gtkrc-2.0
     - f_99-fonts.conf
   ismd-work:
@@ -375,15 +351,6 @@ profiles:
     - f_y.fish
     - f_theme.conf
     - f_post-hibernate-user.service
-    - f_apps.conf
-    - f_settings.conf
-    - f_autostart.conf
-    - f_binds.conf
-    - f_input.conf
-    - f_monitors.conf
-    - f_rules.conf
-    - f_env.conf
-    - f_regular_settings.conf
     - f_gtkrc-2.0
     - f_99-fonts.conf
   ismd-black:
@@ -448,14 +415,9 @@ profiles:
     - f_y.fish
     - f_theme.conf
     - f_post-hibernate-user.service
-    - f_apps.conf
-    - f_settings.conf
-    - f_autostart.conf
-    - f_binds.conf
-    - f_input.conf
-    - f_monitors.conf
-    - f_rules.conf
-    - f_env.conf
-    - f_regular_settings.conf
     - f_gtkrc-2.0
     - f_99-fonts.conf
+    - f_hypridle.conf
+    - f_hyprland.conf
+    - f_hyprlock.conf
+    - f_hyprpaper.conf
