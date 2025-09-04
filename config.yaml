@@ -289,6 +289,10 @@ profiles:
     - f_theme.conf
     - f_gtkrc-2.0
     - f_99-fonts.conf
+    - f_hypridle.conf
+    - f_hyprland.conf
+    - f_hyprlock.conf
+    - f_hyprpaper.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -353,6 +357,10 @@ profiles:
     - f_post-hibernate-user.service
     - f_gtkrc-2.0
     - f_99-fonts.conf
+    - f_hypridle.conf
+    - f_hyprland.conf
+    - f_hyprlock.conf
+    - f_hyprpaper.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
