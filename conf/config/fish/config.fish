@@ -36,6 +36,7 @@ abbr -a gpush git push
 abbr -a gs git status
 
 # Aliases
+alias b bluetoothctl
 alias c 'set dir (command ls -lah | fzf | awk "{print \$9}"); and cd $dir'
 alias cat bat
 alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
