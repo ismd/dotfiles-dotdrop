@@ -37,3 +37,6 @@ border-color=#8fa89f
 
 [app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
 invisible=1
+
+[mode=do-not-disturb]
+invisible=1
