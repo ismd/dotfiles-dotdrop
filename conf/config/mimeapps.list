@@ -52,7 +52,7 @@ video/webm=org.videolan.VLC.desktop;vlc.desktop;
 video/x-avi=org.videolan.VLC.desktop;
 video/x-flv=org.videolan.VLC.desktop;
 video/x-m4v=org.videolan.VLC.desktop;
-video/x-matroska=org.videolan.VLC.desktop;vlc.desktop;
+video/x-matroska=mpv.desktop;org.videolan.VLC.desktop;vlc.desktop;
 video/x-mpeg2=org.videolan.VLC.desktop;
 video/x-ms-asf=org.videolan.VLC.desktop;
 video/x-ms-wmv=org.videolan.VLC.desktop;
@@ -80,7 +80,7 @@ image/vnd.djvu+multipage=org.gnome.Evince.desktop;
 application/epub+zip=okularApplication_epub.desktop;org.gnome.Evince.desktop;
 image/webp=gimp.desktop;
 application/x-cue=ec.desktop;
-audio/flac=vlc.desktop;easytag.desktop;
+audio/flac=easytag.desktop;vlc.desktop;
 image/x-adobe-dng=org.xfce.ristretto.desktop;
 
 [Default Applications]
@@ -151,7 +151,7 @@ video/webm=vlc.desktop
 video/x-avi=org.videolan.VLC.desktop;
 video/x-flv=org.videolan.VLC.desktop;
 video/x-m4v=org.videolan.VLC.desktop;
-video/x-matroska=vlc.desktop
+video/x-matroska=mpv.desktop
 video/x-mpeg2=org.videolan.VLC.desktop;
 video/x-ms-asf=org.videolan.VLC.desktop;
 video/x-ms-wmv=org.videolan.VLC.desktop;
