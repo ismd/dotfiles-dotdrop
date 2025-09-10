@@ -82,6 +82,7 @@ image/webp=gimp.desktop;
 application/x-cue=ec.desktop;
 audio/flac=easytag.desktop;vlc.desktop;
 image/x-adobe-dng=org.xfce.ristretto.desktop;
+application/x-executable=ec.desktop;
 
 [Default Applications]
 application/json=ec.desktop;
