@@ -62,3 +62,7 @@ end
 direnv hook fish | source
 
 alias claude="/home/ismd/.claude/local/claude"
+
+# Kill word
+bind alt-d 'commandline -f kill-word'
+bind alt-backspace 'commandline -f backward-kill-word'
