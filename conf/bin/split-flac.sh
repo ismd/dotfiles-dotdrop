@@ -4,7 +4,7 @@ set -e  # Exit immediately if any command fails
 
 # Check required tools
 command -v fd >/dev/null 2>&1 || { echo "Error: fd command not found" >&2; exit 1; }
-command -v enca >/dev/null 2>&1 || { echo "Error: enca command not found" >&2; exit 1; }
+# command -v enca >/dev/null 2>&1 || { echo "Error: enca command not found" >&2; exit 1; }
 command -v shnsplit >/dev/null 2>&1 || { echo "Error: shnsplit command not found" >&2; exit 1; }
 command -v cuetag.sh >/dev/null 2>&1 || { echo "Error: cuetag.sh command not found" >&2; exit 1; }
 command -v flac >/dev/null 2>&1 || { echo "Error: flac command not found" >&2; exit 1; }
@@ -34,10 +34,10 @@ fd . -e cue "$DIR" --print0 | while IFS= read -r -d '' FILE; do
   mkdir -p "$CUE_DIR/.split"
 
   # Convert CUE file encoding
-  if ! enca -L ru -x UTF-8 "$FILE"; then
-    echo "Error: Failed to convert encoding for $FILE" >&2
-    exit 1
-  fi
+  # if ! enca -L ru -x UTF-8 "$FILE"; then
+  #   echo "Error: Failed to convert encoding for $FILE" >&2
+  #   exit 1
+  # fi
   
   # Split the FLAC file with explicit error checking
   if ! shnsplit -d "$CUE_DIR/.split" -f "$FILE" -t "%n. %t" -o "flac flac -V --best -o %f -" "$CUE_DIR"/*.flac; then
