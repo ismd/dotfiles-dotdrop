@@ -2,17 +2,37 @@
 
 set -e  # Exit immediately if any command fails
 
+# Parse options
+USE_ENCA=false
+while getopts "e" opt; do
+  case $opt in
+    e)
+      USE_ENCA=true
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+shift $((OPTIND-1))
+
 # Check required tools
 command -v fd >/dev/null 2>&1 || { echo "Error: fd command not found" >&2; exit 1; }
-# command -v enca >/dev/null 2>&1 || { echo "Error: enca command not found" >&2; exit 1; }
 command -v shnsplit >/dev/null 2>&1 || { echo "Error: shnsplit command not found" >&2; exit 1; }
 command -v cuetag.sh >/dev/null 2>&1 || { echo "Error: cuetag.sh command not found" >&2; exit 1; }
 command -v flac >/dev/null 2>&1 || { echo "Error: flac command not found" >&2; exit 1; }
 
+# Check enca if needed
+if [ "$USE_ENCA" = true ]; then
+  command -v enca >/dev/null 2>&1 || { echo "Error: enca command not found (required with -e flag)" >&2; exit 1; }
+fi
+
 DIR=$1
 
 if [ -z "$DIR" ]; then
-    echo "Usage: $0 <directory>"
+    echo "Usage: $0 [-e] <directory>"
+    echo "  -e  Enable encoding conversion with enca"
     exit 1
 fi
 
@@ -33,12 +53,14 @@ fd . -e cue "$DIR" --print0 | while IFS= read -r -d '' FILE; do
 
   mkdir -p "$CUE_DIR/.split"
 
-  # Convert CUE file encoding
-  # if ! enca -L ru -x UTF-8 "$FILE"; then
-  #   echo "Error: Failed to convert encoding for $FILE" >&2
-  #   exit 1
-  # fi
-  
+  # Convert CUE file encoding if enabled
+  if [ "$USE_ENCA" = true ]; then
+    if ! enca -L ru -x UTF-8 "$FILE"; then
+      echo "Error: Failed to convert encoding for $FILE" >&2
+      exit 1
+    fi
+  fi
+
   # Split the FLAC file with explicit error checking
   if ! shnsplit -d "$CUE_DIR/.split" -f "$FILE" -t "%n. %t" -o "flac flac -V --best -o %f -" "$CUE_DIR"/*.flac; then
     echo "Error: Failed to split $FILE" >&2
