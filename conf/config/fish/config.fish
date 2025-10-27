@@ -39,6 +39,7 @@ abbr -a gs git status
 alias b bluetoothctl
 alias c 'set dir (command ls -lah | fzf | awk "{print \$9}"); and cd $dir'
 alias cat bat
+alias claude="~/.claude/local/claude"
 alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
 alias guitar-pro 'wine ~/.wine/drive_c/Program\ Files/Arobas\ Music/Guitar\ Pro\ 8/GuitarPro.exe'
 alias nv nvim
@@ -60,8 +61,6 @@ end
 
 # direnv
 direnv hook fish | source
-
-alias claude="/home/ismd/.claude/local/claude"
 
 # Kill word
 bind alt-d 'commandline -f kill-word'
