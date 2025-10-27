@@ -1885,6 +1885,7 @@ https://github.com/rnkn/olivetti
 (use-package olivetti
   :ensure t
   :custom
+  (olivetti-body-width 0.5)
   (olivetti-style 'fancy)
   :hook (org-mode . olivetti-mode))
 #+end_src
@@ -2228,7 +2229,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
         tab-line-new-button-show nil
         ;; tab-line-separator ""
         tab-line-switch-cycling t
-        tab-line-tab-name-function #'ismd/tab-line-name-buffer
+        ;; tab-line-tab-name-function #'ismd/tab-line-name-buffer
         tab-line-tabs-buffer-group-function #'ismd/tab-line-tabs-buffer-group-by-project
         tab-line-tabs-buffer-group-sort-function #'ismd/tab-line-tabs-buffer-group-sort-by-creation-time
         tab-line-tabs-buffer-list-function #'ismd/tab-line-tabs-buffer-list
