@@ -801,10 +801,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (general-define-key
 
    ;; Scroll
-   "<next>" '(good-scroll-up-full-screen :wk "Scroll up full screen")
-   "<prior>" '(good-scroll-down-full-screen :wk "Scroll down full screen")
-   "C-v" '(good-scroll-up-full-screen :wk "Scroll up full screen")
-   "M-v" '(good-scroll-down-full-screen :wk "Scroll down full screen")
+   ;; "<next>" '(good-scroll-up-full-screen :wk "Scroll up full screen")
+   ;; "<prior>" '(good-scroll-down-full-screen :wk "Scroll down full screen")
+   ;; "C-v" '(good-scroll-up-full-screen :wk "Scroll up full screen")
+   ;; "M-v" '(good-scroll-down-full-screen :wk "Scroll down full screen")
 
    "C-=" '(text-scale-increase :wk "Increase font size")
    "C--" '(text-scale-decrease :wk "Decrease font size")
@@ -2335,10 +2335,10 @@ https://github.com/io12/good-scroll.el
 ;;   :config
 ;;   (ultra-scroll-mode 1))
 
-(use-package good-scroll
-  :ensure t
-  :config
-  (good-scroll-mode 1))
+;; (use-package good-scroll
+;;   :ensure t
+;;   :config
+;;   (good-scroll-mode 1))
 #+end_src
 
 
