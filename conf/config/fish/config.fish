@@ -50,7 +50,7 @@ set FZF_DEFAULT_OPTS '--height 40% --layout=reverse --border --margin 1,2'
 fzf --fish | source
 
 # nvm
-set -U nvm_default_version lts/jod
+set -U nvm_default_version 24
 set -U nvm_data ~/.nvm
 
 # Secrets
