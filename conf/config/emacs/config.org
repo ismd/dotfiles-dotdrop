@@ -277,7 +277,6 @@ https://github.com/stevemolitor/claude-code.el
   (claude-code-program "~/.claude/local/claude")
   ;; (claude-code-notification-function #'ismd/claude-notify)
   (claude-code-notification-function #'ismd/claude-notify-with-sound)
-  (claude-code-terminal-backend 'vterm)
   :config
   (ismd/add-display-buffer-rule "^\\*claude")
 
