@@ -2152,7 +2152,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
                                        `(lambda (c)
                                           (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
 (global-auto-revert-mode t)           ;; Automatically show changes if the file has changed
-(global-display-line-numbers-mode -1) ;; Display line numbers
+(global-display-line-numbers-mode 1)  ;; Display line numbers
 (global-visual-line-mode 1)           ;; Enable truncated lines
 (global-visual-wrap-prefix-mode 1)    ;; Enable visual line wrapping
 (menu-bar-mode -1)                    ;; Disable the menu bar
