@@ -586,7 +586,13 @@ https://github.com/protesilaos/denote
 This is a package that saves the state of your Emacs session, including open files, buffers, and window configurations, so that you can restore it later.
 
 #+begin_src emacs-lisp
-(desktop-save-mode 1)
+;; Delay desktop restoration until after Elpaca finishes loading packages
+;; This ensures all hooks are registered before buffers are restored
+(setq desktop-restore-eager 5) ; Restore first 5 buffers immediately, rest lazily
+(add-hook 'elpaca-after-init-hook
+          (lambda ()
+            (desktop-save-mode 1)
+            (desktop-read)))
 #+end_src
 
 * DIMINISH
