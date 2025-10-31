@@ -2223,26 +2223,26 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (defun ismd/get-project-file-buffers ()
   (project-buffers (project-current)))
 
-(use-package tab-line
-  :ensure nil
-  :hook (elpaca-after-init-hook . global-tab-line-mode)
-  :custom-face
-  (tab-line-tab ((t (:inherit tab-line :box nil))))
-  (tab-line-tab-current ((t (:inherit doom-modeline-highlight))))
-  (tab-line-tab-group ((t (:inherit doom-modeline-info))))
-  (tab-line-tab-inactive ((t (:inherit doom-modeline-buffer-minor-mode :foreground "gray50"))))
-  :config
-  (setq tab-line-close-button-show nil
-        tab-line-new-button-show nil
-        ;; tab-line-separator ""
-        tab-line-switch-cycling t
-        ;; tab-line-tab-name-function #'ismd/tab-line-name-buffer
-        tab-line-tabs-buffer-group-function #'ismd/tab-line-tabs-buffer-group-by-project
-        tab-line-tabs-buffer-group-sort-function #'ismd/tab-line-tabs-buffer-group-sort-by-creation-time
-        tab-line-tabs-buffer-list-function #'ismd/tab-line-tabs-buffer-list
-        tab-line-tabs-function #'tab-line-tabs-buffer-groups)
+;; (use-package tab-line
+;;   :ensure nil
+;;   :hook (elpaca-after-init-hook . global-tab-line-mode)
+;;   :custom-face
+;;   (tab-line-tab ((t (:inherit tab-line :box nil))))
+;;   (tab-line-tab-current ((t (:inherit doom-modeline-highlight))))
+;;   (tab-line-tab-group ((t (:inherit doom-modeline-info))))
+;;   (tab-line-tab-inactive ((t (:inherit doom-modeline-buffer-minor-mode :foreground "gray50"))))
+;;   :config
+;;   (setq tab-line-close-button-show nil
+;;         tab-line-new-button-show nil
+;;         ;; tab-line-separator ""
+;;         tab-line-switch-cycling t
+;;         ;; tab-line-tab-name-function #'ismd/tab-line-name-buffer
+;;         tab-line-tabs-buffer-group-function #'ismd/tab-line-tabs-buffer-group-by-project
+;;         tab-line-tabs-buffer-group-sort-function #'ismd/tab-line-tabs-buffer-group-sort-by-creation-time
+;;         tab-line-tabs-buffer-list-function #'ismd/tab-line-tabs-buffer-list
+;;         tab-line-tabs-function #'tab-line-tabs-buffer-groups)
 
-  (add-to-list 'tab-line-tab-face-functions #'tab-line-tab-face-group))
+;;   (add-to-list 'tab-line-tab-face-functions #'tab-line-tab-face-group))
 
 (defun ismd/tab-line-tabs-buffer-group-by-project (buffer)
   "Group buffers by project, excluding non-file buffers."
