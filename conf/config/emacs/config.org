@@ -86,13 +86,13 @@
 - [[#org-mode][ORG MODE]]
   - [[#enabling-table-of-contents][Enabling Table of Contents]]
   - [[#enabling-org-bullets][Enabling Org Bullets]]
+  - [[#export-to-markdown][Export to Markdown]]
   - [[#source-code-block-tag-expansion][Source Code Block Tag Expansion]]
   - [[#org-todo][Org TODO]]
   - [[#org-appear][Org Appear]]
   - [[#org-roam][Org Roam]]
 - [[#persistent-scratch][PERSISTENT SCRATCH]]
-- [[#persp-mode][PERSP MODE]]
-  - [[#persp-mode-projectile-bridge][Persp Mode Projectile Bridge]]
+- [[#perspective][PERSPECTIVE]]
 - [[#popwin][POPWIN]]
 - [[#project][PROJECT]]
   - [[#project-tab-groups][Project Tab Groups]]
@@ -588,11 +588,11 @@ This is a package that saves the state of your Emacs session, including open fil
 #+begin_src emacs-lisp
 ;; Delay desktop restoration until after Elpaca finishes loading packages
 ;; This ensures all hooks are registered before buffers are restored
-(setq desktop-restore-eager 5) ; Restore first 5 buffers immediately, rest lazily
-(add-hook 'elpaca-after-init-hook
-          (lambda ()
-            (desktop-save-mode 1)
-            (desktop-read)))
+;; (setq desktop-restore-eager 5) ; Restore first 5 buffers immediately, rest lazily
+;; (add-hook 'elpaca-after-init-hook
+;;           (lambda ()
+;;             (desktop-save-mode 1)
+;;             (desktop-read)))
 #+end_src
 
 * DIMINISH
@@ -916,7 +916,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "b c" '(clone-indirect-buffer :wk "Create indirect buffer copy in a split")
     "b C" '(clone-indirect-buffer-other-window :wk "Clone indirect buffer in new window")
     "b d" '(bookmark-delete :wk "Delete bookmark")
-    "b I" '(ibuffer :wk "Ibuffer")
+    "b I" '(persp-ibuffer :wk "Ibuffer")
     "b k" '(kill-current-buffer :wk "Kill this buffer")
     "b l" '(list-bookmarks :wk "List bookmarks")
     "b m" '(bookmark-set :wk "Set bookmark")
@@ -1939,6 +1939,15 @@ Org-bullets gives us attractive bullets rather than asterisks.
   (org-mode . org-bullets-mode))
 #+end_src
 
+** Export to Markdown
+https://github.com/larstvei/ox-gfm
+
+#+begin_src emacs-lisp
+(use-package ox-gfm
+  :ensure t
+  :after org)
+#+end_src
+
 ** Source Code Block Tag Expansion
 Org-tempo is not a separate package but a module within org that can be enabled.  Org-tempo allows for '<s' followed by TAB to expand to a ~begin_src~ tag.  Other expansions available include:
 
@@ -2018,42 +2027,19 @@ https://github.com/Fanael/persistent-scratch
   (persistent-scratch-setup-default))
 #+end_src
 
-* PERSP MODE
-#+begin_quote
-Currently using =tabspaces= instead of =persp-mode=.
-#+end_quote
-
-Using [[https://github.com/Bad-ptr/persp-mode.el][persp-mode]] which is a fork of [[https://github.com/nex3/perspective-el][perspective-el]].
+* PERSPECTIVE
+https://github.com/nex3/perspective-el
 
 #+begin_src emacs-lisp
-;; (use-package persp-mode
-;;   :ensure t
-;;   :custom
-;;   (persp-keymap-prefix (kbd "C-c w"))
-;;   :init
-;;   (persp-mode 1)
-;;   :config
-;;   (setq persp-autokill-buffer-on-remove 'kill-weak)
-;;   ;; Sets a file to write to when we save states
-;;   (setq persp-state-default-file "~/.config/emacs/sessions")
-;;   (setq wg-morph-on nil))
-#+end_src
-
-** Persp Mode Projectile Bridge
-#+begin_quote
-Currently using =project.el= instead of =projectile=.
-#+end_quote
-
-#+begin_src emacs-lisp
-;; (use-package persp-mode-projectile-bridge
-;;   :ensure t
-;;   ;; :after (persp-mode projectile)
-;;   :hook
-;;   ((persp-mode projectile) . (lambda () (persp-mode-projectile-bridge-mode 1)))
-;;   ;; :config
-;;   ;; (persp-mode-projectile-bridge-mode 1)
-;;   :init
-;;   (persp-mode-projectile-bridge-mode 1))
+(use-package perspective
+  :ensure t
+  :after consult
+  :bind
+  ("C-x C-b" . persp-list-buffers)
+  :custom
+  (persp-mode-prefix-key (kbd "C-c M-p"))
+  :init
+  (persp-mode))
 #+end_src
 
 * POPWIN
