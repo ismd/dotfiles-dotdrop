@@ -810,6 +810,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "Show buffer switcher using perspective-aware bs-show if available.
 With prefix ARG, pass it to the buffer switcher function."
     (interactive "P")
+    (require 'bs)
     (if (fboundp 'persp-bs-show)
         (persp-bs-show arg)
       (bs-show "all")))
