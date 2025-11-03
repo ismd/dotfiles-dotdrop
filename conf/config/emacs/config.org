@@ -57,6 +57,7 @@
 - [[#ibuffer][IBUFFER]]
   - [[#ibuffer-project][Ibuffer Project]]
   - [[#ibuffer-projectile][Ibuffer Projectile]]
+- [[#ivy][IVY]]
 - [[#kubernetes][KUBERNETES]]
 - [[#language-support][LANGUAGE SUPPORT]]
   - [[#dart][Dart]]
@@ -415,83 +416,83 @@ Currently using =corfu= instead of =company=.
 https://github.com/minad/consult
 
 #+begin_src emacs-lisp
-(use-package consult
-  :ensure t
+;; (use-package consult
+;;   :ensure t
 
-  ;; Enable automatic preview at point in the *Completions* buffer. This is
-  ;; relevant when you use the default completion UI.
-  :hook (completion-list-mode . consult-preview-at-point-mode)
+;;   ;; Enable automatic preview at point in the *Completions* buffer. This is
+;;   ;; relevant when you use the default completion UI.
+;;   :hook (completion-list-mode . consult-preview-at-point-mode)
 
-  ;; The :init configuration is always executed (Not lazy)
-  :init
+;;   ;; The :init configuration is always executed (Not lazy)
+;;   :init
 
-  ;; Optionally configure the register formatting. This improves the register
-  ;; preview for `consult-register', `consult-register-load',
-  ;; `consult-register-store' and the Emacs built-ins.
-  (setq register-preview-delay 0.5
-        register-preview-function #'consult-register-format)
+;;   ;; Optionally configure the register formatting. This improves the register
+;;   ;; preview for `consult-register', `consult-register-load',
+;;   ;; `consult-register-store' and the Emacs built-ins.
+;;   (setq register-preview-delay 0.5
+;;         register-preview-function #'consult-register-format)
 
-  ;; Optionally tweak the register preview window.
-  ;; This adds thin lines, sorting and hides the mode line of the window.
-  (advice-add #'register-preview :override #'consult-register-window)
+;;   ;; Optionally tweak the register preview window.
+;;   ;; This adds thin lines, sorting and hides the mode line of the window.
+;;   (advice-add #'register-preview :override #'consult-register-window)
 
-  ;; Use Consult to select xref locations with preview
-  (setq xref-show-xrefs-function #'consult-xref
-        xref-show-definitions-function #'consult-xref)
+;;   ;; Use Consult to select xref locations with preview
+;;   (setq xref-show-xrefs-function #'consult-xref
+;;         xref-show-definitions-function #'consult-xref)
 
-  ;; Configure other variables and modes in the :config section,
-  ;; after lazily loading the package.
-  :config
+;;   ;; Configure other variables and modes in the :config section,
+;;   ;; after lazily loading the package.
+;;   :config
 
-  (setq consult-project-buffer-sources '(consult--source-project-buffer))
+;;   (setq consult-project-buffer-sources '(consult--source-project-buffer))
 
-  ;; Optionally configure preview. The default value
-  ;; is 'any, such that any key triggers the preview.
-  ;; (setq consult-preview-key 'any)
-  ;; (setq consult-preview-key "M-.")
-  ;; (setq consult-preview-key '("S-<down>" "S-<up>"))
-  ;; For some commands and buffer sources it is useful to configure the
-  ;; :preview-key on a per-command basis using the `consult-customize' macro.
-  (consult-customize
-   consult-theme :preview-key '(:debounce 0.2 any)
-   consult-ripgrep consult-git-grep consult-grep
-   consult-bookmark consult-recent-file consult-xref
-   consult--source-bookmark consult--source-file-register
-   consult--source-recent-file consult--source-project-recent-file
-   ;; :preview-key "M-."
-   :preview-key '(:debounce 0.4 any))
+;;   ;; Optionally configure preview. The default value
+;;   ;; is 'any, such that any key triggers the preview.
+;;   ;; (setq consult-preview-key 'any)
+;;   ;; (setq consult-preview-key "M-.")
+;;   ;; (setq consult-preview-key '("S-<down>" "S-<up>"))
+;;   ;; For some commands and buffer sources it is useful to configure the
+;;   ;; :preview-key on a per-command basis using the `consult-customize' macro.
+;;   (consult-customize
+;;    consult-theme :preview-key '(:debounce 0.2 any)
+;;    consult-ripgrep consult-git-grep consult-grep
+;;    consult-bookmark consult-recent-file consult-xref
+;;    consult--source-bookmark consult--source-file-register
+;;    consult--source-recent-file consult--source-project-recent-file
+;;    ;; :preview-key "M-."
+;;    :preview-key '(:debounce 0.4 any))
 
-  ;; Optionally configure the narrowing key.
-  ;; Both < and C-+ work reasonably well.
-  (setq consult-narrow-key "<") ;; "C-+"
+;;   ;; Optionally configure the narrowing key.
+;;   ;; Both < and C-+ work reasonably well.
+;;   (setq consult-narrow-key "<") ;; "C-+"
 
-  ;; Optionally make narrowing help available in the minibuffer.
-  ;; You may want to use `embark-prefix-help-command' or which-key instead.
-  ;; (define-key consult-narrow-map (vconcat consult-narrow-key "?") #'consult-narrow-help)
+;;   ;; Optionally make narrowing help available in the minibuffer.
+;;   ;; You may want to use `embark-prefix-help-command' or which-key instead.
+;;   ;; (define-key consult-narrow-map (vconcat consult-narrow-key "?") #'consult-narrow-help)
 
-  ;; By default `consult-project-function' uses `project-root' from project.el.
-  ;; Optionally configure a different project root function.
-  ;;;; 1. project.el (the default)
-  ;; (setq consult-project-function #'consult--default-project--function)
-  ;;;; 2. vc.el (vc-root-dir)
-  ;; (setq consult-project-function (lambda (_) (vc-root-dir)))
-  ;;;; 3. locate-dominating-file
-  ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
-  ;;;; 4. projectile.el (projectile-project-root)
-  ;; (autoload 'projectile-project-root "projectile")
-  ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
-  ;;;; 5. No project support
-  ;; (setq consult-project-function nil)
+;;   ;; By default `consult-project-function' uses `project-root' from project.el.
+;;   ;; Optionally configure a different project root function.
+;;   ;;;; 1. project.el (the default)
+;;   ;; (setq consult-project-function #'consult--default-project--function)
+;;   ;;;; 2. vc.el (vc-root-dir)
+;;   ;; (setq consult-project-function (lambda (_) (vc-root-dir)))
+;;   ;;;; 3. locate-dominating-file
+;;   ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
+;;   ;;;; 4. projectile.el (projectile-project-root)
+;;   ;; (autoload 'projectile-project-root "projectile")
+;;   ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
+;;   ;;;; 5. No project support
+;;   ;; (setq consult-project-function nil)
 
-  (add-to-list 'consult-buffer-filter "^\\*"))
+;;   (add-to-list 'consult-buffer-filter "^\\*"))
 #+end_src
 
 ** Embark Consult
 #+begin_src emacs-lisp
-(use-package embark-consult
-  :ensure t
-  :hook
-  (embark-collect-mode . consult-preview-at-point-mode))
+;; (use-package embark-consult
+;;   :ensure t
+;;   :hook
+;;   (embark-collect-mode . consult-preview-at-point-mode))
 #+end_src
 
 * CORFU
@@ -805,6 +806,14 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   :ensure (:wait t)
   :demand t
   :config
+  (defun ismd/buffer-switcher (arg)
+    "Show buffer switcher using perspective-aware bs-show if available.
+With prefix ARG, pass it to the buffer switcher function."
+    (interactive "P")
+    (if (fboundp 'persp-bs-show)
+        (persp-bs-show arg)
+      (bs-show "all")))
+
   (general-define-key
 
    ;; Scroll
@@ -837,7 +846,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-a" '(mwim-beginning-of-code-or-line :wk "Beginning of line or indentation")
    "C-e" '(mwim-end-of-line-or-code :wk "End of line or indentation")
    "C-k" '(ismd/delete-line :wk "Delete line")
-   "C-s" '((lambda () (interactive) (consult-line nil 1)) :wk "Search for string")
+   ;; "C-s" '((lambda () (interactive) (consult-line nil 1)) :wk "Search for string")
+   "C-s" '(swiper :wk "Search for string")
 
    "M-/" '(hippie-expand :wk "Hippie expand")
    "M-<backspace>" '(ismd/delete-word-backward :wk "Delete word backward")
@@ -847,7 +857,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    ;; "M-n" '(good-scroll-up :wk "Scroll down")
    ;; "M-p" '(good-scroll-down :wk "Scroll up")
    "M-s" '(avy-goto-char-timer :wk "Jump to character")
-   "M-y" '(consult-yank-pop :wk "Yank pop")
+   ;; "M-y" '(consult-yank-pop :wk "Yank pop")
 
    "M-0" '(treemacs-select-window :wk "Treemacs")
    ;; "M-0" '(winum-select-window-0-or-10 :wk "Select window 0 or 10")
@@ -870,7 +880,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     :keymaps 'override)
 
   (ismd/leader-keys-C-x
-    "b" '(consult-project-buffer :wk "Switch buffer")
+    ;; "b" '(consult-project-buffer :wk "Switch buffer")
+    "b" '(ismd/buffer-switcher :wk "Buffer switcher")
     "B" '(switch-to-buffer :wk "Switch buffer")
     "k" '(kill-current-buffer :wk "Kill this buffer")
     "K" '(kill-buffer-and-window :wk "Kill buffer"))
@@ -890,7 +901,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "C-=" '(er/expand-region :wk "Expand region")
     "C--" '(er/contract-region :wk "Contract region")
     "C-r" '(vertico-repeat :wk "Vertico repeat")
-    "M-x" '(consult-mode-command :wk "Consult command")
+    ;; "M-x" '(consult-mode-command :wk "Consult command")
     "RET" '(:keymap claude-code-command-map :wk "Claude Code")
     "TAB" '(indent-rigidly :wk "Indent region"))
 
@@ -959,9 +970,9 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "f e" '((lambda () (interactive) (dired "~/.config/emacs")) :wk "Open user-emacs-directory in dired")
     "f f" '(find-file :wk "Find file")
     "f F" '(find-file-temporarily :wk "Find file temporarily")
-    "f j" '(consult-fd :wk "Find file with fd")
-    "f l" '(consult-locate :wk "Locate a file")
-    "f r" '(consult-recent-file :wk "Recent file")
+    ;; "f j" '(consult-fd :wk "Find file with fd")
+    ;; "f l" '(consult-locate :wk "Locate a file")
+    ;; "f r" '(consult-recent-file :wk "Recent file")
     "f R" '(rename-visited-file :wk "Rename file")
     "f u" '(sudo-edit-find-file :wk "Sudo find file")
     "f U" '(sudo-edit :wk "Sudo edit this file")
@@ -974,7 +985,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     ;; "h f" '(describe-function :wk "Describe function")
     "h F" '(describe-face :wk "Describe face")
     "h g" '(describe-gnu-project :wk "Describe GNU Project")
-    "h i" '(consult-info :wk "Info")
+    ;; "h i" '(consult-info :wk "Info")
     "h I" '(describe-input-method :wk "Describe input method")
     ;; "h k" '(describe-key :wk "Describe key")
     "h K" '(describe-keymap :wk "Describe keymap")
@@ -986,7 +997,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
                 (load-file "~/.config/emacs/init.el")
                 (ignore (elpaca-process-queues)))
               :wk "Reload emacs config")
-    "h t" '(consult-theme :wk "Load theme")
+    ;; "h t" '(consult-theme :wk "Load theme")
     ;; "h v" '(describe-variable :wk "Describe variable")
     "h w" '(where-is :wk "Prints keybinding for command if set")
     "h x" '(describe-command :wk "Display full documentation for command"))
@@ -1058,10 +1069,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (ismd/leader-keys
     "s" '(:ignore t :wk "Search")
     "s d" '(rg :wk "Ripgrep in directory")
-    "s g" '(consult-grep :wk "Grep")
-    "s m" '(consult-man :wk "Man pages")
+    ;; "s g" '(consult-grep :wk "Grep")
+    ;; "s m" '(consult-man :wk "Man pages")
     "s p" '(rg-project :wk "Ripgrep in project")
-    "s r" '(consult-ripgrep :wk "Consult ripgrep")
+    ;; "s r" '(consult-ripgrep :wk "Consult ripgrep")
     "s t" '(tldr :wk "Lookup TLDR docs for a command"))
 
   (ismd/leader-keys
@@ -1107,11 +1118,11 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   (general-create-definer ismd/leader-keys-M-g
     :prefix "M-g")
 
-  (ismd/leader-keys-M-g
-    "g" '(consult-goto-line :wk "Go to line")
-    "i" '(consult-imenu :wk "Imenu")
-    "I" '(consult-imenu-multi :wk "Imenu multi")
-    "o" '(consult-outline :wk "Outline"))
+  ;; (ismd/leader-keys-M-g
+  ;;   "g" '(consult-goto-line :wk "Go to line")
+  ;;   "i" '(consult-imenu :wk "Imenu")
+  ;;   "I" '(consult-imenu-multi :wk "Imenu multi")
+  ;;   "o" '(consult-outline :wk "Outline"))
 
   ;;
   ;; Comint
@@ -1246,8 +1257,8 @@ You can use CTRL plus the mouse wheel for zooming in/out.
   ;;
   (general-define-key
    :keymaps 'org-mode-map
-   "M-g a" '(consult-org-agenda :wk "Org agenda")
-   "M-g o" '(consult-org-heading :wk "Org heading")
+   ;; "M-g a" '(consult-org-agenda :wk "Org agenda")
+   ;; "M-g o" '(consult-org-heading :wk "Org heading")
    "C-M-i" '(completion-at-point :wk "Complete at point")
    "C-S-n" '(org-forward-heading-same-level :wk "Next heading")
    "C-S-p" '(org-backward-heading-same-level :wk "Previous heading"))
@@ -1459,6 +1470,33 @@ https://github.com/purcell/ibuffer-projectile
 ;;   (ibuffer . (lambda ()
 ;;                (visual-line-mode -1)
 ;;                (ibuffer-projectile-set-filter-groups))))
+#+end_src
+
+* IVY
+https://github.com/abo-abo/swiper
+
+#+begin_src emacs-lisp
+(use-package ivy
+  :ensure t
+  :diminish
+  :hook (elpaca-after-init . ivy-mode)
+  :custom
+  (ivy-use-virtual-buffers t)
+  (ivy-count-format "(%d/%d) ")
+  (ivy-wrap t))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package counsel
+  :ensure t
+  :after ivy
+  :config (counsel-mode 1))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package swiper
+  :ensure t
+  :after ivy)
 #+end_src
 
 * KUBERNETES
@@ -2031,13 +2069,20 @@ https://github.com/Fanael/persistent-scratch
 https://github.com/nex3/perspective-el
 
 #+begin_src emacs-lisp
+(defun ismd/persp-state-load ()
+  "Load perspective state from default file."
+  (persp-state-load persp-state-default-file))
+
 (use-package perspective
   :ensure t
-  :after consult
   :bind
   ("C-x C-b" . persp-list-buffers)
+  :hook
+  (elpaca-after-init . ismd/persp-state-load)
+  (kill-emacs . persp-state-save)
   :custom
   (persp-mode-prefix-key (kbd "C-c M-p"))
+  (persp-state-default-file (expand-file-name "~/.config/emacs/.perspectives"))
   :init
   (persp-mode))
 #+end_src
@@ -2063,11 +2108,13 @@ https://github.com/emacsorphanage/popwin
 (setq project-file-history-behavior 'relativize
       project-mode-line t)
 (setq project-switch-commands
-      '((consult-project-buffer "Buffer" "b")
+      '(
+        ;; (consult-project-buffer "Buffer" "b")
         (project-find-file "File" "f")
         (project-dired "Directory" "d")
         (magit-project-status "Magit" "m")
-        (consult-ripgrep "ripgrep" "r")))
+        ;; (consult-ripgrep "ripgrep" "r")
+        ))
 (setq project-vc-extra-root-markers '(".idea" ".project.el" ".projectile" "a.yaml" "package.json"))
 #+end_src
 
