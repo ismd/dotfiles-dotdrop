@@ -417,6 +417,7 @@ https://github.com/minad/consult
 #+begin_src emacs-lisp
 (use-package consult
   :ensure t
+  :after perspective
 
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
