@@ -314,6 +314,12 @@ This package integrates with gptel and provides capability to insert AI results 
 https://github.com/copilot-emacs/copilot.el
 
 #+begin_src emacs-lisp
+;; This package is required for copilot
+(use-package track-changes
+  :ensure t)
+#+end_src
+
+#+begin_src emacs-lisp
 (use-package copilot
   :after (editorconfig)
   :ensure (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist"))
