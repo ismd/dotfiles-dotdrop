@@ -486,10 +486,10 @@ https://github.com/minad/consult
 
 ** Embark Consult
 #+begin_src emacs-lisp
-;; (use-package embark-consult
-;;   :ensure t
-;;   :hook
-;;   (embark-collect-mode . consult-preview-at-point-mode))
+(use-package embark-consult
+  :ensure t
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 #+end_src
 
 * CORFU
