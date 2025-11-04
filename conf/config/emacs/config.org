@@ -57,7 +57,6 @@
 - [[#ibuffer][IBUFFER]]
   - [[#ibuffer-project][Ibuffer Project]]
   - [[#ibuffer-projectile][Ibuffer Projectile]]
-- [[#ivy][IVY]]
 - [[#kubernetes][KUBERNETES]]
 - [[#language-support][LANGUAGE SUPPORT]]
   - [[#dart][Dart]]
@@ -414,7 +413,7 @@ Currently using =corfu= instead of =company=.
 
 * CONSULT
 https://github.com/minad/consult
-
+FIXME: Uncomment and configure
 #+begin_src emacs-lisp
 ;; (use-package consult
 ;;   :ensure t
@@ -1473,33 +1472,6 @@ https://github.com/purcell/ibuffer-projectile
 ;;   (ibuffer . (lambda ()
 ;;                (visual-line-mode -1)
 ;;                (ibuffer-projectile-set-filter-groups))))
-#+end_src
-
-* IVY
-https://github.com/abo-abo/swiper
-
-#+begin_src emacs-lisp
-(use-package ivy
-  :ensure t
-  :diminish
-  :hook (elpaca-after-init . ivy-mode)
-  :custom
-  (ivy-use-virtual-buffers t)
-  (ivy-count-format "(%d/%d) ")
-  (ivy-wrap t))
-#+end_src
-
-#+begin_src emacs-lisp
-(use-package counsel
-  :ensure t
-  :after ivy
-  :config (counsel-mode 1))
-#+end_src
-
-#+begin_src emacs-lisp
-(use-package swiper
-  :ensure t
-  :after ivy)
 #+end_src
 
 * KUBERNETES
