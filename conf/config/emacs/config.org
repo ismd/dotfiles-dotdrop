@@ -284,6 +284,15 @@ https://github.com/stevemolitor/claude-code.el
   (claude-code-mode))
 #+end_src
 
+#+begin_src emacs-lisp
+(use-package claude-code-ide
+  :ensure (:host github :repo "manzaltu/claude-code-ide.el")
+  :custom
+  (claude-code-ide-cli-path "~/.claude/local/claude")
+  :config
+  (claude-code-ide-emacs-tools-setup))
+#+end_src
+
 ** elysium
 https://github.com/lanceberge/elysium
 
@@ -877,7 +886,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "C--" '(er/contract-region :wk "Contract region")
     "C-r" '(vertico-repeat :wk "Vertico repeat")
     ;; "M-x" '(consult-mode-command :wk "Consult command")
-    "RET" '(:keymap claude-code-command-map :wk "Claude Code")
+    "RET" '(claude-code-ide-menu :wk "Claude Code IDE")
     "TAB" '(indent-rigidly :wk "Indent region"))
 
   (ismd/leader-keys
@@ -895,6 +904,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "a g g" '(gptel-send :wk "Send to GPTel")
     "a g f" '(gptel-add-file :wk "GPTel add file")
     "a g r" '(gptel-rewrite :wk "GPTel rewrite")
+    "a i" '(claude-code-ide-menu :wk "Claude Code IDE")
     "a l" '(:keymap claude-code-command-map :wk "Claude Code"))
 
   (ismd/leader-keys
