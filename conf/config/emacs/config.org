@@ -331,7 +331,7 @@ https://github.com/chep/copilot-chat.el
   ;; - **If you want high-quality, context-aware messages**: Go with **GPT-4.1** or **Gemini-2.0-flash-001**.
   ;; - **If you prioritize speed and efficiency**: Use **GPT-4o**.
   ;; - **If you're working in a resource-constrained environment**: Opt for **O3-mini**.
-  (copilot-chat-commit-model "claude-haiku-4.5")
+  (copilot-chat-commit-model "gpt-5")
   ;; (copilot-chat-follow nil)
   (copilot-chat-frontend 'shell-maker)
   :config
