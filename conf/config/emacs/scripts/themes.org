@@ -84,11 +84,11 @@ https://github.com/fniessen/emacs-leuven-theme
 https://github.com/erikbackman/mindre-theme
 
 #+begin_src emacs-lisp
-(use-package mindre-theme
-  :ensure t
-  :custom
-  (mindre-use-more-bold nil)
-  (mindre-use-faded-lisp-parens t))
+;; (use-package mindre-theme
+;;   :ensure t
+;;   :custom
+;;   (mindre-use-more-bold nil)
+;;   (mindre-use-faded-lisp-parens t))
 #+end_src
 
 ** Modus Themes
