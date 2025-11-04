@@ -586,6 +586,8 @@ https://github.com/protesilaos/denote
 * DESKTOP SAVE
 This is a package that saves the state of your Emacs session, including open files, buffers, and window configurations, so that you can restore it later.
 
+I don't use this currently, as I prefer to use =perspective= which has it's own session management.
+
 #+begin_src emacs-lisp
 ;; Delay desktop restoration until after Elpaca finishes loading packages
 ;; This ensures all hooks are registered before buffers are restored
@@ -2209,7 +2211,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 (setq calendar-week-start-day 1) ;; Set the calendar to start on Monday
 (setq completion-cycle-threshold 3)
-(setq desktop-restore-frames t)
 (setq dired-kill-when-opening-new-dired-buffer t)
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024))
