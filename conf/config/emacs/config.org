@@ -114,7 +114,6 @@
 - [[#starting-the-daemon][STARTING THE DAEMON]]
 - [[#sudo-edit][SUDO EDIT]]
 - [[#super-save][SUPER SAVE]]
-- [[#tabspaces][TABSPACES]]
 - [[#tldr][TLDR]]
 - [[#transparency][TRANSPARENCY]]
 - [[#tree-sitter][TREE SITTER]]
@@ -465,9 +464,6 @@ https://github.com/minad/consult
    consult-source-bookmark consult-source-file-register
    consult-source-recent-file consult-source-project-recent-file
 
-   ;; Perspective
-   consult--source-buffer :hidden t :default nil
-
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
 
@@ -479,9 +475,17 @@ https://github.com/minad/consult
   ;; You may want to use `embark-prefix-help-command' or which-key instead.
   ;; (keymap-set consult-narrow-map (concat consult-narrow-key " ?") #'consult-narrow-help)
 
-  ;; List only buffers in the current perspective
-  (add-to-list 'consult-buffer-sources persp-consult-source)
-)
+  (consult-customize consult--source-buffer :hidden t :default nil)
+
+  (defvar consult--source-perspective
+    (list :name     "Perspective"
+          :narrow   ?s
+          :category 'buffer
+          :state    #'consult--buffer-state
+          :default  t
+          :items    #'persp-get-buffer-names))
+
+  (push consult--source-perspective consult-buffer-sources))
 #+end_src
 
 ** Embark Consult
@@ -837,7 +841,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-a" '(mwim-beginning-of-code-or-line :wk "Beginning of line or indentation")
    "C-e" '(mwim-end-of-line-or-code :wk "End of line or indentation")
    "C-k" '(ismd/delete-line :wk "Delete line")
-   ;; "C-s" '((lambda () (interactive) (consult-line nil 1)) :wk "Search for string")
    "C-s" '(consult-line :wk "Search for string")
 
    "M-/" '(hippie-expand :wk "Hippie expand")
@@ -2086,13 +2089,11 @@ https://github.com/emacsorphanage/popwin
 (setq project-file-history-behavior 'relativize
       project-mode-line t)
 (setq project-switch-commands
-      '(
-        ;; (consult-project-buffer "Buffer" "b")
+      '((consult-project-buffer "Buffer" "b")
         (project-find-file "File" "f")
         (project-dired "Directory" "d")
         (magit-project-status "Magit" "m")
-        ;; (consult-ripgrep "ripgrep" "r")
-        ))
+        (consult-ripgrep "ripgrep" "r")))
 (setq project-vc-extra-root-markers '(".idea" ".project.el" ".projectile" "a.yaml" "package.json"))
 #+end_src
 
@@ -2447,54 +2448,6 @@ https://github.com/bbatsov/super-save
   (setq super-save-auto-save-when-idle t)
   (setq auto-save-default nil)
   (setq super-save-silent t))
-#+end_src
-
-* TABSPACES
-https://github.com/mclear-tools/tabspaces
-
-#+begin_src emacs-lisp
-;; (use-package tabspaces
-;;   :ensure t
-;;   :after consult
-;;   :hook (elpaca-after-init . tabspaces-mode)
-;;   :commands (tabspaces-switch-or-create-workspace
-;;              tabspaces-open-or-create-project-and-workspace)
-;;   :custom
-;;   (tabspaces-use-filtered-buffers-as-default t)
-;;   (tabspaces-default-tab "Default")
-;;   (tabspaces-remove-to-default t)
-;;   (tabspaces-include-buffers '("*scratch*"))
-;;   (tabspaces-initialize-project-with-todo nil)
-;;   ;; sessions
-;;   ;; (tabspaces-session t)
-;;   ;; (tabspaces-session-auto-restore t)
-;;   :config
-;;   (setq tabspaces-project-switch-commands
-;;         '((project-find-file "File" "f")
-;;           (project-dired "Directory" "d")
-;;           (magit-project-status "Magit" "m")
-;;           (consult-ripgrep "ripgrep" "r")))
-
-;;   ;; Filter Buffers for Consult-Buffer
-
-;;   (with-eval-after-load 'consult
-;;   ;; hide full buffer list (still available with "b" prefix)
-;;   (consult-customize consult--source-buffer :hidden t :default nil)
-;;   ;; set consult-workspace buffer list
-;;   (defvar consult--source-workspace
-;;     (list :name     "Workspace Buffers"
-;;           :narrow   ?w
-;;           :history  'buffer-name-history
-;;           :category 'buffer
-;;           :state    #'consult--buffer-state
-;;           :default  t
-;;           :items    (lambda () (consult--buffer-query
-;;                            :predicate #'tabspaces--local-buffer-p
-;;                            :sort 'visibility
-;;                            :as #'buffer-name)))
-
-;;     "Set workspace buffer list for consult-buffer.")
-;;   (add-to-list 'consult-buffer-sources 'consult--source-workspace)))
 #+end_src
 
 * TLDR
