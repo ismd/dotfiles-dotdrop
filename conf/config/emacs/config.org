@@ -1894,7 +1894,7 @@ https://github.com/rejeep/nvm.el
 (use-package nvm
   :ensure (:host github :repo "rejeep/nvm.el")
   :config
-  (nvm-use "22"))
+  (nvm-use "24"))
 #+end_src
 
 * OLIVETTI
