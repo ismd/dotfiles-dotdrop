@@ -9,6 +9,7 @@
   - [[#adding-the-scripts-directory-to-path][Adding the scripts directory to path]]
   - [[#sourcing-the-scripts][Sourcing the scripts]]
   - [[#transient][Transient]]
+  - [[#built-in-package-overrides][Built-in Package Overrides]]
   - [[#custom-file][Custom File]]
   - [[#themes][Themes]]
   - [[#lsp-keymap-init][LSP Keymap Init]]
@@ -37,6 +38,7 @@
 - [[#dirvish][DIRVISH]]
 - [[#ediff][EDIFF]]
 - [[#editorconfig][EDITORCONFIG]]
+- [[#eglot][EGLOT]]
 - [[#embark][EMBARK]]
 - [[#direnv][DIRENV]]
 - [[#expand-region][EXPAND REGION]]
@@ -148,7 +150,24 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 ** Transient
 #+begin_src emacs-lisp
 (use-package transient
-  :ensure t)
+  :ensure t
+  :demand t)
+#+end_src
+
+** Built-in Package Overrides
+These packages override built-in Emacs packages and must be loaded early to ensure the newer versions take precedence.
+
+#+begin_src emacs-lisp
+;; Load newer jsonrpc (required by eglot)
+(use-package jsonrpc
+  :ensure (:wait t)
+  :demand t)
+
+;; Load newer flymake (required by eglot)
+(use-package flymake
+  :ensure (:wait t)
+  :demand t
+  :diminish)
 #+end_src
 
 ** Custom File
@@ -183,7 +202,7 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 This variable must be set before the =lsp= package is loaded.
 
 #+begin_src emacs-lisp
-(setq lsp-keymap-prefix "C-c l")
+;; (setq lsp-keymap-prefix "C-c l")
 #+end_src
 
 ** Useful Functions
@@ -315,7 +334,8 @@ https://github.com/copilot-emacs/copilot.el
 #+begin_src emacs-lisp
 ;; This package is required for copilot
 (use-package track-changes
-  :ensure t)
+  :ensure t
+  :demand t)
 #+end_src
 
 #+begin_src emacs-lisp
@@ -686,6 +706,17 @@ https://github.com/editorconfig/editorconfig-emacs
   :diminish
   :config
   (editorconfig-mode 1))
+#+end_src
+
+* EGLOT
+https://github.com/joaotavora/eglot
+
+#+begin_src emacs-lisp
+(use-package eglot
+  :ensure (:wait t)
+  :defer t
+  :after (flymake jsonrpc)
+  :hook ((prog-mode . eglot-ensure)))
 #+end_src
 
 * EMBARK
@@ -1496,11 +1527,11 @@ https://emacs-lsp.github.io/lsp-dart/
 (use-package dart-mode
   :ensure t)
 
-(use-package lsp-dart
-  :ensure t
-  :custom
-  (lsp-dart-dap-flutter-hot-reload-on-save t)
-  (lsp-dart-sdk-dir "~/src/flutter/bin/cache/dart-sdk"))
+;; (use-package lsp-dart
+;;   :ensure t
+;;   :custom
+;;   (lsp-dart-dap-flutter-hot-reload-on-save t)
+;;   (lsp-dart-sdk-dir "~/src/flutter/bin/cache/dart-sdk"))
 #+end_src
 
 *** FLUTTER
@@ -1669,92 +1700,87 @@ https://github.com/emacs-lsp/lsp-mode
 https://emacs-lsp.github.io/lsp-mode/
 
 #+begin_src emacs-lisp
-(define-derived-mode helm-mode yaml-ts-mode "helm"
-  "Major mode for editing kubernetes helm templates")
+;; (define-derived-mode helm-mode yaml-ts-mode "helm"
+;;   "Major mode for editing kubernetes helm templates")
 
-(use-package lsp-mode
-  :ensure t
-  :init
-  (setq lsp-apply-edits-after-file-operations nil
-        lsp-before-save-edits nil
-        lsp-completion-enable t
-        lsp-completion-enable-additional-text-edit t
-        lsp-completion-filter-on-incomplete t
-        lsp-completion-no-cache nil
-        lsp-completion-provider :none
-        lsp-completion-show-detail t
-        lsp-completion-show-kind t
-        lsp-completion-show-label-description t
-        lsp-completion-sort-initial-results t
-        lsp-completion-use-last-result t
-        lsp-enable-snippet t
-        lsp-diagnostics-provider :auto
-        lsp-eldoc-enable-hover nil
-        lsp-enable-snippet nil
-        lsp-enable-symbol-highlighting t
-        lsp-headerline-breadcrumb-enable t
-        lsp-headerline-breadcrumb-segments '(symbols)
-        lsp-keymap-prefix "C-c l"
-        lsp-modeline-code-actions-enable t
-        lsp-modeline-diagnostics-enable t
-        lsp-response-timeout 60
-        lsp-signature-auto-activate t
-        lsp-signature-render-documentation t
-        lsp-ui-doc-enable t
-        lsp-ui-doc-show-with-cursor nil
-        lsp-ui-doc-show-with-mouse nil
-        lsp-ui-sideline-enable nil
-        lsp-ui-sideline-show-code-actions nil
-        lsp-ui-sideline-show-diagnostics t
-        lsp-ui-sideline-show-hover nil)
-  (setq lsp-disabled-clients '(tfls))
-  :hook ((bash-ts-mode . lsp-deferred)
-         (css-ts-mode . lsp-deferred)
-         (dart-mode . lsp-deferred)
-         (dockerfile-ts-mode . lsp-deferred)
-         (go-ts-mode . lsp-deferred)
-         (js-ts-mode . lsp-deferred)
-         (json-ts-mode . lsp-deferred)
-         (python-ts-mode . lsp-deferred)
-         (terraform-mode . lsp-deferred)
-         (tsx-ts-mode . lsp-deferred)
-         (typescript-ts-mode . lsp-deferred)
-         (yaml-ts-mode . lsp-deferred)
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :init
+;;   (setq lsp-apply-edits-after-file-operations nil
+;;         lsp-before-save-edits nil
+;;         lsp-completion-enable t
+;;         lsp-completion-enable-additional-text-edit t
+;;         lsp-completion-filter-on-incomplete t
+;;         lsp-completion-no-cache nil
+;;         lsp-completion-provider :none
+;;         lsp-completion-show-detail t
+;;         lsp-completion-show-kind t
+;;         lsp-completion-show-label-description t
+;;         lsp-completion-sort-initial-results t
+;;         lsp-completion-use-last-result t
+;;         lsp-enable-snippet t
+;;         lsp-diagnostics-provider :auto
+;;         lsp-eldoc-enable-hover nil
+;;         lsp-enable-snippet nil
+;;         lsp-enable-symbol-highlighting t
+;;         lsp-headerline-breadcrumb-enable t
+;;         lsp-headerline-breadcrumb-segments '(symbols)
+;;         lsp-keymap-prefix "C-c l"
+;;         lsp-modeline-code-actions-enable t
+;;         lsp-modeline-diagnostics-enable t
+;;         lsp-response-timeout 60
+;;         lsp-signature-auto-activate t
+;;         lsp-signature-render-documentation t
+;;         lsp-ui-doc-enable t
+;;         lsp-ui-doc-show-with-cursor nil
+;;         lsp-ui-doc-show-with-mouse nil
+;;         lsp-ui-sideline-enable nil
+;;         lsp-ui-sideline-show-code-actions nil
+;;         lsp-ui-sideline-show-diagnostics t
+;;         lsp-ui-sideline-show-hover nil)
+;;   (setq lsp-disabled-clients '(tfls))
+;;   :hook ((bash-ts-mode . lsp-deferred)
+;;          (css-ts-mode . lsp-deferred)
+;;          (dart-mode . lsp-deferred)
+;;          (dockerfile-ts-mode . lsp-deferred)
+;;          (go-ts-mode . lsp-deferred)
+;;          (js-ts-mode . lsp-deferred)
+;;          (json-ts-mode . lsp-deferred)
+;;          (python-ts-mode . lsp-deferred)
+;;          (terraform-mode . lsp-deferred)
+;;          (tsx-ts-mode . lsp-deferred)
+;;          (typescript-ts-mode . lsp-deferred)
+;;          (yaml-ts-mode . lsp-deferred)
 
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp-deferred)
-  :config
-  (add-to-list 'lsp-language-id-configuration '(helm-mode . "helm"))
+;;          (lsp-mode . lsp-enable-which-key-integration))
+;;   :commands (lsp lsp-deferred)
+;;   :config
+;;   (add-to-list 'lsp-language-id-configuration '(helm-mode . "helm"))
 
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("helm_ls" "serve"))
-                    :activation-fn (lsp-activate-on "helm")
-                    :server-id 'helm-ls)))
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection '("helm_ls" "serve"))
+;;                     :activation-fn (lsp-activate-on "helm")
+;;                     :server-id 'helm-ls)))
 #+end_src
 
 ** LSP UI
 #+begin_src emacs-lisp
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode)
-;; if you are helm user
-;; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
-;; if you are ivy user
-;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+;; (use-package lsp-ui
+;;   :ensure t
+;;   :commands lsp-ui-mode)
 #+end_src
 
 ** LSP Treemacs
 #+begin_src emacs-lisp
-(use-package lsp-treemacs
-  :ensure t
-  :commands lsp-treemacs-errors-list)
+;; (use-package lsp-treemacs
+;;   :ensure t
+;;   :commands lsp-treemacs-errors-list)
 #+end_src
 
 ** LSP Dap Mode
 #+begin_src emacs-lisp
-(use-package dap-mode
-  :ensure t)
-;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+;; (use-package dap-mode
+;;   :ensure t)
 #+end_src
 
 * MARGINALIA
@@ -2654,10 +2680,10 @@ https://github.com/mihaiolteanu/lastfm.el
 
 * XREF
 #+begin_src emacs-lisp
-(use-package xref
-  :ensure t
-  :hook
-  (xref--xref-buffer-mode . (lambda () (display-line-numbers-mode -1))))
+;; (use-package xref
+;;   :ensure t
+;;   :hook
+;;   (xref--xref-buffer-mode . (lambda () (display-line-numbers-mode -1))))
 #+end_src
 
 * WHICH-KEY
