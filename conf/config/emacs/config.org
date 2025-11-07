@@ -2045,7 +2045,8 @@ https://github.com/nex3/perspective-el
 #+begin_src emacs-lisp
 (defun ismd/persp-state-load ()
   "Load perspective state from default file."
-  (persp-state-load persp-state-default-file))
+  (when (file-exists-p persp-state-default-file)
+    (persp-state-load persp-state-default-file)))
 
 (use-package perspective
   :ensure t
