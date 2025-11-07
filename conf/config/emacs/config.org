@@ -6,8 +6,8 @@
 
 * TABLE OF CONTENTS :toc:
 - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
-  - [[#adding-the-scripts-directory-to-path][Adding the scripts directory to path]]
-  - [[#sourcing-the-scripts][Sourcing the scripts]]
+  - [[#adding-the-scripts-directory-to-path][Adding the Scripts Directory to Path]]
+  - [[#sourcing-the-scripts][Sourcing the Scripts]]
   - [[#transient][Transient]]
   - [[#built-in-package-overrides][Built-in Package Overrides]]
   - [[#custom-file][Custom File]]
@@ -16,12 +16,12 @@
   - [[#useful-functions][Useful Functions]]
 - [[#ai][AI]]
   - [[#aider][Aider]]
-  - [[#chatgpt-shell][chatgpt-shell]]
+  - [[#chatgpt-shell][ChatGPT Shell]]
   - [[#claude-code][Claude Code]]
-  - [[#elysium][elysium]]
+  - [[#elysium][Elysium]]
   - [[#github-copilot][GitHub Copilot]]
   - [[#github-copilot-chat][GitHub Copilot Chat]]
-  - [[#gptel][gptel]]
+  - [[#gptel][Gptel]]
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#atomic-chrome][ATOMIC CHROME]]
 - [[#backup][BACKUP]]
@@ -29,7 +29,7 @@
 - [[#consult][CONSULT]]
   - [[#embark-consult][Embark Consult]]
 - [[#corfu][CORFU]]
-  - [[#cape][CAPE]]
+  - [[#cape][Cape]]
 - [[#dashboard][DASHBOARD]]
 - [[#delete-word-and-line][DELETE WORD AND LINE]]
 - [[#denote][DENOTE]]
@@ -136,12 +136,12 @@
 * IMPORTANT PROGRAMS TO LOAD FIRST
 To keep this =config.org= a reasonable length, I have moved a lot of code to individual scripts that will be sourced by this config.  These scripts are found in "~/.config/emacs/scripts" and do not contain any code that most people are likely to need to edit.
 
-** Adding the scripts directory to path
+** Adding the Scripts Directory to Path
 #+begin_src emacs-lisp
 (add-to-list 'load-path "~/.config/emacs/scripts/")
 #+end_src
 
-** Sourcing the scripts
+** Sourcing the Scripts
 #+begin_src emacs-lisp
 (require 'elpaca-setup) ;; The Elpaca Package Manager
 (require 'buffer-move)  ;; Buffer-move for better window management
@@ -255,7 +255,7 @@ https://github.com/tninja/aider.el
 ;;   :ensure (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-core.el" "aider-file.el" "aider-code-change.el" "aider-discussion.el" "aider-prompt-mode.el")))
 #+end_src
 
-** chatgpt-shell
+** ChatGPT Shell
 https://github.com/xenodium/chatgpt-shell
 
 #+begin_src emacs-lisp
@@ -311,7 +311,7 @@ https://github.com/stevemolitor/claude-code.el
   (claude-code-ide-emacs-tools-setup))
 #+end_src
 
-** elysium
+** Elysium
 https://github.com/lanceberge/elysium
 
 This package integrates with gptel and provides capability to insert AI results into the current buffer.
@@ -368,7 +368,7 @@ https://github.com/chep/copilot-chat.el
   (ismd/add-display-buffer-rule "^\\*Copilot Chat"))
 #+end_src
 
-** gptel
+** Gptel
 https://github.com/karthink/gptel
 
 #+begin_src emacs-lisp
@@ -527,7 +527,7 @@ https://github.com/minad/corfu
   (corfu-popupinfo-mode))
 #+end_src
 
-** CAPE
+** Cape
 https://github.com/minad/cape
 
 Seems like LSP works well and I don't need this.
@@ -1534,7 +1534,7 @@ https://emacs-lsp.github.io/lsp-dart/
 ;;   (lsp-dart-sdk-dir "~/src/flutter/bin/cache/dart-sdk"))
 #+end_src
 
-*** FLUTTER
+*** Flutter
 https://github.com/amake/flutter.el
 
 #+begin_src emacs-lisp
@@ -2426,7 +2426,7 @@ Vterm is a terminal emulator within Emacs.  The 'shell-file-name' setting sets t
         vterm-max-scrollback 5000))
 #+end_src
 
-** Vterm Toggle 
+** Vterm Toggle
 [[https://github.com/jixiuf/vterm-toggle][vterm-toggle]] toggles between the vterm buffer and whatever buffer you are editing.
 
 #+begin_src emacs-lisp
