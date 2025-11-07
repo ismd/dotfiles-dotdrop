@@ -4,12 +4,19 @@ INTERNAL_MONITOR="eDP-1"
 
 check_external_monitors() {
   local MONITOR_LIST=$(hyprctl monitors -j)
-  local EXTERNAL_CONNECTED=$(echo "$MONITOR_LIST" | jq -r '.[] | .name' | grep -v "$INTERNAL_MONITOR" | wc -l)
+  local EXTERNAL_MONITORS=$(echo "$MONITOR_LIST" | jq -r '.[] | .name' | grep -v "$INTERNAL_MONITOR")
 
-  if [ "$EXTERNAL_CONNECTED" -gt 0 ]; then
-    hyprctl keyword monitor $INTERNAL_MONITOR, disable
+  if [ -n "$EXTERNAL_MONITORS" ]; then
+    # External monitor(s) connected - disable internal and ensure external monitors have correct scale
+    hyprctl keyword monitor $INTERNAL_MONITOR,disable
+
+    # Apply scale to each external monitor
+    echo "$EXTERNAL_MONITORS" | while read -r monitor; do
+      hyprctl keyword monitor $monitor,preferred,auto,1.6
+    done
   else
-    hyprctl keyword monitor $INTERNAL_MONITOR, preferred, auto, 1
+    # No external monitors - enable internal with correct scale
+    hyprctl keyword monitor $INTERNAL_MONITOR,1920x1200@60.03,auto,1.2
   fi
 }
 
