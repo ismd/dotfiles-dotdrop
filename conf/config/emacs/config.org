@@ -1615,8 +1615,7 @@ https://github.com/rnkn/olivetti
   :ensure t
   :custom
   (olivetti-body-width 0.5)
-  (olivetti-style 'fancy)
-  :hook (org-mode . olivetti-mode))
+  (olivetti-style 'fancy))
 #+end_src
 
 * ORDERLESS
