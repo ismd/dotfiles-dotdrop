@@ -1646,7 +1646,7 @@ https://github.com/jorgenschaefer/pyvenv
   :ensure t
   :custom
   (terraform-indent-level 2)
-  (terraform-format-on-save t))
+  (terraform-format-on-save nil))
 
 ;; Doesn't work right now
 ;; (use-package terraform-ts-mode
