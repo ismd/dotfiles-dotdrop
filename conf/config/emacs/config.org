@@ -12,28 +12,22 @@
   - [[#built-in-package-overrides][Built-in Package Overrides]]
   - [[#custom-file][Custom File]]
   - [[#themes][Themes]]
-  - [[#lsp-keymap-init][LSP Keymap Init]]
   - [[#useful-functions][Useful Functions]]
 - [[#ai][AI]]
-  - [[#aider][Aider]]
   - [[#chatgpt-shell][ChatGPT Shell]]
   - [[#claude-code][Claude Code]]
   - [[#elysium][Elysium]]
   - [[#github-copilot][GitHub Copilot]]
   - [[#github-copilot-chat][GitHub Copilot Chat]]
   - [[#gptel][Gptel]]
-- [[#all-the-icons][ALL THE ICONS]]
 - [[#atomic-chrome][ATOMIC CHROME]]
 - [[#backup][BACKUP]]
-- [[#company][COMPANY]]
 - [[#consult][CONSULT]]
   - [[#embark-consult][Embark Consult]]
 - [[#corfu][CORFU]]
-  - [[#cape][Cape]]
 - [[#dashboard][DASHBOARD]]
 - [[#delete-word-and-line][DELETE WORD AND LINE]]
 - [[#denote][DENOTE]]
-- [[#desktop-save][DESKTOP SAVE]]
 - [[#diminish][DIMINISH]]
 - [[#dirvish][DIRVISH]]
 - [[#ediff][EDIFF]]
@@ -49,30 +43,21 @@
 - [[#general-keybindings][GENERAL KEYBINDINGS]]
   - [[#cyrillic-keybindings][Cyrillic Keybindings]]
 - [[#git][GIT]]
-  - [[#diff-hl][Diff Hl]]
   - [[#git-gutter][Git Gutter]]
   - [[#git-time-machine][Git Time Machine]]
   - [[#magit][Magit]]
-- [[#highlight-indent-guides][HIGHLIGHT INDENT GUIDES]]
 - [[#highlight-todo][HIGHLIGHT TODO]]
 - [[#hippie-expand][HIPPIE EXPAND]]
 - [[#ibuffer][IBUFFER]]
   - [[#ibuffer-project][Ibuffer Project]]
-  - [[#ibuffer-projectile][Ibuffer Projectile]]
 - [[#kubernetes][KUBERNETES]]
 - [[#language-support][LANGUAGE SUPPORT]]
   - [[#dart][Dart]]
   - [[#fish][Fish]]
   - [[#go][Go]]
-  - [[#json][JSON]]
   - [[#markdown][Markdown]]
   - [[#python][Python]]
   - [[#terraform][Terraform]]
-  - [[#yaml][YAML]]
-- [[#lsp][LSP]]
-  - [[#lsp-ui][LSP UI]]
-  - [[#lsp-treemacs][LSP Treemacs]]
-  - [[#lsp-dap-mode][LSP Dap Mode]]
 - [[#marginalia][MARGINALIA]]
 - [[#minibuffer-escape][MINIBUFFER ESCAPE]]
 - [[#modeline][MODELINE]]
@@ -92,13 +77,11 @@
   - [[#source-code-block-tag-expansion][Source Code Block Tag Expansion]]
   - [[#org-todo][Org TODO]]
   - [[#org-appear][Org Appear]]
-  - [[#org-roam][Org Roam]]
 - [[#persistent-scratch][PERSISTENT SCRATCH]]
 - [[#perspective][PERSPECTIVE]]
 - [[#popwin][POPWIN]]
 - [[#project][PROJECT]]
   - [[#project-tab-groups][Project Tab Groups]]
-- [[#projectile][PROJECTILE]]
 - [[#protobuf][PROTOBUF]]
 - [[#rainbow-delimiters][RAINBOW DELIMITERS]]
 - [[#rainbow-mode][RAINBOW MODE]]
@@ -108,7 +91,6 @@
   - [[#ssh-agent][SSH Agent]]
   - [[#tab-bar][Tab Bar]]
   - [[#tab-line][Tab Line]]
-- [[#scroll-1][SCROLL]]
 - [[#shells-and-terminals][SHELLS AND TERMINALS]]
   - [[#eshell][Eshell]]
   - [[#vterm][Vterm]]
@@ -117,21 +99,32 @@
 - [[#sudo-edit][SUDO EDIT]]
 - [[#super-save][SUPER SAVE]]
 - [[#tldr][TLDR]]
-- [[#transparency][TRANSPARENCY]]
 - [[#tree-sitter][TREE SITTER]]
   - [[#treesit-auto][Treesit Auto]]
   - [[#treesit-fold][Treesit Fold]]
 - [[#treemacs][TREEMACS]]
 - [[#trimming-whitespace][TRIMMING WHITESPACE]]
 - [[#vertico][VERTICO]]
-  - [[#vertico-posframe][Vertico Posframe]]
 - [[#vuiet][VUIET]]
   - [[#lastfm][Last.fm]]
-- [[#xref][XREF]]
 - [[#which-key][WHICH-KEY]]
 - [[#window-management][WINDOW MANAGEMENT]]
 - [[#window-numbering][WINDOW NUMBERING]]
-- [[#workspaces][WORKSPACES]]
+- [[#archived-configurations][ARCHIVED CONFIGURATIONS]]
+  - [[#ai-tools-archived][AI Tools (Archived)]]
+  - [[#completion-frameworks-archived][Completion Frameworks (Archived)]]
+  - [[#lsp-mode-archived][LSP Mode (Archived)]]
+  - [[#git-tools-archived][Git Tools (Archived)]]
+  - [[#language-modes-archived][Language Modes (Archived)]]
+  - [[#python-tools-archived][Python Tools (Archived)]]
+  - [[#flutter-tools-archived][Flutter Tools (Archived)]]
+  - [[#project-management-archived][Project Management (Archived)]]
+  - [[#org-mode-extensions-archived][Org Mode Extensions (Archived)]]
+  - [[#session-management-archived][Session Management (Archived)]]
+  - [[#scrolling-archived][Scrolling (Archived)]]
+  - [[#ui-enhancements-archived][UI Enhancements (Archived)]]
+  - [[#tab-line-archived][Tab Line (Archived)]]
+  - [[#xref-archived][Xref (Archived)]]
 
 * IMPORTANT PROGRAMS TO LOAD FIRST
 To keep this =config.org= a reasonable length, I have moved a lot of code to individual scripts that will be sourced by this config.  These scripts are found in "~/.config/emacs/scripts" and do not contain any code that most people are likely to need to edit.
@@ -198,13 +191,6 @@ These packages override built-in Emacs packages and must be loaded early to ensu
             (load-theme theme-name t)))
 #+end_src
 
-** LSP Keymap Init
-This variable must be set before the =lsp= package is loaded.
-
-#+begin_src emacs-lisp
-;; (setq lsp-keymap-prefix "C-c l")
-#+end_src
-
 ** Useful Functions
 #+begin_src emacs-lisp
 (defun ismd/add-display-buffer-rule (buffer-name &optional window-width)
@@ -246,15 +232,6 @@ This variable must be set before the =lsp= package is loaded.
 #+end_src
 
 * AI
-** Aider
-https://github.com/tninja/aider.el
-
-#+begin_src emacs-lisp
-;; (use-package aider
-;;   :after (magit transient)
-;;   :ensure (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-core.el" "aider-file.el" "aider-code-change.el" "aider-discussion.el" "aider-prompt-mode.el")))
-#+end_src
-
 ** ChatGPT Shell
 https://github.com/xenodium/chatgpt-shell
 
@@ -382,23 +359,6 @@ https://github.com/karthink/gptel
                                 :key #'anthropic-api-key)))
 #+end_src
 
-* ALL THE ICONS
-#+begin_quote
-Currently using =nerd-icons= instead of =all-the-icons=.
-#+end_quote
-
-This is an icon set that can be used with dashboard, dired, ibuffer and other Emacs programs.
-  
-#+begin_src emacs-lisp
-;; (use-package all-the-icons
-;;   :ensure t
-;;   :if (display-graphic-p))
-
-;; (use-package all-the-icons-dired
-;;   :ensure t
-;;   :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
-#+end_src
-
 * ATOMIC CHROME
 https://github.com/KarimAziev/atomic-chrome
 
@@ -413,32 +373,6 @@ By default, Emacs creates automatic backups of files in their original directori
 
 #+begin_src emacs-lisp
 (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
-#+end_src
-
-* COMPANY
-#+begin_quote
-Currently using =corfu= instead of =company=.
-#+end_quote
-
-[[https://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for "complete anything".  Completion will start automatically after you type a few letters. Use M-n and M-p to select, <return> to complete or <tab> to complete the common part.
-
-#+begin_src emacs-lisp
-;; (use-package company
-;;   :ensure t
-;;   :defer 2
-;;   :diminish
-;;   :custom
-;;   (company-begin-commands '(self-insert-command))
-;;   (company-idle-delay .1)
-;;   (company-minimum-prefix-length 2)
-;;   (company-show-numbers t)
-;;   (company-tooltip-align-annotations 't)
-;;   (global-company-mode t))
-
-;; (use-package company-box
-;;   :after company
-;;   :diminish
-;;   :hook (company-mode . company-box-mode))
 #+end_src
 
 * CONSULT
@@ -527,11 +461,6 @@ https://github.com/minad/corfu
   (corfu-popupinfo-mode))
 #+end_src
 
-** Cape
-https://github.com/minad/cape
-
-Seems like LSP works well and I don't need this.
-
 * DASHBOARD
 Emacs Dashboard is an extensible startup screen showing you recent files, bookmarks, agenda items and an Emacs banner.
 
@@ -602,21 +531,6 @@ https://github.com/protesilaos/denote
   (setq denote-infer-keywords t)
   (setq denote-known-keywords '("it" "people" "private"))
   (denote-rename-buffer-mode 1))
-#+end_src
-
-* DESKTOP SAVE
-This is a package that saves the state of your Emacs session, including open files, buffers, and window configurations, so that you can restore it later.
-
-I don't use this currently, as I prefer to use =perspective= which has it's own session management.
-
-#+begin_src emacs-lisp
-;; Delay desktop restoration until after Elpaca finishes loading packages
-;; This ensures all hooks are registered before buffers are restored
-;; (setq desktop-restore-eager 5) ; Restore first 5 buffers immediately, rest lazily
-;; (add-hook 'elpaca-after-init-hook
-;;           (lambda ()
-;;             (desktop-save-mode 1)
-;;             (desktop-read)))
 #+end_src
 
 * DIMINISH
@@ -1363,35 +1277,13 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 #+end_src
 
 * GIT
-** Diff Hl
-https://github.com/dgutov/diff-hl
-
-#+begin_src emacs-lisp
-;; (use-package diff-hl
-;;   :ensure t
-;;   :hook ((dired-mode . diff-hl-dired-mode)
-;;          (magit-pre-refresh . diff-hl-magit-pre-refresh)
-;;          (magit-post-refresh . diff-hl-magit-post-refresh))
-;;   :config
-;;   (global-diff-hl-mode))
-#+end_src
-
 ** Git Gutter
 https://github.com/emacsorphanage/git-gutter
 https://github.com/emacsorphanage/git-gutter-fringe
 
-I use =git-gutter-fringe= because as I understand =git-gutter= doesn't work with Doom Themes.
+I use =git-gutter-fringe= because it works better with Doom Themes.
 
 #+begin_src emacs-lisp
-;; (use-package git-gutter
-;;   :ensure t
-;;   :custom
-;;   (git-gutter:modified-sign " ")
-;;   (git-gutter:added-sign " ")
-;;   (git-gutter:deleted-sign " ")
-;;   :config
-;;   (global-git-gutter-mode t))
-
 (use-package git-gutter-fringe
   :ensure t
   :config
@@ -1420,20 +1312,6 @@ I use =git-gutter-fringe= because as I understand =git-gutter= doesn't work with
   (magit-ediff-dwim-show-on-hunks t)
   ;; (transient-display-buffer-action '(display-buffer-below-selected))
   )
-#+end_src
-
-* HIGHLIGHT INDENT GUIDES
-https://github.com/DarthFennec/highlight-indent-guides
-
-#+begin_src emacs-lisp
-;; (use-package highlight-indent-guides
-;;   :ensure t
-;;   :diminish
-;;   :hook
-;;   (prog-mode . highlight-indent-guides-mode)
-;;   (yaml-ts-mode . highlight-indent-guides-mode)
-;;   :custom
-;;   (highlight-indent-guides-method 'character))
 #+end_src
 
 * HIGHLIGHT TODO
@@ -1486,24 +1364,6 @@ Adding highlights to TODO and related words.
                  (ibuffer-do-sort-by-project-file-relative)))))
 #+end_src
 
-** Ibuffer Projectile
-#+begin_quote
-Currently using =project.el= instead of =projectile=.
-#+end_quote
-
-https://github.com/purcell/ibuffer-projectile
-
-#+begin_src emacs-lisp
-;; (use-package ibuffer-projectile
-;;   :ensure t
-;;   :config
-;;   (setq ibuffer-projectile-prefix "Project: ")
-;;   :hook
-;;   (ibuffer . (lambda ()
-;;                (visual-line-mode -1)
-;;                (ibuffer-projectile-set-filter-groups))))
-#+end_src
-
 * KUBERNETES
 https://github.com/kubernetes-el/kubernetes-el
 
@@ -1526,12 +1386,6 @@ https://emacs-lsp.github.io/lsp-dart/
 #+begin_src emacs-lisp
 (use-package dart-mode
   :ensure t)
-
-;; (use-package lsp-dart
-;;   :ensure t
-;;   :custom
-;;   (lsp-dart-dap-flutter-hot-reload-on-save t)
-;;   (lsp-dart-sdk-dir "~/src/flutter/bin/cache/dart-sdk"))
 #+end_src
 
 *** Flutter
@@ -1545,20 +1399,6 @@ https://github.com/amake/flutter.el
               ("C-M-x" . #'flutter-run-or-hot-reload))
   :custom
   (flutter-sdk-path "~/src/flutter"))
-#+end_src
-
-**** Hover
-https://github.com/ericdallo/hover.el
-Seems like hover is for desktop only, so I don't use it on my mobile devices.
-
-#+begin_src emacs-lisp
-;; (use-package hover
-;;   :ensure t
-;;   :after (dart-mode flutter)
-;;   :bind (:map flutter-mode-map
-;;               ("C-c C-h" . hover))
-;;   :custom
-;;   (hover-hot-reload-on-save nil))
 #+end_src
 
 ** Fish
@@ -1577,14 +1417,6 @@ https://github.com/dominikh/go-mode.el
   :ensure t)
 #+end_src
 
-** JSON
-Using =json-ts-mode= instead of =json-mode=.
-
-#+begin_src emacs-lisp
-;; (use-package json-mode
-;;   :ensure t)
-#+end_src
-
 ** Markdown
 *** Grip
 https://github.com/seagle0128/grip-mode
@@ -1596,49 +1428,7 @@ https://github.com/seagle0128/grip-mode
               ("g" . grip-mode)))
 #+end_src
 
-*** Unhighlight
-#+begin_src emacs-lisp
-;; (defvar nb/current-line '(0 . 0)
-;;   "(start . end) of current line in current buffer")
-;; (make-variable-buffer-local 'nb/current-line)
-
-;; (defun nb/unhide-current-line (limit)
-;;   "Font-lock function"
-;;   (let ((start (max (point) (car nb/current-line)))
-;;         (end (min limit (cdr nb/current-line))))
-;;     (when (< start end)
-;;       (remove-text-properties start end
-;;                       '(invisible t display "" composition ""))
-;;       (goto-char limit)
-;;       t)))
-
-;; (defun nb/refontify-on-linemove ()
-;;   "Post-command-hook"
-;;   (let* ((start (line-beginning-position))
-;;          (end (line-beginning-position 2))
-;;          (needs-update (not (equal start (car nb/current-line)))))
-;;     (setq nb/current-line (cons start end))
-;;     (when needs-update
-;;       (font-lock-fontify-block 3))))
-
-;; (defun nb/markdown-unhighlight ()
-;;   "Enable markdown concealling"
-;;   (interactive)
-;;   (markdown-toggle-markup-hiding 'toggle)
-;;   (font-lock-add-keywords nil '((nb/unhide-current-line)) t)
-;;   (add-hook 'post-command-hook #'nb/refontify-on-linemove nil t))
-
-;; (add-hook 'markdown-mode-hook #'nb/markdown-unhighlight)
-#+end_src
-
 ** Python
-*** Jedi
-https://github.com/tkf/emacs-jedi
-
-#+begin_src emacs-lisp
-
-#+end_src
-
 *** Elpy
 https://github.com/jorgenschaefer/elpy
 
@@ -1661,16 +1451,6 @@ https://github.com/wyuenho/emacs-pet
   (add-hook 'python-base-mode-hook 'pet-mode -10))
 #+end_src
 
-*** Pyvenv
-https://github.com/jorgenschaefer/pyvenv
-
-#+begin_src emacs-lisp
-;; (use-package pyvenv
-;;   :ensure t
-;;   :config
-;;   (pyvenv-mode t))
-#+end_src
-
 ** Terraform
 #+begin_src emacs-lisp
 (use-package terraform-mode
@@ -1678,109 +1458,6 @@ https://github.com/jorgenschaefer/pyvenv
   :custom
   (terraform-indent-level 2)
   (terraform-format-on-save nil))
-
-;; Doesn't work right now
-;; (use-package terraform-ts-mode
-;;   :ensure (:host github :repo "kgrotel/terraform-ts-mode")
-;;   :custom
-;;   (terraform-ts-indent-level 2)
-;;   (terraform-ts-format-on-save t))
-#+end_src
-
-** YAML
-Using =yaml-ts-mode= instead of =yaml-mode=.
-
-#+begin_src emacs-lisp
-;; (use-package yaml-mode
-;;   :ensure t)
-#+end_src
-
-* LSP
-https://github.com/emacs-lsp/lsp-mode
-https://emacs-lsp.github.io/lsp-mode/
-
-#+begin_src emacs-lisp
-;; (define-derived-mode helm-mode yaml-ts-mode "helm"
-;;   "Major mode for editing kubernetes helm templates")
-
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :init
-;;   (setq lsp-apply-edits-after-file-operations nil
-;;         lsp-before-save-edits nil
-;;         lsp-completion-enable t
-;;         lsp-completion-enable-additional-text-edit t
-;;         lsp-completion-filter-on-incomplete t
-;;         lsp-completion-no-cache nil
-;;         lsp-completion-provider :none
-;;         lsp-completion-show-detail t
-;;         lsp-completion-show-kind t
-;;         lsp-completion-show-label-description t
-;;         lsp-completion-sort-initial-results t
-;;         lsp-completion-use-last-result t
-;;         lsp-enable-snippet t
-;;         lsp-diagnostics-provider :auto
-;;         lsp-eldoc-enable-hover nil
-;;         lsp-enable-snippet nil
-;;         lsp-enable-symbol-highlighting t
-;;         lsp-headerline-breadcrumb-enable t
-;;         lsp-headerline-breadcrumb-segments '(symbols)
-;;         lsp-keymap-prefix "C-c l"
-;;         lsp-modeline-code-actions-enable t
-;;         lsp-modeline-diagnostics-enable t
-;;         lsp-response-timeout 60
-;;         lsp-signature-auto-activate t
-;;         lsp-signature-render-documentation t
-;;         lsp-ui-doc-enable t
-;;         lsp-ui-doc-show-with-cursor nil
-;;         lsp-ui-doc-show-with-mouse nil
-;;         lsp-ui-sideline-enable nil
-;;         lsp-ui-sideline-show-code-actions nil
-;;         lsp-ui-sideline-show-diagnostics t
-;;         lsp-ui-sideline-show-hover nil)
-;;   (setq lsp-disabled-clients '(tfls))
-;;   :hook ((bash-ts-mode . lsp-deferred)
-;;          (css-ts-mode . lsp-deferred)
-;;          (dart-mode . lsp-deferred)
-;;          (dockerfile-ts-mode . lsp-deferred)
-;;          (go-ts-mode . lsp-deferred)
-;;          (js-ts-mode . lsp-deferred)
-;;          (json-ts-mode . lsp-deferred)
-;;          (python-ts-mode . lsp-deferred)
-;;          (terraform-mode . lsp-deferred)
-;;          (tsx-ts-mode . lsp-deferred)
-;;          (typescript-ts-mode . lsp-deferred)
-;;          (yaml-ts-mode . lsp-deferred)
-
-;;          (lsp-mode . lsp-enable-which-key-integration))
-;;   :commands (lsp lsp-deferred)
-;;   :config
-;;   (add-to-list 'lsp-language-id-configuration '(helm-mode . "helm"))
-
-;;   (lsp-register-client
-;;    (make-lsp-client :new-connection (lsp-stdio-connection '("helm_ls" "serve"))
-;;                     :activation-fn (lsp-activate-on "helm")
-;;                     :server-id 'helm-ls)))
-#+end_src
-
-** LSP UI
-#+begin_src emacs-lisp
-;; (use-package lsp-ui
-;;   :ensure t
-;;   :commands lsp-ui-mode)
-#+end_src
-
-** LSP Treemacs
-#+begin_src emacs-lisp
-;; (use-package lsp-treemacs
-;;   :ensure t
-;;   :commands lsp-treemacs-errors-list)
-#+end_src
-
-** LSP Dap Mode
-#+begin_src emacs-lisp
-;; (use-package dap-mode
-;;   :ensure t)
 #+end_src
 
 * MARGINALIA
@@ -2033,28 +1710,6 @@ https://github.com/awth13/org-appear
         org-pretty-entities t))
 #+end_src
 
-** Org Roam
-https://github.com/org-roam/org-roam
-https://www.orgroam.com/
-
-#+begin_src emacs-lisp
-;; (use-package org-roam
-;;   :ensure t
-;;   :custom
-;;   (org-roam-completion-everywhere t)
-;;   (org-roam-directory (expand-file-name "~/Notes/"))
-;;   :bind (("C-c n l" . org-roam-buffer-toggle)
-;;          ("C-c n f" . org-roam-node-find)
-;;          ("C-c n g" . org-roam-graph)
-;;          ("C-c n i" . org-roam-node-insert)
-;;          ("C-c n c" . org-roam-capture)
-;;          ;; Dailies
-;;          ("C-c n j" . org-roam-dailies-capture-today))
-;;   :config
-;;   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-;;   (org-roam-db-autosync-mode))
-#+end_src
-
 * PERSISTENT SCRATCH
 https://github.com/Fanael/persistent-scratch
 
@@ -2130,21 +1785,6 @@ https://github.com/fritzgrabo/project-tab-groups
 #+begin_src emacs-lisp
 (use-package project-tab-groups
   :ensure t)
-#+end_src
-
-* PROJECTILE
-#+begin_quote
-Currently using =project.el= instead of =projectile=.
-#+end_quote
-
-[[https://github.com/bbatsov/projectile][Projectile]] is a project interaction library for Emacs.  It should be noted that many projectile commands do not work if you have set "fish" as the "shell-file-name" for Emacs. I had initially set "fish" as the "shell-file-name" in the Vterm section of this config, but oddly enough I changed it to "bin/sh" and projectile now works as expected, and Vterm still uses "fish" because my default user "sh" on my Linux system is "fish".
-
-#+begin_src emacs-lisp
-;; (use-package projectile
-;;   :ensure t
-;;   :config
-;;   (projectile-mode 1)
-;;   (setq projectile-project-search-path '(("~/.dotfiles" . 0) ("~/coding" . 1) ("~/src" . 1))))
 #+end_src
 
 * PROTOBUF
@@ -2364,29 +2004,6 @@ truncates text if needed.  Minimal width can be set with
         (concat " " buffer-name " ")))))
 #+end_src
 
-* SCROLL
-https://github.com/jdtsmith/ultra-scroll
-https://github.com/io12/good-scroll.el
-
-#+begin_src emacs-lisp
-;; (pixel-scroll-precision-mode 1)
-;; (setq pixel-scroll-precision-interpolate-page t)
-
-;; (use-package ultra-scroll
-;;   :ensure t
-;;   :init
-;;   (setq scroll-conservatively 3
-;;         scroll-margin 0)
-;;   :config
-;;   (ultra-scroll-mode 1))
-
-;; (use-package good-scroll
-;;   :ensure t
-;;   :config
-;;   (good-scroll-mode 1))
-#+end_src
-
-
 * SHELLS AND TERMINALS
 In my configs, all of my shells (bash, fish, zsh and the ESHELL) require my shell-color-scripts-git package to be installed.  On Arch Linux, you can install it from the AUR.  Otherwise, go to my shell-color-scripts repository on GitLab to get it.
 
@@ -2483,13 +2100,6 @@ https://github.com/bbatsov/super-save
   :ensure t)
 #+end_src
 
-* TRANSPARENCY
-With Emacs version 29, true transparency has been added.  
-
-#+begin_src emacs-lisp
-;; (add-to-list 'default-frame-alist '(alpha-background . 80))
-#+end_src
-
 * TREE SITTER
 Before Emacs 29, tree-sitter was a [[https://emacs-tree-sitter.github.io/][package]] that could be installed. With Emacs 29, tree-sitter is built-in in package =treesit.el=.
 
@@ -2558,22 +2168,9 @@ https://github.com/Alexander-Miller/treemacs
 
     (treemacs-hide-gitignored-files-mode nil)))
 
-;; Disabled because misaligned icons in treemacs
-;; (use-package treemacs-nerd-icons
-;;   :ensure t
-;;   :after (treemacs lsp-treemacs nerd-icons)
-;;   :config
-;;   (treemacs-load-theme "nerd-icons"))
-
 (use-package treemacs-magit
   :ensure t
   :after (treemacs magit))
-
-;; Treemacs stops selecting window after change file with this package enabled
-;; (use-package treemacs-tab-bar
-;;   :ensure t
-;;   :after (treemacs)
-;;   :config (treemacs-set-scope-type 'Tabs))
 #+end_src
 
 * TRIMMING WHITESPACE
@@ -2645,20 +2242,6 @@ vertico.el - VERTical Interactive COmpletion
   (setq enable-recursive-minibuffers t))
 #+end_src
 
-** Vertico Posframe
-https://github.com/tumashu/vertico-posframe
-
-#+begin_src emacs-lisp
-;; (use-package vertico-posframe
-;;   :ensure t
-;;   :config
-;;   (vertico-posframe-mode 1)
-;;   (setq vertico-posframe-border-width 2
-;;         vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
-;;     vertico-posframe-poshandler 'posframe-poshandler-frame-top-center)
-;;   (set-face-attribute 'vertico-posframe-border nil :background "#b0bec5"))
-#+end_src
-
 * VUIET
 https://github.com/mihaiolteanu/vuiet
 
@@ -2676,14 +2259,6 @@ https://github.com/mihaiolteanu/lastfm.el
 #+begin_src emacs-lisp
 (use-package lastfm
   :ensure t)
-#+end_src
-
-* XREF
-#+begin_src emacs-lisp
-;; (use-package xref
-;;   :ensure t
-;;   :hook
-;;   (xref--xref-buffer-mode . (lambda () (display-line-numbers-mode -1))))
 #+end_src
 
 * WHICH-KEY
@@ -2742,8 +2317,342 @@ https://github.com/deb0ch/emacs-winum
   (winum-mode))
 #+end_src
 
-* WORKSPACES
-https://github.com/pashinin/workgroups2
+* ARCHIVED CONFIGURATIONS :ARCHIVE:
+This section contains previously used configurations that have been replaced or are no longer needed.
+They are kept here for reference and potential future use.
+
+** AI Tools (Archived)
+*** Aider
+https://github.com/tninja/aider.el
+
+Replaced by Claude Code for AI-assisted coding.
+
+#+begin_src emacs-lisp
+;; (use-package aider
+;;   :after (magit transient)
+;;   :ensure (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-core.el" "aider-file.el" "aider-code-change.el" "aider-discussion.el" "aider-prompt-mode.el")))
+#+end_src
+
+** Completion Frameworks (Archived)
+*** Company Mode
+Replaced by Corfu for completion.
+
+#+begin_src emacs-lisp
+;; (use-package company
+;;   :ensure t
+;;   :defer 2
+;;   :diminish
+;;   :custom
+;;   (company-begin-commands '(self-insert-command))
+;;   (company-idle-delay .1)
+;;   (company-minimum-prefix-length 2)
+;;   (company-show-numbers t)
+;;   (company-tooltip-align-annotations 't)
+;;   (global-company-mode t))
+
+;; (use-package company-box
+;;   :after company
+;;   :diminish
+;;   :hook (company-mode . company-box-mode))
+#+end_src
+
+*** All The Icons
+Replaced by Nerd Icons.
+
+#+begin_src emacs-lisp
+;; (use-package all-the-icons
+;;   :ensure t
+;;   :if (display-graphic-p))
+
+;; (use-package all-the-icons-dired
+;;   :ensure t
+;;   :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+#+end_src
+
+** LSP Mode (Archived)
+*** LSP Mode Core
+Replaced by Eglot for language server support.
+
+#+begin_src emacs-lisp
+;; (define-derived-mode helm-mode yaml-ts-mode "helm"
+;;   "Major mode for editing kubernetes helm templates")
+
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :init
+;;   (setq lsp-apply-edits-after-file-operations nil
+;;         lsp-before-save-edits nil
+;;         lsp-completion-enable t
+;;         lsp-completion-enable-additional-text-edit t
+;;         lsp-completion-filter-on-incomplete t
+;;         lsp-completion-no-cache nil
+;;         lsp-completion-provider :none
+;;         lsp-completion-show-detail t
+;;         lsp-completion-show-kind t
+;;         lsp-completion-show-label-description t
+;;         lsp-completion-sort-initial-results t
+;;         lsp-completion-use-last-result t
+;;         lsp-enable-snippet t
+;;         lsp-diagnostics-provider :auto
+;;         lsp-eldoc-enable-hover nil
+;;         lsp-enable-snippet nil
+;;         lsp-enable-symbol-highlighting t
+;;         lsp-headerline-breadcrumb-enable t
+;;         lsp-headerline-breadcrumb-segments '(symbols)
+;;         lsp-keymap-prefix "C-c l"
+;;         lsp-modeline-code-actions-enable t
+;;         lsp-modeline-diagnostics-enable t
+;;         lsp-response-timeout 60
+;;         lsp-signature-auto-activate t
+;;         lsp-signature-render-documentation t
+;;         lsp-ui-doc-enable t
+;;         lsp-ui-doc-show-with-cursor nil
+;;         lsp-ui-doc-show-with-mouse nil
+;;         lsp-ui-sideline-enable nil
+;;         lsp-ui-sideline-show-code-actions nil
+;;         lsp-ui-sideline-show-diagnostics t
+;;         lsp-ui-sideline-show-hover nil)
+;;   (setq lsp-disabled-clients '(tfls))
+;;   :hook ((bash-ts-mode . lsp-deferred)
+;;          (css-ts-mode . lsp-deferred)
+;;          (dart-mode . lsp-deferred)
+;;          (dockerfile-ts-mode . lsp-deferred)
+;;          (go-ts-mode . lsp-deferred)
+;;          (js-ts-mode . lsp-deferred)
+;;          (json-ts-mode . lsp-deferred)
+;;          (python-ts-mode . lsp-deferred)
+;;          (terraform-mode . lsp-deferred)
+;;          (tsx-ts-mode . lsp-deferred)
+;;          (typescript-ts-mode . lsp-deferred)
+;;          (yaml-ts-mode . lsp-deferred)
+
+;;          (lsp-mode . lsp-enable-which-key-integration))
+;;   :commands (lsp lsp-deferred)
+;;   :config
+;;   (add-to-list 'lsp-language-id-configuration '(helm-mode . "helm"))
+
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection '("helm_ls" "serve"))
+;;                     :activation-fn (lsp-activate-on "helm")
+;;                     :server-id 'helm-ls)))
+#+end_src
+
+*** LSP UI
+#+begin_src emacs-lisp
+;; (use-package lsp-ui
+;;   :ensure t
+;;   :commands lsp-ui-mode)
+#+end_src
+
+*** LSP Treemacs
+#+begin_src emacs-lisp
+;; (use-package lsp-treemacs
+;;   :ensure t
+;;   :commands lsp-treemacs-errors-list)
+#+end_src
+
+*** LSP Dap Mode
+#+begin_src emacs-lisp
+;; (use-package dap-mode
+;;   :ensure t)
+#+end_src
+
+*** LSP Dart
+#+begin_src emacs-lisp
+;; (use-package lsp-dart
+;;   :ensure t
+;;   :custom
+;;   (lsp-dart-dap-flutter-hot-reload-on-save t)
+;;   (lsp-dart-sdk-dir "~/src/flutter/bin/cache/dart-sdk"))
+#+end_src
+
+** Git Tools (Archived)
+*** Diff Hl
+Replaced by git-gutter-fringe.
+
+#+begin_src emacs-lisp
+;; (use-package diff-hl
+;;   :ensure t
+;;   :hook ((dired-mode . diff-hl-dired-mode)
+;;          (magit-pre-refresh . diff-hl-magit-pre-refresh)
+;;          (magit-post-refresh . diff-hl-magit-post-refresh))
+;;   :config
+;;   (global-diff-hl-mode))
+#+end_src
+
+*** Git Gutter (plain)
+Using git-gutter-fringe instead as it works better with Doom Themes.
+
+#+begin_src emacs-lisp
+;; (use-package git-gutter
+;;   :ensure t
+;;   :custom
+;;   (git-gutter:modified-sign " ")
+;;   (git-gutter:added-sign " ")
+;;   (git-gutter:deleted-sign " ")
+;;   :config
+;;   (global-git-gutter-mode t))
+#+end_src
+
+** Language Modes (Archived)
+*** JSON Mode
+Using built-in json-ts-mode instead.
+
+#+begin_src emacs-lisp
+;; (use-package json-mode
+;;   :ensure t)
+#+end_src
+
+*** YAML Mode
+Using built-in yaml-ts-mode instead.
+
+#+begin_src emacs-lisp
+;; (use-package yaml-mode
+;;   :ensure t)
+#+end_src
+
+*** Terraform TS Mode
+Doesn't work correctly yet, using terraform-mode instead.
+
+#+begin_src emacs-lisp
+;; (use-package terraform-ts-mode
+;;   :ensure (:host github :repo "kgrotel/terraform-ts-mode")
+;;   :custom
+;;   (terraform-ts-indent-level 2)
+;;   (terraform-ts-format-on-save t))
+#+end_src
+
+*** Markdown Unhighlight
+Complex markdown concealing implementation, not currently used.
+
+#+begin_src emacs-lisp
+;; (defvar nb/current-line '(0 . 0)
+;;   "(start . end) of current line in current buffer")
+;; (make-variable-buffer-local 'nb/current-line)
+
+;; (defun nb/unhide-current-line (limit)
+;;   "Font-lock function"
+;;   (let ((start (max (point) (car nb/current-line)))
+;;         (end (min limit (cdr nb/current-line))))
+;;     (when (< start end)
+;;       (remove-text-properties start end
+;;                       '(invisible t display "" composition ""))
+;;       (goto-char limit)
+;;       t)))
+
+;; (defun nb/refontify-on-linemove ()
+;;   "Post-command-hook"
+;;   (let* ((start (line-beginning-position))
+;;          (end (line-beginning-position 2))
+;;          (needs-update (not (equal start (car nb/current-line)))))
+;;     (setq nb/current-line (cons start end))
+;;     (when needs-update
+;;       (font-lock-fontify-block 3))))
+
+;; (defun nb/markdown-unhighlight ()
+;;   "Enable markdown concealling"
+;;   (interactive)
+;;   (markdown-toggle-markup-hiding 'toggle)
+;;   (font-lock-add-keywords nil '((nb/unhide-current-line)) t)
+;;   (add-hook 'post-command-hook #'nb/refontify-on-linemove nil t))
+
+;; (add-hook 'markdown-mode-hook #'nb/markdown-unhighlight)
+#+end_src
+
+** Python Tools (Archived)
+*** Jedi
+Not currently in use.
+
+#+begin_src emacs-lisp
+;; Python Jedi configuration would go here
+#+end_src
+
+*** Pyvenv
+Using pet mode for Python virtual environment management instead.
+
+#+begin_src emacs-lisp
+;; (use-package pyvenv
+;;   :ensure t
+;;   :config
+;;   (pyvenv-mode t))
+#+end_src
+
+** Flutter Tools (Archived)
+*** Hover
+Desktop-only tool, not used on mobile devices.
+
+#+begin_src emacs-lisp
+;; (use-package hover
+;;   :ensure t
+;;   :after (dart-mode flutter)
+;;   :bind (:map flutter-mode-map
+;;               ("C-c C-h" . hover))
+;;   :custom
+;;   (hover-hot-reload-on-save nil))
+#+end_src
+
+** Project Management (Archived)
+*** Projectile
+Using built-in project.el instead.
+
+#+begin_src emacs-lisp
+;; (use-package projectile
+;;   :ensure t
+;;   :config
+;;   (projectile-mode 1)
+;;   (setq projectile-project-search-path '(("~/.dotfiles" . 0) ("~/coding" . 1) ("~/src" . 1))))
+#+end_src
+
+*** Ibuffer Projectile
+Using ibuffer-project instead.
+
+#+begin_src emacs-lisp
+;; (use-package ibuffer-projectile
+;;   :ensure t
+;;   :config
+;;   (setq ibuffer-projectile-prefix "Project: ")
+;;   :hook
+;;   (ibuffer . (lambda ()
+;;                (visual-line-mode -1)
+;;                (ibuffer-projectile-set-filter-groups))))
+#+end_src
+
+** Org Mode Extensions (Archived)
+*** Org Roam
+Using Denote instead for note-taking.
+
+#+begin_src emacs-lisp
+;; (use-package org-roam
+;;   :ensure t
+;;   :custom
+;;   (org-roam-completion-everywhere t)
+;;   (org-roam-directory (expand-file-name "~/Notes/"))
+;;   :bind (("C-c n l" . org-roam-buffer-toggle)
+;;          ("C-c n f" . org-roam-node-find)
+;;          ("C-c n g" . org-roam-graph)
+;;          ("C-c n i" . org-roam-node-insert)
+;;          ("C-c n c" . org-roam-capture)
+;;          ;; Dailies
+;;          ("C-c n j" . org-roam-dailies-capture-today))
+;;   :config
+;;   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+;;   (org-roam-db-autosync-mode))
+#+end_src
+
+** Session Management (Archived)
+*** Desktop Save Mode
+Using perspective instead for session management.
+
+#+begin_src emacs-lisp
+;; (setq desktop-restore-eager 5) ; Restore first 5 buffers immediately, rest lazily
+;; (add-hook 'elpaca-after-init-hook
+;;           (lambda ()
+;;             (desktop-save-mode 1)
+;;             (desktop-read)))
+#+end_src
+
+*** Workgroups2
+Using perspective instead.
 
 #+begin_src emacs-lisp
 ;; (use-package workgroups2
@@ -2755,4 +2664,123 @@ https://github.com/pashinin/workgroups2
 ;;   (setq wg-workgroups-mode-exit-save-behavior 'save)      ; Options: 'save 'ask nil
 ;;   (setq wg-morph-on nil)
 ;;   (workgroups-mode 1))
+#+end_src
+
+** Scrolling (Archived)
+*** Good Scroll & Ultra Scroll
+Using built-in pixel-scroll-precision-mode instead.
+
+#+begin_src emacs-lisp
+;; (pixel-scroll-precision-mode 1)
+;; (setq pixel-scroll-precision-interpolate-page t)
+
+;; (use-package ultra-scroll
+;;   :ensure t
+;;   :init
+;;   (setq scroll-conservatively 3
+;;         scroll-margin 0)
+;;   :config
+;;   (ultra-scroll-mode 1))
+
+;; (use-package good-scroll
+;;   :ensure t
+;;   :config
+;;   (good-scroll-mode 1))
+#+end_src
+
+** UI Enhancements (Archived)
+*** Vertico Posframe
+Minibuffer in center of screen, not currently preferred.
+
+#+begin_src emacs-lisp
+;; (use-package vertico-posframe
+;;   :ensure t
+;;   :config
+;;   (vertico-posframe-mode 1)
+;;   (setq vertico-posframe-border-width 2
+;;         vertico-posframe-parameters '((left-fringe . 8) (right-fringe . 8))
+;;     vertico-posframe-poshandler 'posframe-poshandler-frame-top-center)
+;;   (set-face-attribute 'vertico-posframe-border nil :background "#b0bec5"))
+#+end_src
+
+*** Highlight Indent Guides
+Not currently in use.
+
+#+begin_src emacs-lisp
+;; (use-package highlight-indent-guides
+;;   :ensure t
+;;   :diminish
+;;   :hook
+;;   (prog-mode . highlight-indent-guides-mode)
+;;   (yaml-ts-mode . highlight-indent-guides-mode)
+;;   :custom
+;;   (highlight-indent-guides-method 'character))
+#+end_src
+
+*** Treemacs Nerd Icons
+Causes misaligned icons in treemacs.
+
+#+begin_src emacs-lisp
+;; (use-package treemacs-nerd-icons
+;;   :ensure t
+;;   :after (treemacs lsp-treemacs nerd-icons)
+;;   :config
+;;   (treemacs-load-theme "nerd-icons"))
+#+end_src
+
+*** Treemacs Tab Bar
+Breaks window selection after file changes.
+
+#+begin_src emacs-lisp
+;; (use-package treemacs-tab-bar
+;;   :ensure t
+;;   :after (treemacs)
+;;   :config (treemacs-set-scope-type 'Tabs))
+#+end_src
+
+*** Transparency
+Not currently enabled.
+
+#+begin_src emacs-lisp
+;; (add-to-list 'default-frame-alist '(alpha-background . 80))
+#+end_src
+
+** Tab Line (Archived)
+Complex tab-line configuration, not currently used. Using tab-bar or perspective instead.
+
+#+begin_src emacs-lisp
+;; (use-package tab-line
+;;   :ensure nil
+;;   :hook (elpaca-after-init-hook . global-tab-line-mode)
+;;   :custom-face
+;;   (tab-line-tab ((t (:inherit tab-line :box nil))))
+;;   (tab-line-tab-current ((t (:inherit doom-modeline-highlight))))
+;;   (tab-line-tab-group ((t (:inherit doom-modeline-info))))
+;;   (tab-line-tab-inactive ((t (:inherit doom-modeline-buffer-minor-mode :foreground "gray50"))))
+;;   :config
+;;   (setq tab-line-close-button-show nil
+;;         tab-line-new-button-show nil
+;;         ;; tab-line-separator ""
+;;         tab-line-switch-cycling t
+;;         ;; tab-line-tab-name-function #'ismd/tab-line-name-buffer
+;;         tab-line-tabs-buffer-group-function #'ismd/tab-line-tabs-buffer-group-by-project
+;;         tab-line-tabs-buffer-group-sort-function #'ismd/tab-line-tabs-buffer-group-sort-by-creation-time
+;;         tab-line-tabs-buffer-list-function #'ismd/tab-line-tabs-buffer-list
+;;         tab-line-tabs-function #'tab-line-tabs-buffer-groups)
+
+;;   (add-to-list 'tab-line-tab-face-functions #'tab-line-tab-face-group))
+
+;; Supporting functions for tab-line (preserved for reference)
+;; See original configuration for full implementation
+#+end_src
+
+** Xref (Archived)
+*** Xref Buffer Configuration
+Not needed with current setup.
+
+#+begin_src emacs-lisp
+;; (use-package xref
+;;   :ensure t
+;;   :hook
+;;   (xref--xref-buffer-mode . (lambda () (display-line-numbers-mode -1))))
 #+end_src
