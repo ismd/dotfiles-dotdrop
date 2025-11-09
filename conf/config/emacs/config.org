@@ -258,6 +258,7 @@ https://github.com/stevemolitor/claude-code.el
   :ensure (:host github :repo "manzaltu/claude-code-ide.el")
   :custom
   (claude-code-ide-cli-path "~/.claude/local/claude")
+  (claude-code-ide-show-claude-window-in-ediff nil)
   :config
   (claude-code-ide-emacs-tools-setup))
 #+end_src
