@@ -2293,16 +2293,18 @@ https://github.com/mihaiolteanu/lastfm.el
 (defun ismd/window-split-toggle ()
   "Toggle between horizontal and vertical split with two windows."
   (interactive)
-  (if (> (length (window-list)) 2)
-      (error "Can't toggle with more than 2 windows")
-    (let ((func (if (window-full-height-p)
-                    #'split-window-vertically
-                  #'split-window-horizontally)))
+  (if (not (= (length (window-list)) 2))
+      (error "Can't toggle with %d windows (need exactly 2)" (length (window-list)))
+    (let* ((this-win (selected-window))
+           (other-win (next-window))
+           (other-buf (window-buffer other-win))
+           (split-vertically (window-combined-p)))
       (delete-other-windows)
-      (funcall func)
-      (save-selected-window
-        (other-window 1)
-        (switch-to-buffer (other-buffer))))))
+      (if split-vertically
+          (split-window-horizontally)
+        (split-window-vertically))
+      (other-window 1)
+      (switch-to-buffer other-buf))))
 #+end_src
 
 * WINDOW NUMBERING
