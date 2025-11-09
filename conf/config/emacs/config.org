@@ -319,6 +319,7 @@ https://github.com/copilot-emacs/copilot.el
 (use-package copilot
   :after (editorconfig)
   :ensure (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist"))
+  :custom (copilot-idle-delay 0.7)
   :hook
   (conf-mode . copilot-mode)
   (prog-mode . copilot-mode)
