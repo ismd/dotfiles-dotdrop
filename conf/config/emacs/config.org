@@ -1381,11 +1381,7 @@ https://github.com/kubernetes-el/kubernetes-el
 
 #+begin_src emacs-lisp
 (use-package kubernetes
-  :ensure t
-  :commands (kubernetes-overview)
-  :config
-  (setq kubernetes-poll-frequency 3600
-        kubernetes-redraw-frequency 3600))
+  :ensure t)
 #+end_src
 
 * LANGUAGE SUPPORT
