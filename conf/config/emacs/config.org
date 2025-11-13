@@ -1174,6 +1174,14 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "M-." '(xref-find-definitions :wk "Find definitions"))
 
   ;;
+  ;; Kubernetes
+  ;;
+  (general-define-key
+   :keymaps 'kubernetes-mode-map
+   "M-n" nil
+   "M-p" nil)
+
+  ;;
   ;; Magit
   ;;
   (general-define-key
