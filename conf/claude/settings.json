@@ -1,0 +1,10 @@
+{
+  "alwaysThinkingEnabled": true,
+  "model": "sonnet",
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "WebSearch"
+    ]
+  }
+}

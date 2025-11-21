@@ -232,6 +232,9 @@ dotfiles:
   f_hyprpaper.conf:
     src: config/hypr/hyprpaper.conf
     dst: ~/.config/hypr/hyprpaper.conf
+  f_settings.json:
+    src: claude/settings.json
+    dst: ~/.claude/settings.json
 profiles:
   hyper-city:
     dotfiles:
@@ -293,6 +296,7 @@ profiles:
     - f_hyprland.conf
     - f_hyprlock.conf
     - f_hyprpaper.conf
+    - f_settings.json
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -361,6 +365,7 @@ profiles:
     - f_hyprland.conf
     - f_hyprlock.conf
     - f_hyprpaper.conf
+    - f_settings.json
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -429,3 +434,4 @@ profiles:
     - f_hyprland.conf
     - f_hyprlock.conf
     - f_hyprpaper.conf
+    - f_settings.json
