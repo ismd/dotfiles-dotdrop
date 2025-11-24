@@ -3,6 +3,7 @@
   "model": "sonnet",
   "permissions": {
     "allow": [
+      "Bash(curl:*)",
       "WebFetch",
       "WebSearch"
     ]
