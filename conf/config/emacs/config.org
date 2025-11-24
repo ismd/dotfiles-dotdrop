@@ -1873,12 +1873,22 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 ** Scroll
 #+begin_src emacs-lisp
-(setq mouse-wheel-follow-mouse 't)
+;; (setq mouse-wheel-follow-mouse 't)
 ;; (setq mouse-wheel-follow-mouse 't
 ;;       mouse-wheel-progressive-speed nil
 ;;       mouse-wheel-scroll-amount '(1 ((shift) . 1))
 ;;         mouse-wheel-tilt-scroll t
 ;;       scroll-step 1)
+(pixel-scroll-precision-mode 1)
+
+(setq scroll-conservatively 101
+      scroll-preserve-screen-position t
+      ;; scroll-step 1
+      )
+
+(setq auto-window-vscroll nil)
+(setq pixel-scroll-precision-interpolate-page t)
+(setq pixel-scroll-precision-large-scroll-height 40.0)
 #+end_src
 
 ** SSH Agent
