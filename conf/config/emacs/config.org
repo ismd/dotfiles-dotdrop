@@ -784,6 +784,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-e" '(mwim-end-of-line-or-code :wk "End of line or indentation")
    "C-k" '(ismd/delete-line :wk "Delete line")
    "C-s" '(consult-line :wk "Search for string")
+   "C-v" '(pixel-scroll-interpolate-down :wk "Scroll down")
 
    "M-/" '(hippie-expand :wk "Hippie expand")
    "M-<backspace>" '(ismd/delete-word-backward :wk "Delete word backward")
@@ -793,6 +794,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    ;; "M-n" '(good-scroll-up :wk "Scroll down")
    ;; "M-p" '(good-scroll-down :wk "Scroll up")
    "M-s" '(avy-goto-char-timer :wk "Jump to character")
+   "M-v" '(pixel-scroll-interpolate-up :wk "Scroll up")
    "M-y" '(consult-yank-pop :wk "Yank pop")
 
    "M-0" '(treemacs-select-window :wk "Treemacs")
@@ -1873,22 +1875,15 @@ The following settings are simple modes that are enabled (or disabled) so that E
 
 ** Scroll
 #+begin_src emacs-lisp
-;; (setq mouse-wheel-follow-mouse 't)
-;; (setq mouse-wheel-follow-mouse 't
-;;       mouse-wheel-progressive-speed nil
-;;       mouse-wheel-scroll-amount '(1 ((shift) . 1))
-;;         mouse-wheel-tilt-scroll t
-;;       scroll-step 1)
 (pixel-scroll-precision-mode 1)
 
-(setq scroll-conservatively 101
-      scroll-preserve-screen-position t
-      ;; scroll-step 1
-      )
-
-(setq auto-window-vscroll nil)
-(setq pixel-scroll-precision-interpolate-page t)
-(setq pixel-scroll-precision-large-scroll-height 40.0)
+(setq auto-window-vscroll nil
+      pixel-scroll-precision-interpolate-page t
+      pixel-scroll-precision-large-scroll-height 40.0
+      scroll-conservatively 0
+      scroll-margin 0
+      scroll-preserve-screen-position 'always
+      scroll-step 0)
 #+end_src
 
 ** SSH Agent
