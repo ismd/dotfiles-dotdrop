@@ -1,11 +1,11 @@
 {
-  "alwaysThinkingEnabled": true,
-  "model": "sonnet",
   "permissions": {
     "allow": [
       "Bash(curl:*)",
       "WebFetch",
       "WebSearch"
     ]
-  }
+  },
+  "model": "sonnet",
+  "alwaysThinkingEnabled": true
 }
