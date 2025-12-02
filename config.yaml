@@ -235,6 +235,9 @@ dotfiles:
   f_settings.json:
     src: claude/settings.json
     dst: ~/.claude/settings.json
+  f_my-rock.json:
+    src: var/app/com.github.wwmm.easyeffects/data/easyeffects/output/my-rock.json
+    dst: ~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/my-rock.json
 profiles:
   hyper-city:
     dotfiles:
@@ -297,6 +300,7 @@ profiles:
     - f_hyprlock.conf
     - f_hyprpaper.conf
     - f_settings.json
+    - f_my-rock.json
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -366,6 +370,7 @@ profiles:
     - f_hyprlock.conf
     - f_hyprpaper.conf
     - f_settings.json
+    - f_my-rock.json
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -435,3 +440,4 @@ profiles:
     - f_hyprlock.conf
     - f_hyprpaper.conf
     - f_settings.json
+    - f_my-rock.json
