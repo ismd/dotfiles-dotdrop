@@ -53,6 +53,10 @@
   - [[#ibuffer-project][Ibuffer Project]]
 - [[#kirigami][KIRIGAMI]]
 - [[#kubernetes][KUBERNETES]]
+  - [[#kele][kele]]
+  - [[#kubed][Kubed]]
+  - [[#kubel][kubel]]
+  - [[#kubernetes-el][kubernetes-el]]
 - [[#language-support][LANGUAGE SUPPORT]]
   - [[#dart][Dart]]
   - [[#fish][Fish]]
@@ -861,7 +865,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "a g f" '(gptel-add-file :wk "GPTel add file")
     "a g r" '(gptel-rewrite :wk "GPTel rewrite")
     "a i" '(claude-code-ide-menu :wk "Claude Code IDE")
-    "a l" '(:keymap claude-code-command-map :wk "Claude Code"))
+    "a l" '(:keymap claude-code-command-map :package claude-code :wk "Claude Code"))
 
   (ismd/leader-keys
     "b" '(:ignore t :wk "Bookmarks/Buffers")
@@ -944,6 +948,10 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "h x" '(describe-command :wk "Display full documentation for command"))
 
   (ismd/leader-keys
+    "k" '(:ignore t :wk "Kubernetes")
+    "k e" '(:keymap kele-command-map :package kele :wk "Kele"))
+
+  (ismd/leader-keys
     "l" '(:ignore t :wk "LSP")
     "l g" '(eglot-find-implementation :wk "Find implementation")
     "l h" '(eldoc :wk "Show eldoc info")
@@ -1005,7 +1013,7 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "o x" '(org-toggle-checkbox :wk "Org toggle checkbox"))
 
   (ismd/leader-keys
-    "p" '(:keymap project-prefix-map :wk "Project"))
+    "p" '(:keymap project-prefix-map :package project :wk "Project"))
 
   (ismd/leader-keys
     "q" '(:ignore t :wk "Quit")
@@ -1384,11 +1392,44 @@ https://github.com/jamescherti/kirigami.el
 #+end_src
 
 * KUBERNETES
+** kele
+https://github.com/jinnovation/kele.el
+
+#+begin_src emacs-lisp
+(use-package kele
+  :ensure t
+  :defer t
+  :config
+  (kele-mode 1))
+#+end_src
+
+** Kubed
+https://github.com/eshelyaron/kubed
+
+#+begin_src emacs-lisp
+(use-package kubed
+  :ensure t
+  :defer t)
+#+end_src
+
+** kubel
+https://github.com/abrochard/kubel
+
+#+begin_src emacs-lisp
+(use-package kubel
+  :ensure t
+  :defer t
+  :after vterm
+  :config (kubel-vterm-setup))
+#+end_src
+
+** kubernetes-el
 https://github.com/kubernetes-el/kubernetes-el
 
 #+begin_src emacs-lisp
 (use-package kubernetes
-  :ensure t)
+  :ensure t
+  :defer t)
 #+end_src
 
 * LANGUAGE SUPPORT
