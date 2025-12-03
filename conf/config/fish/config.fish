@@ -42,6 +42,7 @@ alias cat bat
 alias claude="~/.claude/local/claude"
 alias dotdrop '~/.dotfiles/dotdrop.sh --cfg=~/.dotfiles/config.yaml'
 alias guitar-pro 'wine ~/.wine/drive_c/Program\ Files/Arobas\ Music/Guitar\ Pro\ 8/GuitarPro.exe'
+alias k kubectl
 alias nv nvim
 alias pk 'set pid (ps -aux | fzf | awk "{print \$2}"); and kill -9 $pid'
 alias s 'yay -Ss'
