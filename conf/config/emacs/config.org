@@ -845,9 +845,9 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (ismd/leader-keys
     "C-f" '(:ignore t :wk "Fold")
-    "C-f C-f" '(kirigami-toggle-fold :wk "Toggle fold")
-    "C-f C-a C-f" '(kirigami-close-folds :wk "Fold all")
-    "C-f C-a C-u" '(kirigami-open-folds :wk "Unfold all"))
+    "C-f C-f" '(ismd/fold-toggle :wk "Toggle fold")
+    "C-f C-a C-f" '(ismd/fold-close-all :wk "Fold all")
+    "C-f C-a C-u" '(ismd/fold-open-all :wk "Unfold all"))
 
   (ismd/leader-keys
     "a" '(:ignore t :wk "AI")
@@ -2183,6 +2183,35 @@ https://github.com/emacs-tree-sitter/treesit-fold
   :config
   (global-treesit-fold-mode 1)
   (global-treesit-fold-indicators-mode 1))
+#+end_src
+
+** Smart folding functions
+
+#+begin_src emacs-lisp
+(defun ismd/is-treesit-mode-p ()
+  "Check if current major mode is a tree-sitter mode."
+  (string-suffix-p "-ts-mode" (symbol-name major-mode)))
+
+(defun ismd/fold-toggle ()
+  "Toggle fold using treesit-fold for tree-sitter modes, kirigami otherwise."
+  (interactive)
+  (if (ismd/is-treesit-mode-p)
+      (treesit-fold-toggle)
+    (kirigami-toggle-fold)))
+
+(defun ismd/fold-close-all ()
+  "Close all folds using treesit-fold for tree-sitter modes, kirigami otherwise."
+  (interactive)
+  (if (ismd/is-treesit-mode-p)
+      (treesit-fold-close-all)
+    (kirigami-close-folds)))
+
+(defun ismd/fold-open-all ()
+  "Open all folds using treesit-fold for tree-sitter modes, kirigami otherwise."
+  (interactive)
+  (if (ismd/is-treesit-mode-p)
+      (treesit-fold-open-all)
+    (kirigami-open-folds)))
 #+end_src
 
 * TREEMACS
