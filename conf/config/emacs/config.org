@@ -24,6 +24,7 @@
 - [[#backup][BACKUP]]
 - [[#buffer-management][BUFFER MANAGEMENT]]
 - [[#consult][CONSULT]]
+  - [[#embark][Embark]]
   - [[#embark-consult][Embark Consult]]
 - [[#corfu][CORFU]]
 - [[#dashboard][DASHBOARD]]
@@ -34,7 +35,6 @@
 - [[#ediff][EDIFF]]
 - [[#editorconfig][EDITORCONFIG]]
 - [[#eglot][EGLOT]]
-- [[#embark][EMBARK]]
 - [[#direnv][DIRENV]]
 - [[#expand-region][EXPAND REGION]]
 - [[#flycheck][FLYCHECK]]
@@ -51,6 +51,7 @@
 - [[#hippie-expand][HIPPIE EXPAND]]
 - [[#ibuffer][IBUFFER]]
   - [[#ibuffer-project][Ibuffer Project]]
+- [[#kirigami][KIRIGAMI]]
 - [[#kubernetes][KUBERNETES]]
 - [[#language-support][LANGUAGE SUPPORT]]
   - [[#dart][Dart]]
@@ -839,6 +840,12 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "TAB" '(indent-rigidly :wk "Indent region"))
 
   (ismd/leader-keys
+    "C-f" '(:ignore t :wk "Fold")
+    "C-f C-f" '(kirigami-toggle-fold :wk "Toggle fold")
+    "C-f C-a C-f" '(kirigami-close-folds :wk "Fold all")
+    "C-f C-a C-u" '(kirigami-open-folds :wk "Unfold all"))
+
+  (ismd/leader-keys
     "a" '(:ignore t :wk "AI")
     "a a" '(aider-transient-menu :wk "Aider transient menu")
     "a c" '(:ignore t :wk "Copilot Chat")
@@ -1052,12 +1059,6 @@ You can use CTRL plus the mouse wheel for zooming in/out.
     "w s" '(ismd/window-split-toggle :wk "Toggle window split")
     "w w" '(:ignore t :wk "Tabspaces")
     "w w C" '(tabspaces-clear-buffers :wk "Tabspaces clear buffers"))
-
-  (ismd/leader-keys
-    "C-f" '(:ignore t :wk "Fold")
-    "C-f C-f" '(treesit-fold-toggle :wk "Fold")
-    "C-f C-a C-f" '(treesit-fold-close-all :wk "Fold all")
-    "C-f C-a C-u" '(treesit-fold-open-all :wk "Unfold all"))
 
   ;;
   ;; M-g
@@ -1371,6 +1372,15 @@ Adding highlights to TODO and related words.
                (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))
                (unless (eq ibuffer-sorting-mode 'project-file-relative)
                  (ibuffer-do-sort-by-project-file-relative)))))
+#+end_src
+
+* KIRIGAMI
+https://github.com/jamescherti/kirigami.el
+
+#+begin_src emacs-lisp
+(use-package kirigami
+  ;; We can use version from MELPA later
+  :ensure (:host github :repo "jamescherti/kirigami.el"))
 #+end_src
 
 * KUBERNETES
