@@ -1218,6 +1218,14 @@ You can use CTRL plus the mouse wheel for zooming in/out.
    "C-S-p" '(markdown-outline-previous :wk "Previous heading"))
 
   ;;
+  ;; Minibuffer
+  ;;
+  (general-define-key
+   :keymaps 'minibuffer-local-map
+   "C-v" 'scroll-up-command
+   "M-v" 'scroll-down-command)
+
+  ;;
   ;; Org
   ;;
   (general-define-key
