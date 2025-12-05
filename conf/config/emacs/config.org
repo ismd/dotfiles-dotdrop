@@ -108,6 +108,7 @@
 - [[#tree-sitter][TREE SITTER]]
   - [[#treesit-auto][Treesit Auto]]
   - [[#treesit-fold][Treesit Fold]]
+  - [[#smart-folding-functions][Smart folding functions]]
 - [[#treemacs][TREEMACS]]
 - [[#trimming-whitespace][TRIMMING WHITESPACE]]
 - [[#vertico][VERTICO]]
