@@ -1551,7 +1551,6 @@ Enable rich annotations using the Marginalia package.
 
 * MINIBUFFER
 By default, Emacs requires you to hit ESC three times to escape quit the minibuffer.  
-
 #+begin_src emacs-lisp
 (global-set-key [escape] 'keyboard-escape-quit)
 #+end_src
