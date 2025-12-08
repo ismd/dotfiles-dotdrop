@@ -190,7 +190,7 @@ These packages override built-in Emacs packages and must be loaded early to ensu
 
 *** Load Theme
 #+begin_src emacs-lisp
-(defvar theme-name 'doom-one "The name of the theme to use")
+(defvar theme-name 'ef-owl "The name of the theme to use")
 (when (file-exists-p "~/.config/emacs/theme.el")
   (load-file "~/.config/emacs/theme.el"))
 (add-hook 'elpaca-after-init-hook
