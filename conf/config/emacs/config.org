@@ -65,7 +65,7 @@
   - [[#python][Python]]
   - [[#terraform][Terraform]]
 - [[#marginalia][MARGINALIA]]
-- [[#minibuffer-escape][MINIBUFFER ESCAPE]]
+- [[#minibuffer][MINIBUFFER]]
 - [[#modeline][MODELINE]]
 - [[#move-where-i-mean][MOVE WHERE I MEAN]]
 - [[#multiple-cursors][MULTIPLE CURSORS]]
@@ -1549,11 +1549,29 @@ Enable rich annotations using the Marginalia package.
   (marginalia-mode))
 #+end_src
 
-* MINIBUFFER ESCAPE
+* MINIBUFFER
 By default, Emacs requires you to hit ESC three times to escape quit the minibuffer.  
 
 #+begin_src emacs-lisp
 (global-set-key [escape] 'keyboard-escape-quit)
+#+end_src
+
+Do not allow the cursor in the minibuffer prompt.
+#+begin_src emacs-lisp
+(setq minibuffer-prompt-properties
+      '(read-only t cursor-intangible t face minibuffer-prompt))
+(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+#+end_src
+
+Enable recursive minibuffers.
+#+begin_src emacs-lisp
+(setq enable-recursive-minibuffers t)
+#+end_src
+
+Disable scroll bar in minibuffer.
+#+begin_src emacs-lisp
+(add-hook 'minibuffer-setup-hook
+          #'(lambda () (set-window-scroll-bars (selected-window) 0 nil)))
 #+end_src
 
 * MODELINE
@@ -1906,7 +1924,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (global-visual-wrap-prefix-mode 1)    ;; Enable visual line wrapping
 (menu-bar-mode -1)                    ;; Disable the menu bar
 (save-place-mode 1)                   ;; Save the cursor position when a file is closed
-(scroll-bar-mode -1)                  ;; Disable the scroll bar
 ;; (tab-bar-mode t)                      ;; Enable tab bar mode
 (tool-bar-mode -1)                    ;; Disable the tool bar
 
@@ -1927,6 +1944,10 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (setq save-place-file (concat user-emacs-directory ".emacs-places"))
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 (setq warning-minimum-level :error)
+
+(setq tab-always-indent t)
+(setq text-mode-ispell-word-completion nil)
+(setq read-extended-command-predicate #'command-completion-default-include-p)
 #+end_src
 
 ** Scroll
@@ -2307,32 +2328,16 @@ vertico.el - VERTical Interactive COmpletion
   :init
   (savehist-mode))
 
-;; A few more useful configurations...
-(use-package emacs
-  :ensure nil
-  :custom
-  (tab-always-indent t)
-  (text-mode-ispell-word-completion nil)
-  (read-extended-command-predicate #'command-completion-default-include-p)
-  :init
-  ;; Add prompt indicator to `completing-read-multiple'.
-  ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
-  (defun crm-indicator (args)
-    (cons (format "[CRM%s] %s"
-                  (replace-regexp-in-string
-                   "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
-                   crm-separator)
-                  (car args))
-          (cdr args)))
-  (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
-
-  ;; Do not allow the cursor in the minibuffer prompt
-  (setq minibuffer-prompt-properties
-        '(read-only t cursor-intangible t face minibuffer-prompt))
-  (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
-
-  ;; Enable recursive minibuffers
-  (setq enable-recursive-minibuffers t))
+;; Add prompt indicator to `completing-read-multiple'.
+;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
+(defun crm-indicator (args)
+  (cons (format "[CRM%s] %s"
+                (replace-regexp-in-string
+                 "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+                 crm-separator)
+                (car args))
+        (cdr args)))
+(advice-add #'completing-read-multiple :filter-args #'crm-indicator)
 #+end_src
 
 * VUIET
