@@ -1058,16 +1058,13 @@ You can use CTRL plus the mouse wheel for zooming in/out.
 
   (ismd/leader-keys
     "w" '(:ignore t :wk "Workspaces/Windows")
-    "w c" '(tabspaces-open-or-create-project-and-workspace :wk "Open or create project and workspace")
-    "w k" '(tabspaces-kill-buffers-close-workspace :wk "Kill buffers and close workspace")
     "w m" '(:ignore t :wk "Move")
     "w m b" '(buf-move-left :wk "Buffer move left")
     "w m n" '(buf-move-down :wk "Buffer move down")
     "w m p" '(buf-move-up :wk "Buffer move up")
     "w m f" '(buf-move-right :wk "Buffer move right")
     "w s" '(ismd/window-split-toggle :wk "Toggle window split")
-    "w w" '(:ignore t :wk "Tabspaces")
-    "w w C" '(tabspaces-clear-buffers :wk "Tabspaces clear buffers"))
+    "w w" '(persp-switch :wk "Switch workspace"))
 
   ;;
   ;; M-g
@@ -1818,7 +1815,7 @@ https://github.com/nex3/perspective-el
   (elpaca-after-init . ismd/persp-state-load)
   (kill-emacs . persp-state-save)
   :custom
-  (persp-mode-prefix-key (kbd "C-c M-p"))
+  (persp-mode-prefix-key (kbd "C-c w p"))
   (persp-modestring-short t)
   (persp-sort 'access)
   (persp-show-modestring nil)
