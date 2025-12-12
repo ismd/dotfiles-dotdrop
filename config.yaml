@@ -34,7 +34,6 @@ dotfiles:
   f_mimeapps.list:
     src: config/mimeapps.list
     dst: ~/.config/mimeapps.list
-    chmod: '600'
   f_user-dirs.dirs:
     src: config/user-dirs.dirs
     dst: ~/.config/user-dirs.dirs
@@ -433,6 +432,58 @@ profiles:
     - f_y.fish
     - f_theme.conf
     - f_post-hibernate-user.service
+    - f_gtkrc-2.0
+    - f_99-fonts.conf
+    - f_hypridle.conf
+    - f_hyprland.conf
+    - f_hyprlock.conf
+    - f_hyprpaper.conf
+    - f_settings.json
+    - f_my-rock.json
+  mighty:
+    dotfiles:
+    - f_editorconfig
+    - f_fdignore
+    - f_rgignore
+    - f_ripgreprc
+    - f_ini
+    - f_mimeapps.list
+    - f_user-dirs.dirs
+    - f_user-dirs.locale
+    - f_ec.desktop
+    - f_vconsole.conf
+    - f_config.sh
+    - f_gitconfig
+    - f_config.org
+    - f_early-init.el
+    - f_init.el
+    - f_config.fish
+    - f_fish_plugins
+    - f_ec
+    - f_keyboard.sh
+    - f_thinkpad-leds.sh
+    - f_buffer-move.el
+    - f_elpaca-setup.el
+    - f_themes.org
+    - f_lock-screen.sh
+    - f_profile
+    - f_ec-editor
+    - f_ec-visual
+    - f_config
+    - f_brave-flags.conf
+    - f_chrome-flags.conf
+    - f_chromium-flags.conf
+    - d_waybar
+    - f_xresources
+    - f_index.theme
+    - f_brightness.sh
+    - f_split-flac.sh
+    - f_multicd.fish
+    - f_razer.conf
+    - f_kitty.conf
+    - f_emacs-pager.sh
+    - f_y.fish
+    - f_theme.conf
     - f_gtkrc-2.0
     - f_99-fonts.conf
     - f_hypridle.conf
