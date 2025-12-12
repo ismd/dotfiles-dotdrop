@@ -246,7 +246,12 @@ dotfiles:
   f_gnome-interface.conf:
     src: config/dconf/gnome-interface.conf
     dst: ~/.config/dconf/gnome-interface.conf
-    chmod: '600'
+  f_settings.ini:
+    src: config/gtk-3.0/settings.ini
+    dst: ~/.config/gtk-3.0/settings.ini
+  f_gtk-4.0_settings.ini:
+    src: config/gtk-4.0/settings.ini
+    dst: ~/.config/gtk-4.0/settings.ini
 profiles:
   hyper-city:
     dotfiles:
@@ -312,6 +317,8 @@ profiles:
     - f_my-rock.json
     - f_hyprland-portals.conf
     - f_gnome-interface.conf
+    - f_settings.ini
+    - f_gtk-4.0_settings.ini
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -384,6 +391,8 @@ profiles:
     - f_my-rock.json
     - f_hyprland-portals.conf
     - f_gnome-interface.conf
+    - f_settings.ini
+    - f_gtk-4.0_settings.ini
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -456,6 +465,8 @@ profiles:
     - f_my-rock.json
     - f_hyprland-portals.conf
     - f_gnome-interface.conf
+    - f_settings.ini
+    - f_gtk-4.0_settings.ini
   mighty:
     dotfiles:
     - f_editorconfig
@@ -510,3 +521,5 @@ profiles:
     - f_my-rock.json
     - f_hyprland-portals.conf
     - f_gnome-interface.conf
+    - f_settings.ini
+    - f_gtk-4.0_settings.ini
