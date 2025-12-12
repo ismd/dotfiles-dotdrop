@@ -168,7 +168,8 @@ dotfiles:
     dst: ~/.bin/brightness.sh
     chmod: '755'
   f_51-mitigate-annoying-profile-switch.conf:
-    src: config/wireplumber/wireplumber.conf.d/51-mitigate-annoying-profile-switch.conf
+    src: 
+      config/wireplumber/wireplumber.conf.d/51-mitigate-annoying-profile-switch.conf
     dst: 
       ~/.config/wireplumber/wireplumber.conf.d/51-mitigate-annoying-profile-switch.conf
   f_split-flac.sh:
@@ -235,8 +236,17 @@ dotfiles:
     src: claude/settings.json
     dst: ~/.claude/settings.json
   f_my-rock.json:
-    src: var/app/com.github.wwmm.easyeffects/data/easyeffects/output/my-rock.json
-    dst: ~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/my-rock.json
+    src: 
+      var/app/com.github.wwmm.easyeffects/data/easyeffects/output/my-rock.json
+    dst: 
+      ~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/my-rock.json
+  f_hyprland-portals.conf:
+    src: config/xdg-desktop-portal/hyprland-portals.conf
+    dst: ~/.config/xdg-desktop-portal/hyprland-portals.conf
+  f_gnome-interface.conf:
+    src: config/dconf/gnome-interface.conf
+    dst: ~/.config/dconf/gnome-interface.conf
+    chmod: '600'
 profiles:
   hyper-city:
     dotfiles:
@@ -300,6 +310,8 @@ profiles:
     - f_hyprpaper.conf
     - f_settings.json
     - f_my-rock.json
+    - f_hyprland-portals.conf
+    - f_gnome-interface.conf
   ismd-work:
     dotfiles:
     - f_editorconfig
@@ -370,6 +382,8 @@ profiles:
     - f_hyprpaper.conf
     - f_settings.json
     - f_my-rock.json
+    - f_hyprland-portals.conf
+    - f_gnome-interface.conf
   ismd-black:
     dotfiles:
     - f_editorconfig
@@ -440,6 +454,8 @@ profiles:
     - f_hyprpaper.conf
     - f_settings.json
     - f_my-rock.json
+    - f_hyprland-portals.conf
+    - f_gnome-interface.conf
   mighty:
     dotfiles:
     - f_editorconfig
@@ -492,3 +508,5 @@ profiles:
     - f_hyprpaper.conf
     - f_settings.json
     - f_my-rock.json
+    - f_hyprland-portals.conf
+    - f_gnome-interface.conf
